@@ -1,13 +1,45 @@
 <?php get_header(); ?>
 
-<div id="hero">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/slick.css">
+<script src="<?php echo get_template_directory_uri(); ?>/inc/slick.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.hero').slick({
+      autoplay: true,
+      autoplaySpeed: 7000,
+      fade: true,
+      speed: 2000,
+      arrows: false
+    });
+  });
+</script>
+
+<div class="hero">
+  <div class="slide1" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slide1.jpg);">
+    <div class="site-width">
+      <h1>Elevating spaces through accessibility.</h1>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo. Etiam imperdiet risus massa, ut sollicitudin ipsum tristique ut. Morbi dignissim quis arcu a viverra. Sed nec diam at felis luctus iaculis.<br>
+
+      <a href="#" class="button">Learn More About Our Mission</a>
+    </div>
+  </div>
+
+  <div class="slide2" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slide2.jpg);">
+    <div class="site-width">
+      <img src="<?php echo get_template_directory_uri(); ?>/images/slide2-haptikk.png" alt="Haptikk Solutions"><br>
+      <a href="#" class="button">Learn More About Our Innovations</a>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="hero">
   <div class="site-width">
     <div>
       <h1>Elevating spaces through accessibility.</h1>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo. Etiam imperdiet risus massa, ut sollicitudin ipsum tristique ut. Morbi dignissim quis arcu a viverra. Sed nec diam at felis luctus iaculis.
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="home-featured">
   <div class="site-width">

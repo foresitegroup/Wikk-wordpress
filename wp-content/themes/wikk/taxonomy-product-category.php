@@ -72,7 +72,7 @@
       });
     </script>
 
-    <div id="product-index-links"<?php if ($tax->name == "Switches") echo ' class="switches"'; ?>>
+    <div id="product-index-links"<?php if ($tax->slug == "switches" || $tax->slug == "accessories") echo ' class="switches"'; ?>>
       <?php
       global $wp_query;
 
@@ -106,7 +106,6 @@
           echo '<div class="image" style="background-image: url('.$image.');"></div>';
           
           echo '<div class="text">';
-            // if ($tax->name != "Switches") echo '<h3>'. $tax->description . '</h3>';
             if ($tax->name == "Bollards") echo "<h3>Bollard</h3>";
             if ($tax->name == "Ingress'r") echo "<h3>Ingress'r</h3>";
 
