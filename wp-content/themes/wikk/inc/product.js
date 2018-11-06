@@ -34,7 +34,7 @@ $(document).ready(function() {
       $('#' + carouselId + ' .sidetitle H1').text('Showing '+firsttile+'-'+lasttile+'/'+$('#' + carouselId + ' .slick-slide').not($('.slick-cloned')).length);
     }
 
-    $('#' + carouselId + ' .slick-prev, #' + carouselId + ' .slick-next').click(function() { SlideCounter(); });
+    $('#' + carouselId + ' .slick-arrow').click(function() { SlideCounter(); });
 
     SlideCounter();
   });
@@ -42,10 +42,6 @@ $(document).ready(function() {
   function TitleLineProduct() {
     $('.sidetitle').each(function() {
       $('#image .sidetitle').css({ "width": $('#images').height() });
-    });
-
-    $('[id^="carousel"').each(function() {
-      $(this).find('.sidetitle').css({ "width": $(this).find('.scroller').height()-50 });
     });
   }
 

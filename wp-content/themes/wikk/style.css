@@ -740,7 +740,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
   font-size: 77.27%;
 }
 
-#product-index-links.switches > A .text H2 { font-size: 181.81%; }
+#product-index-links.switches > A .text H2 { font-size: 181.81%; letter-spacing: 0; }
 
 .pagination {
   padding-top: 1em;
@@ -1027,11 +1027,20 @@ FOOTER UL LI UL LI { margin-left: 0; }
 .product-contact SPAN { color: #9B89BD; }
 
 .related {
-  margin-top: 45px;
+  margin: 45px 0 2em;
   position: relative;
 }
 
-.related .sidetitle { right: 98.8%; }
+.related .sidetitle {
+  top: auto;
+  right: auto;
+  bottom: -2em;
+  left: 0;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  width: 300px !important;
+}
 
 .related H3 {
   margin: 0 0 0.5em;
@@ -1076,7 +1085,12 @@ FOOTER UL LI UL LI { margin-left: 0; }
 
 .related.available .tile { display: block !important; }
 
-.related .tile:hover { box-shadow: 0 0 25px 0 rgba(121,48,172,0.4); }
+.related .tile:hover {
+  box-shadow: 0 0 25px 0 rgba(121,48,172,0.4);
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
 
 .related.available .tile .top {
   display: flex;
@@ -1404,6 +1418,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 1000;
     background: #FFFFFF;
     font-size: 32px;
     padding: 0.5em 2em 0.5em 1em;
@@ -1419,7 +1434,10 @@ FOOTER UL LI UL LI { margin-left: 0; }
   #product-index-links > A { width: 45%; margin: 0 1.5% 27px 1.5%; font-size: 17px; }
 
   #product-index-links > A .image { width: 30%; }
-  #product-index-links > A .text { width: 70%; word-break: break-all; }
+  #product-index-links > A .text { width: 70%; }
+  #product-index-links > A .text H4 { word-break: break-all; }
+
+  #product-header .button { display: none; }
 
   #product { flex-direction: column; }
 
@@ -1644,7 +1662,11 @@ FOOTER UL LI UL LI { margin-left: 0; }
 
   .home-featured .image #fic { width: 100%; overflow: hidden; }
 
+  #toggle-filter:checked + LABEL + #filter-search { font-size: 7.5vw; }
+
   #product-index-links > A { font-size: 3.7vw; }
+
+  #image { height: 400px; }
 
   .related .tile { font-size: 3vw; }
 }
