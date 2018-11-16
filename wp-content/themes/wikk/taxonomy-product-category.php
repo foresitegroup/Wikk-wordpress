@@ -25,31 +25,31 @@
       <div id="filter-search">
         <form action="<?php echo home_url($wp->request.'/'); ?>" method="POST" name="filter" id="filter">
           <?php
-          if ($tax->name == "Bollards") {
+          if ($tax->slug == "bollards") {
             echo "<h5>Shape</h5>";
             products_attributes_frontend('bollard_shape');
 
             echo "<br><br><h5>Material</h5>";
             products_attributes_frontend('bollard_material');
+
+            echo "<br><br><h5>Finish</h5>";
+            products_attributes_frontend('bollard_finish');
           }
 
-          if ($tax->name == "Ingress'r") {
-            echo "<h5>Space</h5>";
-            products_attributes_frontend('ingressr_space');
-
-            echo "<br><br><h5>Mounting</h5>";
-            products_attributes_frontend('ingressr_mounting');
-
-            echo "<br><br><h5>Material</h5>";
-            products_attributes_frontend('ingressr_material');
-          }
-
-          if ($tax->name == "Switches") {
+          if ($tax->slug == "switches") {
             echo "<h5>Style</h5>";
             products_attributes_frontend('switch_style');
 
             echo "<br><br><h5>Active Area</h5>";
             products_attributes_frontend('switch_active_area');
+          }
+
+          if ($tax->slug == "transmitters-receivers") {
+            echo "<h5>Type</h5>";
+            products_attributes_frontend('tranrec_type');
+
+            echo "<br><br><h5>Frequency</h5>";
+            products_attributes_frontend('tranrec_frequency');
           }
           ?>
         </form>
@@ -72,7 +72,7 @@
       });
     </script>
 
-    <div id="product-index-links"<?php if ($tax->slug == "switches" || $tax->slug == "accessories") echo ' class="switches"'; ?>>
+    <div id="product-index-links"<?php if ($tax->slug == "switches" || $tax->slug == "transmitters-receivers") echo ' class="switches"'; ?>>
       <?php
       global $wp_query;
 

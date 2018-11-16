@@ -732,7 +732,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
   letter-spacing: 0.1em;
 }
 
-#product-index-links > A .text H2 { font-size: 309.09%; }
+#product-index-links > A .text H2 { font-size: 270%; }
 #product-index-links > A .text H3 { font-size: 109.09%; }
 #product-index-links > A .text H4 {
   margin: 0.4em 0 1.5em;
@@ -953,8 +953,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
 #tabs LABEL:first-of-type { margin-left: 0; }
 
 #tab-models:checked + LABEL,
-#tab-summary:checked + LABEL,
-#tab-features:checked + LABEL,
+#tab-overview:checked + LABEL,
 #tab-options:checked + LABEL,
 #tab-literature:checked + LABEL {
   position: relative;
@@ -979,8 +978,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
 #tabs > DIV:nth-of-type(4) { border-radius: 14px 0 14px 14px; }
 
 #tab-models:checked ~ #content-models,
-#tab-summary:checked ~ #content-summary,
-#tab-features:checked ~ #content-features,
+#tab-overview:checked ~ #content-overview,
 #tab-options:checked ~ #content-options,
 #tab-literature:checked ~ #content-literature { display: block; }
 

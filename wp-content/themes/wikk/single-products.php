@@ -54,15 +54,15 @@ if(have_posts()) : while(have_posts()) : the_post();
     <div id="tabs">
       <?php if ($post->products_models != "") { ?>
       <input id="tab-models" type="radio" name="tabs" checked>
-      <label for="tab-models">Available Models</label>
+      <label for="tab-models">Models</label>
       <?php } ?>
-      <?php if ($post->products_summary != "") { ?>
-      <input id="tab-summary" type="radio" name="tabs"<?php if ($post->products_models == "") echo " checked"; ?>>
-      <label for="tab-summary">Spec Summary</label>
+      <?php if ($post->products_overview != "") { ?>
+      <input id="tab-overview" type="radio" name="tabs"<?php if ($post->products_models == "") echo " checked"; ?>>
+      <label for="tab-overview">Overview</label>
       <?php } ?>
-      <?php if ($post->products_features != "") { ?>
-      <input id="tab-features" type="radio" name="tabs">
-      <label for="tab-features">Features + Options</label>
+      <?php if ($post->products_options != "") { ?>
+      <input id="tab-options" type="radio" name="tabs">
+      <label for="tab-options">Custom Options</label>
       <?php } ?>
       <?php if ($post->products_literature != "") { ?>
       <input id="tab-literature" type="radio" name="tabs">
@@ -77,18 +77,18 @@ if(have_posts()) : while(have_posts()) : the_post();
       </div>
       <?php } ?>
       
-      <?php if ($post->products_summary != "") { ?>
-      <div id="content-summary">
+      <?php if ($post->products_overview != "") { ?>
+      <div id="content-overview">
         <div>
-          <?php echo $post->products_summary; ?>
+          <?php echo $post->products_overview; ?>
         </div>
       </div>
       <?php } ?>
       
-      <?php if ($post->products_features != "") { ?>
-      <div id="content-features">
+      <?php if ($post->products_options != "") { ?>
+      <div id="content-options">
         <div>
-          <?php echo $post->products_features; ?>
+          <?php echo $post->products_options; ?>
         </div>
       </div>
       <?php } ?>

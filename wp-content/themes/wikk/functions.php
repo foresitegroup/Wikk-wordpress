@@ -148,23 +148,23 @@ function products_mb() {
 
 function products_mb_content($post) {
   ?>
-  <h3>Available Models</h3>
+  <h3>Models</h3>
   <?php
   wp_editor(html_entity_decode($post->products_models, ENT_QUOTES), 'products_models', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
   ?>
 
   <hr>
 
-  <h3>Spec Summary</h3>
+  <h3>Overview</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_summary, ENT_QUOTES), 'products_summary', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_overview, ENT_QUOTES), 'products_overview', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
   ?>
 
   <hr>
 
-  <h3>Features + Options</h3>
+  <h3>Custom Options</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_features, ENT_QUOTES), 'products_features', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_options, ENT_QUOTES), 'products_options', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
   ?>
 
   <hr>
@@ -197,44 +197,41 @@ function products_mb_attributes_content($post) {
   echo "<br><strong>Bollard Material</strong><br>\n";
   products_attributes('bollard_material');
 
-  echo "<br><strong>Ingress'r Space</strong><br>\n";
-  products_attributes('ingressr_space');
-
-  echo "<br><strong>Ingress'r Mounting</strong><br>\n";
-  products_attributes('ingressr_mounting');
-
-  echo "<br><strong>Ingress'r Material</strong><br>\n";
-  products_attributes('ingressr_material');
+  echo "<br><strong>Bollard Finish</strong><br>\n";
+  products_attributes('bollard_finish');
 
   echo "<br><strong>Switch Style</strong><br>\n";
   products_attributes('switch_style');
 
-  echo "<br><strong>Switch Active Area</strong><br>\n";
-  products_attributes('switch_active_area');
+  echo "<br><strong>Transmitter/Receiver Type</strong><br>\n";
+  products_attributes('tranrec_type');
+
+  echo "<br><strong>Transmitter/Receiver Frequency</strong><br>\n";
+  products_attributes('tranrec_frequency');
 }
 
 $products_attributes = array(
   array('name' => 'bollard_shape', 'value' => 'Round'),
   array('name' => 'bollard_shape', 'value' => 'Square'),
-  array('name' => 'bollard_shape', 'value' => 'Rectangular'),
-  array('name' => 'bollard_shape', 'value' => 'Triangular'),
+  array('name' => 'bollard_material', 'value' => 'Aluminum'),
   array('name' => 'bollard_material', 'value' => 'Stainless Steel'),
-  array('name' => 'bollard_material', 'value' => 'Annodized'),
-  array('name' => 'bollard_material', 'value' => 'Painted/Colored'),
-  array('name' => 'ingressr_space', 'value' => 'Indoor'),
-  array('name' => 'ingressr_space', 'value' => 'Outdoor'),
-  array('name' => 'ingressr_mounting', 'value' => 'Wall Mounted'),
-  array('name' => 'ingressr_mounting', 'value' => 'Bollard Mounted'),
-  array('name' => 'ingressr_material', 'value' => 'Stainless Steel'),
-  array('name' => 'ingressr_material', 'value' => 'Annodized'),
-  array('name' => 'ingressr_material', 'value' => 'Painted/Colored'),
+  array('name' => 'bollard_finish', 'value' => 'Clear Anodized'),
+  array('name' => 'bollard_finish', 'value' => 'Black Anodized'),
+  array('name' => 'bollard_finish', 'value' => 'Dark Bronze Anodized'),
+  array('name' => 'bollard_finish', 'value' => 'Light Bronze Anodized'),
+  array('name' => 'bollard_finish', 'value' => 'Satin'),
   array('name' => 'switch_style', 'value' => 'Round'),
   array('name' => 'switch_style', 'value' => 'Square'),
   array('name' => 'switch_style', 'value' => 'Rectangular'),
   array('name' => 'switch_style', 'value' => 'Narrow'),
   array('name' => 'switch_style', 'value' => 'Key Switch'),
-  array('name' => 'switch_active_area', 'value' => 'All-Active'),
-  array('name' => 'switch_active_area', 'value' => 'Punch Button')
+  array('name' => 'tranrec_type', 'value' => 'Transmitter'),
+  array('name' => 'tranrec_type', 'value' => 'Receiver'),
+  array('name' => 'tranrec_frequency', 'value' => '300'),
+  array('name' => 'tranrec_frequency', 'value' => '310'),
+  array('name' => 'tranrec_frequency', 'value' => '433'),
+  array('name' => 'tranrec_frequency', 'value' => '868'),
+  array('name' => 'tranrec_frequency', 'value' => '915')
 );
 
 $attnames = array_unique(array_map(function ($i) { return $i['name']; }, $products_attributes));
@@ -276,14 +273,48 @@ function products_attributes_frontend($type) {
 add_action('save_post', 'products_save');
 function products_save($post_id) {
   if (get_post_type() != 'products') return;
+  
+  if (!empty($_POST['products_part_number'])) {
+    update_post_meta($post_id, 'products_part_number', $_POST['products_part_number']);
+  } else {
+    delete_post_meta($post_id, 'products_part_number');
+  }
 
-  update_post_meta($post_id, 'products_part_number', $_POST['products_part_number']);
-  update_post_meta($post_id, 'products_spec_sheet', $_POST['products_spec_sheet']);
-  update_post_meta($post_id, 'products_models', $_POST['products_models']);
-  update_post_meta($post_id, 'products_summary', $_POST['products_summary']);
-  update_post_meta($post_id, 'products_features', $_POST['products_features']);
-  update_post_meta($post_id, 'products_literature', $_POST['products_literature']);
-  update_post_meta($post_id, 'products_mounting', $_POST['products_mounting']);
+  if (!empty($_POST['products_spec_sheet'])) {
+    update_post_meta($post_id, 'products_spec_sheet', $_POST['products_spec_sheet']);
+  } else {
+    delete_post_meta($post_id, 'products_spec_sheet');
+  }
+
+  if (!empty($_POST['products_models'])) {
+    update_post_meta($post_id, 'products_models', $_POST['products_models']);
+  } else {
+    delete_post_meta($post_id, 'products_models');
+  }
+
+  if (!empty($_POST['products_overview'])) {
+    update_post_meta($post_id, 'products_overview', $_POST['products_overview']);
+  } else {
+    delete_post_meta($post_id, 'products_overview');
+  }
+
+  if (!empty($_POST['products_options'])) {
+    update_post_meta($post_id, 'products_options', $_POST['products_options']);
+  } else {
+    delete_post_meta($post_id, 'products_options');
+  }
+
+  if (!empty($_POST['products_literature'])) {
+    update_post_meta($post_id, 'products_literature', $_POST['products_literature']);
+  } else {
+    delete_post_meta($post_id, 'products_literature');
+  }
+
+  if (!empty($_POST['products_mounting'])) {
+    update_post_meta($post_id, 'products_mounting', $_POST['products_mounting']);
+  } else {
+    delete_post_meta($post_id, 'products_mounting');
+  }
 
   $pts = ($_POST['products_title_sort'] == "") ? $_POST['post_title'] : $_POST['products_title_sort'];
   update_post_meta($post_id, 'products_title_sort', $pts);
@@ -291,7 +322,12 @@ function products_save($post_id) {
   global $attnames;
   foreach ($attnames as $attname) {
     $value = ($_POST[$attname] != "") ? implode('|', $_POST[$attname]) : "";
-    update_post_meta($post_id, $attname, $value);
+
+    if (!empty($value)) {
+      update_post_meta($post_id, $attname, $value);
+    } else {
+      delete_post_meta($post_id, $attname);
+    }
   }
 }
 
