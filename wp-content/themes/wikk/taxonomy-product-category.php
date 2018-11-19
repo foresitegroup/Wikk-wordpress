@@ -36,12 +36,17 @@
             products_attributes_frontend('bollard_finish');
           }
 
+          if ($tax->slug == "ingressr") {
+            echo "<h5>Material</h5>";
+            products_attributes_frontend('ingressr_material');
+
+            echo "<br><br><h5>Product Group</h5>";
+            products_attributes_frontend('ingressr_product_group');
+          }
+
           if ($tax->slug == "switches") {
             echo "<h5>Style</h5>";
             products_attributes_frontend('switch_style');
-
-            echo "<br><br><h5>Active Area</h5>";
-            products_attributes_frontend('switch_active_area');
           }
 
           if ($tax->slug == "transmitters-receivers") {
@@ -102,7 +107,13 @@
           
           $image = "";
           $images = new Attachments('products_gallery');
-          if ($images->exist()) $image = $images->src('full', 0);
+          if ($images->exist()) {
+            $image = $images->src('full', 0);
+            while($images->get()) :
+              if ($images->field('option') != "") $image = $images->src('full');
+            endwhile;
+          }
+
           echo '<div class="image" style="background-image: url('.$image.');"></div>';
           
           echo '<div class="text">';

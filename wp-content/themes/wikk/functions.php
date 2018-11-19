@@ -200,6 +200,12 @@ function products_mb_attributes_content($post) {
   echo "<br><strong>Bollard Finish</strong><br>\n";
   products_attributes('bollard_finish');
 
+  echo "<br><strong>INGRESS'R Finish</strong><br>\n";
+  products_attributes('ingressr_material');
+
+  echo "<br><strong>INGRESS'R Product Group</strong><br>\n";
+  products_attributes('ingressr_product_group');
+
   echo "<br><strong>Switch Style</strong><br>\n";
   products_attributes('switch_style');
 
@@ -220,6 +226,12 @@ $products_attributes = array(
   array('name' => 'bollard_finish', 'value' => 'Dark Bronze Anodized'),
   array('name' => 'bollard_finish', 'value' => 'Light Bronze Anodized'),
   array('name' => 'bollard_finish', 'value' => 'Satin'),
+  array('name' => 'ingressr_material', 'value' => 'Aluminum'),
+  array('name' => 'ingressr_material', 'value' => 'Stainless Steel'),
+  array('name' => 'ingressr_product_group', 'value' => 'I09'),
+  array('name' => 'ingressr_product_group', 'value' => 'I24'),
+  array('name' => 'ingressr_product_group', 'value' => 'I36'),
+  array('name' => 'ingressr_product_group', 'value' => 'I36 NAR'),
   array('name' => 'switch_style', 'value' => 'Round'),
   array('name' => 'switch_style', 'value' => 'Square'),
   array('name' => 'switch_style', 'value' => 'Rectangular'),
@@ -446,6 +458,12 @@ function products_gallery($attachments) {
       'type' => 'textarea',
       'label' => __( 'Caption (HTML allowed)', 'attachments' ),
       'default' => 'caption'
+    ),
+    array(
+      'name' => 'option',
+      'type' => 'select',
+      'label' => __( 'Make this the index image?', 'attachments' ),
+      'meta' => array('options' => array('' => 'Select "Yes"...', 'indeximage' => 'Yes'))
     )
   );
 
