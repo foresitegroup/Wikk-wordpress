@@ -150,28 +150,28 @@ function products_mb_content($post) {
   ?>
   <h3>Models</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_models, ENT_QUOTES), 'products_models', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_models, ENT_QUOTES), 'products_models', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
   ?>
 
   <hr>
 
   <h3>Overview</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_overview, ENT_QUOTES), 'products_overview', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_overview, ENT_QUOTES), 'products_overview', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
   ?>
 
   <hr>
 
   <h3>Custom Options</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_options, ENT_QUOTES), 'products_options', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_options, ENT_QUOTES), 'products_options', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
   ?>
 
   <hr>
 
   <h3>Literature</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_literature, ENT_QUOTES), 'products_literature', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_literature, ENT_QUOTES), 'products_literature', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
   ?>
   <?php
 }
@@ -179,7 +179,7 @@ function products_mb_content($post) {
 function products_mb_mounting_content($post) {
   ?>
   <?php
-  wp_editor(html_entity_decode($post->products_mounting, ENT_QUOTES), 'products_mounting', array('textarea_rows' => 12, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_mounting, ENT_QUOTES), 'products_mounting', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
   ?>
   <?php
 }
@@ -280,6 +280,15 @@ function products_attributes_frontend($type) {
       $i++;
     }
   }
+}
+
+
+add_filter('wp_insert_post_data', 'products_custom_permalink');
+function products_custom_permalink($data) {
+  if ($data['post_type'] == 'products') {
+    $data['post_name'] = sanitize_title($data['post_title']);
+  }
+  return $data;
 }
 
 add_action('save_post', 'products_save');
