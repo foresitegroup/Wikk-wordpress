@@ -59,8 +59,9 @@
     </a>
 
     <div id="header-menu">
-      <a href="#" class="hm">Pro Area</a>
-      800-123-4567
+      <!-- <a href="#" class="hm">Pro Area</a> -->
+      <span class="redtext">Service:</span> 800-123-4567<br>
+      <img src="<?php echo get_template_directory_uri(); ?>/images/made-in-the-usa.png" alt="Made in the USA">
     </div>
   </header>
 

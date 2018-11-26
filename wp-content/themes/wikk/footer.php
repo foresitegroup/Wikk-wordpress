@@ -8,36 +8,27 @@
       <img src="<?php echo get_template_directory_uri(); ?>/images/footer-logo.svg" alt="" id="footer-logo">
 
       <ul>
-        <li><a href="#">Pro Area</a></li>
         <li>
-          <a href="#">Blog</a>
+          <a href="#">Innovations</a>
           <ul>
             <li><a href="#">Gallery</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
         </li>
         <li>
-          <a href="#">Solutions</a>
+          <a href="<?php echo home_url(); ?>/product-category/bollards/">Bollards</a>
           <ul>
-            <li><a href="<?php echo home_url(); ?>/product-category/bollards/">Bollards</a></li>
-            <li><a href="<?php echo home_url(); ?>/product-category/ingressr/">Ingress'r</a></li>
+            <li><a href="<?php echo home_url(); ?>/product-category/ingressr/">INGRESS'R</a></li>
             <li><a href="<?php echo home_url(); ?>/product-category/switches/">Switches</a></li>
-            <li><a href="#">Accessories</a></li>
+            <li><a href="<?php echo home_url(); ?>/product-category/transmitters-receivers/">Transmitters<br>&amp; Receivers</a></li>
           </ul>
         </li>
-        <li>
-          <a href="#">About</a>
-          <ul>
-            <li><a href="#">Innovations</a></li>
-            <li><a href="#">Testimonials</a></li>
-          </ul>
-        </li>
+        <li><a href="#">About</a></li>
         <li>
           <a href="#">Contact</a>
           <ul>
             <li><a href="#">Sales/Service</a></li>
             <li><a href="#">RFP</a></li>
-            <li><a href="#">Careers</a></li>
           </ul>
         </li>
       </ul>

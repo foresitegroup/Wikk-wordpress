@@ -18,7 +18,7 @@
   <div class="slide1" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slide1.jpg);">
     <div class="site-width">
       <h1>Elevating spaces through accessibility.</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo. Etiam imperdiet risus massa, ut sollicitudin ipsum tristique ut. Morbi dignissim quis arcu a viverra. Sed nec diam at felis luctus iaculis.<br>
+      Since its inception in 1980, Wikk has been a trusted resource to bridge the "accessibility gap" by delivering patented, code compliant solutions with user-friendly designs.  Our products have been used in some of the most iconic buildings in North America.  The Empire State Building, World Trade Center Oculus, Los Angeles Stadium, and The United States Capital to name a few.  We are a family-owned business that strives on a daily basis to continually exceed our customers' increasing expectations.  Let us show you simply. accessible.<br>
 
       <a href="#" class="button">Learn More About Our Mission</a>
     </div>
@@ -155,7 +155,7 @@
         .delay(DelayTime)
         .animate({ opacity: 0 }, FadeTime);
       }, ParenTime - CrossFade);
-      
+
       setTimeout(function() {
         $("#pl").animate({ left: ($('#slides').width()*0.48) - $('#pl').width() }, ParenTime);
         $("#pr").animate({ left: "52%" }, ParenTime);
@@ -163,7 +163,7 @@
 
       setTimeout(SlideShow, TotalTime);
     }
-    
+
     SlideShow();
   });
 </script>

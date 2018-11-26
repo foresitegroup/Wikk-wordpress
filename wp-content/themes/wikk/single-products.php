@@ -117,12 +117,12 @@ if(have_posts()) : while(have_posts()) : the_post();
 
   if (is_array($rel) && count($rel) > 0) {
   ?>
-  <div class="related<?php if (has_term('switches', 'product-category')) echo ' switches'; ?>">
+  <div class="related<?php if (has_term(array('switches', 'transmitters-receivers'), 'product-category')) echo ' switches'; ?>">
     <h3>
       <?php
       if (has_term('bollards', 'product-category')) echo "Related Bollards";
       if (has_term('ingressr', 'product-category')) echo "Related Ingress'rs";
-      if (has_term('switches', 'product-category')) echo "Available Accessories";
+      if (has_term(array('switches', 'transmitters-receivers'), 'product-category')) echo "Available Accessories";
       ?>
     </h3>
 

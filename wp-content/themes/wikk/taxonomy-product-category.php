@@ -117,10 +117,14 @@
           echo '<div class="image" style="background-image: url('.$image.');"></div>';
           
           echo '<div class="text">';
-            if ($tax->name == "Bollards") echo "<h3>Bollard</h3>";
-            if ($tax->name == "Ingress'r") echo "<h3>Ingress'r</h3>";
-
-            the_title('<h2>','</h2>');
+            if ($tax->slug == "bollards") echo "<h3>Bollard</h3>";
+            if ($tax->slug == "ingressr") echo "<h3>INGRESS'R</h3>";
+            
+            if ($tax->slug == "ingressr") {
+              echo "<h2>" . preg_replace('/\(.+?\)/', '<div>$0</div>', get_the_title()) . "</h2>";
+            } else {
+              the_title('<h2>', '</h2>');
+            }
 
             if ($post->products_part_number != "") echo '<h4>#' . $post->products_part_number . "</h4>\n";
           echo "</div>\n";
