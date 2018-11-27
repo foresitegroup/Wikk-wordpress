@@ -12,7 +12,7 @@
           <a href="#">Innovations</a>
           <ul>
             <li><a href="#">Gallery</a></li>
-            <li><a href="#">FAQ</a></li>
+            <li><a href="<?php echo home_url(); ?>/faq/">FAQ</a></li>
           </ul>
         </li>
         <li>
