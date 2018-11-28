@@ -121,7 +121,7 @@ if(have_posts()) : while(have_posts()) : the_post();
     <h3>
       <?php
       if (has_term('bollards', 'product-category')) echo "Related Bollards";
-      if (has_term('ingressr', 'product-category')) echo "Related Ingress'rs";
+      if (has_term('ingressr', 'product-category')) echo "Related INGRESS'Rs";
       if (has_term(array('switches', 'transmitters-receivers'), 'product-category')) echo "Available Accessories";
       ?>
     </h3>
@@ -144,10 +144,13 @@ if(have_posts()) : while(have_posts()) : the_post();
             <div class="text">
               <?php 
               if (has_term('bollards', 'product-category', $r->ID)) echo "<h2>Bollard</h2>";
-              if (has_term('ingressr', 'product-category', $r->ID)) echo "<h2>Ingress'r</h2>";
-              ?>
-              <h1><?php echo get_the_title($r->ID); ?></h1>
-              <?php
+              if (has_term('ingressr', 'product-category', $r->ID)) {
+                echo "<h2>INGRESS'R</h2>";
+                echo "<h1>" . preg_replace('/\(.+?\)/', '<div>$0</div>', get_the_title($r->ID)) . "</h1>";
+              } else {
+                echo "<h1>" . get_the_title($r->ID) . "</h1>";
+              }
+
               $part_num = get_post_meta($r->ID, 'products_part_number', true);
               if (!empty($part_num)) echo "<h3>#" . $part_num . "</h3>\n";
               ?>

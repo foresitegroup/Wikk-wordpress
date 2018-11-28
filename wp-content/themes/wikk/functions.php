@@ -364,6 +364,7 @@ function products_css() {
       #products_mb HR { margin: 3em 0 2.5em; border-top: 1px dashed #000000; }
       #filter-by-date { display: none; }
       #products_title_sort { width: 100%; padding: 0.32em 8px; box-sizing: border-box; }
+      .related-posts-select .chosen-container { min-width: 0; }
     </style>';
   }
 }

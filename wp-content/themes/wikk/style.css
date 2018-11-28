@@ -1193,6 +1193,8 @@ H1.page-title {
 }
 
 .related .tile H1 { font-size: 333.33%; }
+.related .tile H1 DIV { font-size: 80%; letter-spacing: 0; }
+
 .related .tile H2 { font-size: 116.66%; }
 .related .tile H3 {
   margin: 0.4em 0 1.5em;
