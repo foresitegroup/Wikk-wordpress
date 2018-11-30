@@ -852,7 +852,7 @@ H1.page-title {
 
 #product-header H2 SPAN { color: #8F7BB5; }
 
-#product-header .button { font-size: 14px; line-height: 1em; }
+#product-header .button { font-size: 14px; line-height: 1em; white-space: nowrap; }
 
 #product-header .button:after {
   content: "\f02f";

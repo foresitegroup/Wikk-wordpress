@@ -35,7 +35,8 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-      $("a[href^='http'], a[href$='.pdf']").not("[href*='" + window.location.host + "']").prop('target','new');
+      $("a[href^='http']").not("[href*='" + window.location.host + "']").prop('target','new');
+      $("a[href$='.pdf']").prop('target', 'new');
 
       function TitleLine() {
         if ($(window).outerWidth() > 750) {
