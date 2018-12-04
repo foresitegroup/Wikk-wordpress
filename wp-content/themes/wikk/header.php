@@ -60,35 +60,12 @@
     </a>
 
     <div id="header-menu">
-      <!-- <a href="#" class="hm">Pro Area</a> -->
-      <span class="redtext">Service:</span> 800-123-4567<br>
+      <span class="redtext">Service:</span> 877-421-9490
+      <a href="#" class="hm">Pro Area</a><br>
       <img src="<?php echo get_template_directory_uri(); ?>/images/made-in-the-usa.png" alt="Made in the USA">
     </div>
   </header>
 
   <input type="checkbox" id="toggle-menu" role="button">
   <label for="toggle-menu"></label>
-
-<!--   <nav>
-    <ul>
-      <li>
-        <a href="#">Solutions</a>
-        <ul>
-          <li><a href="#">Bollards</a></li>
-          <li><a href="#">Ingress'r</a></li>
-          <li><a href="#">Switches</a></li>
-          <li><a href="#">Accessories</a></li>
-        </ul>
-      </li>
-      <li><a href="#">About</a></li>
-      <li>
-        <a href="#">Contact</a>
-        <ul>
-          <li><a href="#">General/Sales</a></li>
-          <li><a href="#">RFP</a></li>
-        </ul>
-      </li>
-      <li class="mobile"><ul><li><a href="#">Pro Area</a></li></ul></li>
-    </ul>
-  </nav> -->
   <?php wp_nav_menu(array('theme_location'=>'main-menu','container'=>'nav')); ?>
