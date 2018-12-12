@@ -85,7 +85,7 @@
 
 <div id="home-blog">
   <div class="site-width">
-    <div class="sidetitle"><h1>Innovations / Blogs</h1></div>
+    <div class="sidetitle"><h1>Innovations / News</h1></div>
 
     <div id="blog-tiles">
       <a href="#">
@@ -99,7 +99,7 @@
       </a>
 
       <a href="#">
-        <h5>Blog</h5>
+        <h5>News</h5>
 
         <div class="image" style="background-image: url(https://picsum.photos/641/361);"></div>
 
@@ -109,7 +109,7 @@
       </a>
 
       <a href="#">
-        <h5>Blog</h5>
+        <h5>News</h5>
 
         <div class="image" style="background-image: url(https://picsum.photos/642/362);"></div>
 
@@ -122,7 +122,7 @@
 </div>
 
 <div id="home-blog-more">
-  <a href="#" class="button">See All Innovations &amp; Blogs</a>
+  <a href="<?php echo home_url(); ?>/news/innovations/" class="button">See All Innovations &amp; News</a>
 </div>
 
 <script type="text/javascript">

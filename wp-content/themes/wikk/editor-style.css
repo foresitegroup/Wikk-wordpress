@@ -1,0 +1,51 @@
+#tinymce {
+  margin: 1em;
+  padding: 0;
+  background: #FFFFFF;
+  color: #4A4A4A;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.8em;
+}
+
+P { margin: 0 0 1.5em; }
+
+STRONG { color: #F0532D; }
+
+IMG { border: 0; }
+
+A:link, A:visited {
+  color: #F0532D;
+  text-decoration: none;
+ transition: all 0.2s;
+}
+
+A:hover, A:active {
+  color: #8F7BB5;
+  text-decoration: none;
+}
+
+UL {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+UL LI {
+  line-height: 1.5em;
+  padding: 0 0 1em 1em;
+  position: relative;
+}
+
+UL LI:before {
+  content: "\2022";
+  color: #F0532D;
+  position: absolute;
+  top: 0;
+  left: 0.1em;
+}
+
+UL.nobullets LI:before { content: ""; }
+
+IMG { max-width: 100%; height: auto; }

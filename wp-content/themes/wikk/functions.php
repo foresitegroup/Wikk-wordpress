@@ -1,7 +1,29 @@
 <?php
 // We want Featured Images on Pages and Posts
 add_theme_support( 'post-thumbnails' );
-// add_theme_support( 'woocommerce' );
+
+// ...and add a caption field to it
+add_filter( 'admin_post_thumbnail_html', 'add_featured_image_display_settings', 10, 2 );
+function add_featured_image_display_settings($content, $post) {
+  $fic = get_post_meta($post, "featured_image_caption", true);
+  
+  $fi_caption = '<strong>Caption</strong><br>';
+  $fi_caption .= '<input type="text" name="featured_image_caption" value="';
+  if ($fic != "") $fi_caption .= $fic;
+  $fi_caption .= '" style="width: 100%;">';
+
+  return $content .= $fi_caption;
+}
+
+add_action('save_post', 'save_featured_image_display_settings', 10, 3);
+function save_featured_image_display_settings($post_id, $post, $update) {
+  if (!empty($_POST['featured_image_caption'])) {
+    update_post_meta($post_id, 'featured_image_caption', $_POST['featured_image_caption']);
+  } else {
+    delete_post_meta($post_id, 'featured_image_caption');
+  }
+}
+
 
 
 // Don't resize Featured Images
@@ -42,10 +64,10 @@ add_action( 'init', 'register_my_menus' );
 
 
 // Show site styles in visual editor
-function themename_setup() {
-  add_editor_style();
+function add_editor_styles() {
+  add_editor_style('editor-style.css');
 }
-add_action( 'after_setup_theme', 'themename_setup' );
+add_action('admin_init', 'add_editor_styles');
 
 
 // Remove emojis
@@ -69,6 +91,49 @@ function disable_emojicons_tinymce( $plugins ) {
     return array();
   }
 }
+
+
+function fg_excerpt($limit, $more = '') {
+  return wp_trim_words(get_the_excerpt(), $limit, $more);
+}
+
+
+function meta_og() {
+  global $post;
+
+  if (is_single()) {
+    if(has_post_thumbnail($post->ID))
+      $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'thumbnail');
+
+    $excerpt = strip_tags($post->post_content);
+    $excerpt_more = '';
+
+    if (strlen($excerpt ) > 155) {
+      $excerpt = substr($excerpt,0,155);
+      $excerpt_more = ' ...';
+    }
+
+    $excerpt = str_replace('"', '', $excerpt);
+    $excerpt = str_replace("'", '', $excerpt);
+    $excerptwords = preg_split('/[\n\r\t ]+/', $excerpt, -1, PREG_SPLIT_NO_EMPTY);
+    array_pop($excerptwords);
+    $excerpt = implode(' ', $excerptwords) . $excerpt_more;
+    ?>
+
+    <meta name="author" content="Wikk Industries">
+    <meta name="description" content="<?php echo $excerpt; ?>">
+    <meta property="og:title" content="<?php echo the_title(); ?>">
+    <meta property="og:description" content="<?php echo $excerpt; ?>">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="<?php echo the_permalink(); ?>">
+    <meta property="og:site_name" content="Wikk Industries">
+    <meta property="og:image" content="<?php echo $img_src[0]; ?>">
+    <?php
+  } else {
+    return;
+  }
+}
+add_action('wp_head', 'meta_og', 5);
 
 
 /////////////
@@ -478,8 +543,8 @@ function products_gallery($attachments) {
   );
 
   $args = array(
-    'label' => 'Images',
-    'post_type'  => array( 'products' ),
+    'label' => 'Image Gallery',
+    'post_type'  => array('products'),
     'filetype' => 'image',
     'button_text'  => __( 'Add Image', 'attachments' ),
     'modal_text'  => __( 'Add Image', 'attachments' ),
@@ -487,5 +552,115 @@ function products_gallery($attachments) {
   );
 
   $attachments->register('products_gallery', $args);
+}
+
+
+/////////
+// NEWS
+////////
+add_action('add_meta_boxes', 'news_mb');
+function news_mb() {
+  add_meta_box('news_mb_radio', 'News Tabs', 'news_mb_content_radio', 'post', 'side', 'high');
+  add_meta_box('news_mb_input', 'Source & Link', 'news_mb_content_input', 'post', 'normal', 'high');
+}
+
+function news_mb_content_radio($post) {
+  $news_tab = $post->news_tab;
+  if ($news_tab == "") $news_tab = "innovations";
+  ?>
+  <label><input type="radio" name="news_tab" value="innovations" id="ni"<?php if ($news_tab == "innovations") echo " checked"; ?>> Innovations</label><br>
+  <label><input type="radio" name="news_tab" value="news" id="nn"<?php if ($news_tab == "news") echo " checked"; ?>> News</label>
+
+  <script>
+    jQuery(function($) {
+      if ($('#ni').is(':checked')) {
+        $('#news_mb_input').hide();
+        $('#wp-content-wrap, #post-status-info, #postimagediv, #attachments-posts_gallery').show();
+        $('#tagsdiv-post_tag').hide();
+        $('#in-category-1').prop('checked', true);
+      } else {
+        $('#news_mb_input').show();
+        $('#wp-content-wrap, #post-status-info, #tagsdiv-post_tag, #postimagediv, #attachments-posts_gallery').hide();
+        $('#in-category-20').prop('checked', true);
+      }
+
+      $('input[type=radio]').change(function(){
+        if (this.value == 'innovations') {
+          $('#news_mb_input').hide();
+          $('#wp-content-wrap, #post-status-info, #postimagediv, #attachments-posts_gallery').show();
+          $('#tagsdiv-post_tag').hide();
+          $('#in-category-20').prop('checked', false);
+          $('#in-category-1').prop('checked', true);
+          $('#news_source, #news_link').val('');
+        } else {
+          $('#news_mb_input').show();
+          $('#wp-content-wrap, #post-status-info, #tagsdiv-post_tag, #postimagediv, #attachments-posts_gallery').hide();
+          $('#in-category-20').prop('checked', true);
+          $('#in-category-1').prop('checked', false);
+        }
+      });
+    });
+  </script>
+  <?php
+}
+
+function news_mb_content_input($post) {
+  ?>
+  <input type="text" name="news_source" id="news_source" placeholder="Source" value="<?php if ($post->news_source != "") echo $post->news_source; ?>">
+  <input type="text" name="news_link" id="news_link" placeholder="Link" value="<?php if ($post->news_link != "") echo $post->news_link; ?>">
+  <?php
+}
+
+add_action('admin_head', 'news_css');
+function news_css() {
+  if (get_post_type() == 'post') {
+    echo '<style>
+      #news_mb_input INPUT[type="text"] { width: 100%; margin: 0.5em 0; padding: 0.32em 8px; box-sizing: border-box; }
+      #news_mb_input LABEL { margin-right: 1em; }
+      .attachment-field-posts_gallery TEXTAREA { height: 80px !important; }
+    </style>';
+  }
+}
+
+add_action('save_post', 'news_save');
+function news_save($post_id) {
+  if (get_post_type() == 'post') {
+    update_post_meta($post_id, 'news_tab', $_POST['news_tab']);
+
+    if (!empty($_POST['news_source'])) {
+      update_post_meta($post_id, 'news_source', $_POST['news_source']);
+    } else {
+      delete_post_meta($post_id, 'news_source');
+    }
+
+    if (!empty($_POST['news_link'])) {
+      update_post_meta($post_id, 'news_link', $_POST['news_link']);
+    } else {
+      delete_post_meta($post_id, 'news_link');
+    }
+  }
+}
+
+add_action('attachments_register', 'posts_gallery');
+function posts_gallery($attachments) {
+  $fields = array(
+    array(
+      'name' => 'caption',
+      'type' => 'textarea',
+      'label' => __( 'Caption (HTML allowed)', 'attachments' ),
+      'default' => 'caption'
+    )
+  );
+
+  $args = array(
+    'label' => 'Image Gallery',
+    'post_type'  => array('post'),
+    'filetype' => 'image',
+    'button_text'  => __( 'Add Image', 'attachments' ),
+    'modal_text'  => __( 'Add Image', 'attachments' ),
+    'fields' => $fields
+  );
+
+  $attachments->register('posts_gallery', $args);
 }
 ?>

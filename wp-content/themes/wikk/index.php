@@ -21,5 +21,7 @@ while (have_posts()) : the_post();
   get_template_part('content');
 endwhile;
 
+if (is_single()) $FooterTextClass = "prefooter-hide";
+
 get_footer();
 ?>
