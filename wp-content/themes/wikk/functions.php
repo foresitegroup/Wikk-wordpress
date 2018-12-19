@@ -663,4 +663,24 @@ function posts_gallery($attachments) {
 
   $attachments->register('posts_gallery', $args);
 }
+
+
+
+add_action('wp_ajax_get_products_by_ajax', 'get_products_by_ajax_callback');
+add_action('wp_ajax_nopriv_get_products_by_ajax', 'get_products_by_ajax_callback');
+function get_products_by_ajax_callback() {
+  echo '<option value="">Select...</option>';
+
+  $prodcats = new WP_Query(array('post_type' => 'products', 'tax_query' => array(array('taxonomy' => 'product-category', 'field' => 'slug', 'terms' => $_POST['prodcat']))));
+
+  if ($prodcats->have_posts()) {
+    while ($prodcats->have_posts()) {
+      $prodcats->the_post();
+      echo '<option value="'.get_the_title().'">'.get_the_title()."</option>\n";
+    }
+    wp_reset_postdata();
+  }
+
+  wp_die();
+}
 ?>

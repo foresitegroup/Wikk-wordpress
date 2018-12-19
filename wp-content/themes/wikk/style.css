@@ -1624,6 +1624,319 @@ H1.news-title {
 
 .prefooter-hide { display: none; }
 
+/*******/
+/* RFP */
+/*******/
+#rfp-tabs { position: relative; }
+
+#rfp-tabs #shadow {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  box-shadow: 0 -5px 11px -3px rgba(0,0,0,0.1);
+  background: #FFFFFF;
+}
+
+#rfp-tabs .site-width {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#rfp-tabs #tab-standard,
+#rfp-tabs #tab-bollard { display: none; }
+
+#rfp-tabs .rfp-tab {
+  width: 50%;
+  box-shadow: 5px -5px 11px -3px rgba(0,0,0,0.1), -5px -5px 11px -3px rgba(0,0,0,0.1);
+  border-radius: 14px 14px 0 0;
+  padding: 0.75em 0;
+  background: #FFFFFF;
+  color: #818285;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1em;
+  text-align: center;
+  cursor: pointer;
+}
+
+#tab-standard:checked + LABEL,
+#tab-bollard:checked + LABEL {
+  position: relative;
+  z-index: 11;
+  padding: 21px 0;
+  color: #F0532D;
+  cursor: default;
+}
+
+#rfp-tabs #content { width: 100%; }
+
+#tab-standard ~ #content #content-standard,
+#tab-bollard ~ #content #content-bollard { display: none; }
+
+#tab-standard:checked ~ #content #content-standard,
+#tab-bollard:checked ~ #content #content-bollard {
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+
+#content {
+  padding: 70px 0;
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+#content H4 {
+  margin: 0 0 0.25em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1em;
+}
+
+#content H3 {
+  margin: 0 0 0.75em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1em;
+}
+
+#content .content-two-col {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 40px;
+}
+
+#content FORM {
+  width: 51.38%;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+#content FORM .two-col {
+  display: flex;
+  justify-content: space-between;
+}
+
+#content FORM LABEL {
+  display: block;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1em;
+}
+
+#content FORM .two-col LABEL { width: 48%; }
+
+#content FORM .two-col LABEL.address { width: 74%; }
+#content FORM .two-col LABEL.suite { width: 22%; }
+
+#content FORM .two-col LABEL.city { width: 35%; }
+#content FORM .two-col LABEL.state { width: 35%; }
+#content FORM .two-col LABEL.zip { width: 22%; }
+
+#content FORM LABEL.radio { display: block; margin-bottom: 2em; }
+
+#content FORM INPUT[type="text"],
+#content FORM INPUT[type="email"],
+#content FORM INPUT[type="tel"],
+#content FORM INPUT[type="number"],
+#content .select SELECT {
+  margin: 0.5em 0 2em;
+  outline: 0;
+  border: 0;
+  border-radius: 9px;
+  box-shadow: inset 0 0 7px 0 rgba(0,0,0,0.39);
+  background: #FFFFFF;
+  color: #5B5B5B;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1em;
+  padding: 0.5em 0.6em;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#content FORM INPUT::-webkit-input-placeholder { color: #5B5B5B; }
+#content FORM INPUT:-moz-placeholder { color: #5B5B5B; }
+#content FORM INPUT::-moz-placeholder { color: #5B5B5B; }
+#content FORM INPUT:-ms-input-placeholder { color: #5B5B5B; }
+#content FORM INPUT:focus::-webkit-input-placeholder { color: transparent; }
+#content FORM INPUT:focus:-moz-placeholder { color: transparent; }
+#content FORM INPUT:focus::-moz-placeholder { color: transparent; }
+#content FORM INPUT:focus:-ms-input-placeholder { color: transparent; }
+
+#content .select {
+  margin: 0.45em 0 2em;
+  border-radius: 9px;
+  box-shadow: inset 0 0 7px 0 rgba(0,0,0,0.39);
+  position: relative;
+}
+
+#content .select:after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f0d7";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9px;
+  background: #F0532D;
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1em;
+}
+
+#content .select SELECT {
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 0.645em 0.6em;
+  position: relative;
+  z-index: 5;
+}
+
+.select SELECT::-ms-expand { display: none; }
+
+#content FORM #standard-date, #content FORM #bollard-date { width: 110px; }
+
+#content FORM .radio INPUT[type="radio"],
+#content FORM INPUT[type="checkbox"] { display: none; }
+
+#content FORM .radio LABEL,
+#content FORM LABEL[for="send-updates"] {
+  display: inline-block;
+  margin: 0.5em 1.5em 0 0;
+  color: #5B5B5B;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  height: 20px;
+}
+
+#content FORM LABEL[for="send-updates"] { display: block; margin: 0 0 2em 0; }
+
+#content FORM .radio LABEL:before,
+#content FORM LABEL[for="send-updates"]:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 7px 0 rgba(0,0,0,0.39);
+  margin-right: 0.5em;
+}
+
+#content FORM .radio INPUT[type="radio"]:checked + LABEL:before,
+#content FORM INPUT[type="checkbox"]:checked + LABEL[for="send-updates"]:before {
+  background: radial-gradient(#F0532D, #F0532D 45%, #FFFFFF 45%, #FFFFFF 100%);
+}
+
+#content FORM INPUT[type="number"] { width: 6em; }
+
+#content FORM LABEL[for="item4-toggle"],
+#content FORM LABEL[for="item5-toggle"],
+#content FORM LABEL[for="item6-toggle"] {
+  display: inline-block;
+  margin-bottom: 2em;
+  font-size: 20px;
+  line-height: 1em;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#content FORM LABEL[for="item4-toggle"]:after,
+#content FORM LABEL[for="item5-toggle"]:after,
+#content FORM LABEL[for="item6-toggle"]:after {
+  content: "+";
+  display: inline-block;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 200%;
+  position: relative;
+  top: -2px;
+  margin-left: 0.25em;
+}
+
+#content FORM #item4-toggle + LABEL + DIV,
+#content FORM #item5-toggle + LABEL,
+#content FORM #item5-toggle + LABEL + DIV,
+#content FORM #item6-toggle + LABEL,
+#content FORM #item6-toggle + LABEL + DIV,
+#content FORM #item4-toggle:checked + LABEL,
+#content FORM #item4-toggle:checked ~ #item5-toggle:checked + LABEL,
+#content FORM #item5-toggle:checked ~ #item6-toggle:checked + LABEL { display: none; }
+
+#content FORM #item4-toggle:checked + LABEL + DIV,
+#content FORM #item4-toggle:checked ~ #item5-toggle + LABEL,
+#content FORM #item5-toggle:checked + LABEL + DIV,
+#content FORM #item5-toggle:checked ~ #item6-toggle + LABEL,
+#content FORM #item6-toggle:checked + LABEL + DIV { display: block; }
+
+#content FORM INPUT.alert {
+  box-shadow: inset 0 0 7px 0 rgba(121,48,172,0.9);
+}
+
+#content FORM INPUT.alert::-webkit-input-placeholder { color: #8F7BB5; }
+#content FORM INPUT.alert:-moz-placeholder { color: #8F7BB5; }
+#content FORM INPUT.alert::-moz-placeholder { color: #8F7BB5; }
+#content FORM INPUT.alert:-ms-input-placeholder { color: #8F7BB5; }
+#content FORM INPUT.alert:focus::-webkit-input-placeholder { color: transparent; }
+#content FORM INPUT.alert:focus:-moz-placeholder { color: transparent; }
+#content FORM INPUT.alert:focus::-moz-placeholder { color: transparent; }
+#content FORM INPUT.alert:focus:-ms-input-placeholder { color: transparent; }
+
+#content FORM INPUT[type="submit"] {
+  display: inline-block;
+  outline: 0;
+  border: 5px solid #F0532D;
+  border-radius: 14px;
+  width: auto;
+  box-sizing: border-box;
+  padding: 0.5em 1.5em 0.4em;
+  background: transparent;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1em;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: all 0.2s;
+}
+
+#content FORM INPUT[type="submit"]:hover { border-color: #8F7BB5; color: #8F7BB5; }
+
+#content .rfp-sidebar {
+  width: 33.79%;
+  box-shadow: 0 0 25px 0 rgba(121,48,172,0.4);
+  border-radius: 14px;
+  box-sizing: border-box;
+  padding: 2em 2.2em;
+  color: #86878A;
+}
+
+
 
 
 
