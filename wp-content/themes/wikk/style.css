@@ -1707,6 +1707,15 @@ H1.news-title {
   line-height: 1em;
 }
 
+#content H5 {
+  margin: 0 0 0.75em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1em;
+}
+
 #content .content-two-col {
   display: flex;
   justify-content: space-between;
@@ -1749,7 +1758,8 @@ H1.news-title {
 #content FORM INPUT[type="email"],
 #content FORM INPUT[type="tel"],
 #content FORM INPUT[type="number"],
-#content .select SELECT {
+#content .select SELECT,
+#content FORM TEXTAREA {
   margin: 0.5em 0 2em;
   outline: 0;
   border: 0;
@@ -1769,6 +1779,10 @@ H1.news-title {
   appearance: none;
 }
 
+#content FORM TEXTAREA { height: 110px; padding: 0.75em 0.6em; }
+
+#content FORM TEXTAREA[name$="_instructions"] { height: 72px; }
+
 #content FORM INPUT::-webkit-input-placeholder { color: #5B5B5B; }
 #content FORM INPUT:-moz-placeholder { color: #5B5B5B; }
 #content FORM INPUT::-moz-placeholder { color: #5B5B5B; }
@@ -1777,6 +1791,15 @@ H1.news-title {
 #content FORM INPUT:focus:-moz-placeholder { color: transparent; }
 #content FORM INPUT:focus::-moz-placeholder { color: transparent; }
 #content FORM INPUT:focus:-ms-input-placeholder { color: transparent; }
+
+#content FORM TEXTAREA::-webkit-input-placeholder { color: #5B5B5B; }
+#content FORM TEXTAREA:-moz-placeholder { color: #5B5B5B; }
+#content FORM TEXTAREA::-moz-placeholder { color: #5B5B5B; }
+#content FORM TEXTAREA:-ms-input-placeholder { color: #5B5B5B; }
+#content FORM TEXTAREA:focus::-webkit-input-placeholder { color: transparent; }
+#content FORM TEXTAREA:focus:-moz-placeholder { color: transparent; }
+#content FORM TEXTAREA:focus::-moz-placeholder { color: transparent; }
+#content FORM TEXTAREA:focus:-ms-input-placeholder { color: transparent; }
 
 #content .select {
   margin: 0.45em 0 2em;
@@ -1856,7 +1879,10 @@ H1.news-title {
 
 #content FORM LABEL[for="item4-toggle"],
 #content FORM LABEL[for="item5-toggle"],
-#content FORM LABEL[for="item6-toggle"] {
+#content FORM LABEL[for="item6-toggle"],
+#content FORM LABEL[for="bollard4-toggle"],
+#content FORM LABEL[for="bollard5-toggle"],
+#content FORM LABEL[for="bollard6-toggle"] {
   display: inline-block;
   margin-bottom: 2em;
   font-size: 20px;
@@ -1867,7 +1893,10 @@ H1.news-title {
 
 #content FORM LABEL[for="item4-toggle"]:after,
 #content FORM LABEL[for="item5-toggle"]:after,
-#content FORM LABEL[for="item6-toggle"]:after {
+#content FORM LABEL[for="item6-toggle"]:after,
+#content FORM LABEL[for="bollard4-toggle"]:after,
+#content FORM LABEL[for="bollard5-toggle"]:after,
+#content FORM LABEL[for="bollard6-toggle"]:after {
   content: "+";
   display: inline-block;
   vertical-align: middle;
@@ -1885,13 +1914,69 @@ H1.news-title {
 #content FORM #item6-toggle + LABEL + DIV,
 #content FORM #item4-toggle:checked + LABEL,
 #content FORM #item4-toggle:checked ~ #item5-toggle:checked + LABEL,
-#content FORM #item5-toggle:checked ~ #item6-toggle:checked + LABEL { display: none; }
+#content FORM #item5-toggle:checked ~ #item6-toggle:checked + LABEL,
+#content FORM #bollard4-toggle + LABEL + DIV,
+#content FORM #bollard5-toggle + LABEL,
+#content FORM #bollard5-toggle + LABEL + DIV,
+#content FORM #bollard6-toggle + LABEL,
+#content FORM #bollard6-toggle + LABEL + DIV,
+#content FORM #bollard4-toggle:checked + LABEL,
+#content FORM #bollard4-toggle:checked ~ #bollard5-toggle:checked + LABEL,
+#content FORM #bollard5-toggle:checked ~ #bollard6-toggle:checked + LABEL { display: none; }
 
 #content FORM #item4-toggle:checked + LABEL + DIV,
 #content FORM #item4-toggle:checked ~ #item5-toggle + LABEL,
 #content FORM #item5-toggle:checked + LABEL + DIV,
 #content FORM #item5-toggle:checked ~ #item6-toggle + LABEL,
-#content FORM #item6-toggle:checked + LABEL + DIV { display: block; }
+#content FORM #item6-toggle:checked + LABEL + DIV,
+#content FORM #bollard4-toggle:checked + LABEL + DIV,
+#content FORM #bollard4-toggle:checked ~ #bollard5-toggle + LABEL,
+#content FORM #bollard5-toggle:checked + LABEL + DIV,
+#content FORM #bollard5-toggle:checked ~ #bollard6-toggle + LABEL,
+#content FORM #bollard6-toggle:checked + LABEL + DIV { display: block; }
+
+#content FORM LABEL.upload {
+  display: inline-block;
+  margin-bottom: 2em;
+  position: relative;
+}
+
+#content FORM LABEL.upload SPAN {
+  position: absolute;
+  top: 56%;
+  left: 105%;
+  font-size: 70%;
+}
+
+#content FORM LABEL.upload > DIV {
+  margin-top: 0.5em;
+  position: relative;
+  overflow: hidden;
+}
+
+#content FORM LABEL.upload > DIV BUTTON {
+  outline: 0;
+  border: 5px solid #F0532D;
+  border-radius: 14px;
+  box-sizing: border-box;
+  padding: 0.4em 1em;
+  background: #FFFFFF;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1em;
+  -webkit-appearance: none;
+}
+
+#content FORM LABEL.upload > DIV INPUT[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
 
 #content FORM INPUT.alert {
   box-shadow: inset 0 0 7px 0 rgba(121,48,172,0.9);
@@ -1934,7 +2019,62 @@ H1.news-title {
   box-sizing: border-box;
   padding: 2em 2.2em;
   color: #86878A;
+  font-size: 14px;
+  line-height: 1.4em;
 }
+
+#content .rfp-sidebar H3 {
+  margin: 0 0 0.75em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 171.42%;
+  line-height: 1em;
+}
+
+#content .rfp-sidebar H4 {
+  margin: 1em 0 0.5em;
+  color: #8F7BB5;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 500;
+  font-size: 85.71%;
+  line-height: 1em;
+}
+
+#content .rfp-sidebar H5 {
+  margin: 0;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 114.28%;
+  line-height: 1.2em;
+}
+
+#content .rfp-sidebar H6 {
+  margin: 0.25em 0;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 114.28%;
+  line-height: 1.2em;
+}
+
+#content .rfp-sidebar A.link:link, #content .rfp-sidebar A.link:visited {
+  color: #8F7BB5;
+  text-decoration: underline;
+  font-family: 'Days One', sans-serif;
+  font-size: 114.28%;
+  line-height: 1.2em;
+}
+
+#content .rfp-sidebar A.link:hover, #content .rfp-sidebar A.link:active {
+  color: #F0532D;
+  text-decoration: underline;
+}
+
+#content .rfp-sidebar H5 A:link,
+#content .rfp-sidebar H6 A:link { color: #F0532D; text-decoration: none; }
+
 
 
 
