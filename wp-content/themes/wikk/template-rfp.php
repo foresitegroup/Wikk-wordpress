@@ -15,6 +15,8 @@ get_header();
 </div>
 
 <?php
+include_once "inc/fintoozler.php";
+
 $CommonFields = <<<EOD
 <h3>Contact Info</h3>
 
@@ -180,10 +182,9 @@ EOD;
               ?>
 
               <br>
+              <input type="hidden" id="g-recaptcha-response-s" name="g-recaptcha-response-s">
               <input type="submit" name="submit" value="Submit">
             </div>
-
-
           </form>
 
           <div class="rfp-sidebar">
@@ -264,9 +265,14 @@ EOD;
               <?php
               if ($i >= 4) echo "</div>\n";
               }
+
+              $upload_dir = wp_get_upload_dir();
               ?>
+              <input type="hidden" name="upload_dir" value="<?php echo $upload_dir['basedir']; ?>/rfp/">
+              <input type="hidden" name="upload_url" value="<?php echo $upload_dir['baseurl']; ?>/rfp/">
 
               <br>
+              <input type="hidden" id="g-recaptcha-response-b" name="g-recaptcha-response-b">
               <input type="submit" name="submit" value="Submit">
             </div>
           </form>
@@ -301,6 +307,16 @@ EOD;
 </div> <!-- #rfp-tabs -->
 
 <div id="alert-modal" class="modal"><div></div></div>
+
+<script src="https://www.google.com/recaptcha/api.js?render=<?php echo RECAPTCHA_SITE_KEY; ?>"></script>
+<script>
+ grecaptcha.ready(function() {
+   grecaptcha.execute('<?php echo RECAPTCHA_SITE_KEY; ?>', {action: 'rfp_forms'}).then(function(token) {  
+   document.getElementById('g-recaptcha-response-s').value=token;
+   document.getElementById('g-recaptcha-response-b').value=token;
+ });
+});
+</script>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/jquery-ui.min.css">
 <script src="<?php echo get_template_directory_uri(); ?>/inc/jquery-ui.min.js"></script>
@@ -373,13 +389,13 @@ EOD;
           contentType: false,
           success: function(data){
             $('#alert-modal > DIV').html(data);
-            $('#alert-modal').modal();
+            if (data) $('#alert-modal').modal();
 
             $(form).find('input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="file"], select, textarea').val('');
             $('[id$="-bollards"]').prop('checked', true);
             $('[id$="-toggle"]').prop('checked', false);
           }
-        })
+        });
       }
     });
   });
