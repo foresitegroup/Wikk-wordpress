@@ -310,12 +310,12 @@ EOD;
 
 <script src="https://www.google.com/recaptcha/api.js?render=<?php echo RECAPTCHA_SITE_KEY; ?>"></script>
 <script>
- grecaptcha.ready(function() {
-   grecaptcha.execute('<?php echo RECAPTCHA_SITE_KEY; ?>', {action: 'rfp_forms'}).then(function(token) {  
-   document.getElementById('g-recaptcha-response-s').value=token;
-   document.getElementById('g-recaptcha-response-b').value=token;
- });
-});
+  grecaptcha.ready(function() {
+    grecaptcha.execute('<?php echo RECAPTCHA_SITE_KEY; ?>', {action: 'rfp_forms'}).then(function(token) {
+      document.getElementById('g-recaptcha-response-s').value=token;
+      document.getElementById('g-recaptcha-response-b').value=token;
+    });
+  });
 </script>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/jquery-ui.min.css">
@@ -398,6 +398,81 @@ EOD;
         });
       }
     });
+  });
+</script>
+
+<div id="map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5842.319313033677!2d-87.9992533677441!3d42.93276092758381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880511f28b528109%3A0xbf954d848b9bd3d7!2sWikk+Industries+Inc!5e0!3m2!1sen!2sus!4v1545838851361" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+  <div id="map-text">
+    <div>
+      <h1>Wikk Industries, Inc.</h1>
+      6169A Industrial Ct.<br>
+      Greendale, WI 53129<br>
+      <br>
+
+      <h2>Phone: 414-421-9490</h2>
+      <h2>Toll-Free: 877-421-9490</h2>
+    </div>
+  </div>
+</div>
+
+<div id="home-testimonials">
+  <div class="site-width">
+    <div class="sidetitle"><h1>Testimonials</h1></div>
+
+    <div id="slides">
+      <img src="<?php echo get_template_directory_uri(); ?>/images/paren-left.svg" alt="" id="pl">
+      <img src="<?php echo get_template_directory_uri(); ?>/images/paren-right.svg" alt="" id="pr">
+
+      <div>
+        "Wikk has provided us with a wide bredth of accessibility solutions that has not only helped us become a more inclusive environment, but has provided us with peace of mind as well. They are always there to help."<br>
+        <br>
+        <span>- Jane Jones,</span> Business Manager
+      </div>
+
+      <div>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo."<br>
+        <br>
+        <span>- John Smith,</span> Doctor
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var ParenTime = 1500;
+    var FadeTime = 1000;
+    var DelayTime = 5000;
+    var CrossFade = 500;
+    var TotalTime = (ParenTime*2) + (FadeTime*2) + DelayTime - (CrossFade*2);
+    var slideIndex = 0;
+
+    function SlideShow() {
+      $("#slides DIV").css("display", "none");
+      slideIndex++;
+      if (slideIndex > $("#slides DIV").length) slideIndex = 1;
+
+      $("#pl").animate({ left: "0" }, ParenTime);
+      $("#pr").animate({ left: $('#slides').width() - $('#pr').width() }, ParenTime);
+
+      setTimeout(function() {
+      $('#slides DIV:nth-of-type('+slideIndex+')').css("display", "block")
+        .animate({ opacity: 1 }, FadeTime)
+        .delay(DelayTime)
+        .animate({ opacity: 0 }, FadeTime);
+      }, ParenTime - CrossFade);
+
+      setTimeout(function() {
+        $("#pl").animate({ left: ($('#slides').width()*0.48) - $('#pl').width() }, ParenTime);
+        $("#pr").animate({ left: "52%" }, ParenTime);
+      }, DelayTime + (FadeTime*2));
+
+      setTimeout(SlideShow, TotalTime);
+    }
+
+    SlideShow();
   });
 </script>
 

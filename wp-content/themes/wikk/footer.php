@@ -25,10 +25,10 @@
         </li>
         <li><a href="#">About</a></li>
         <li>
-          <a href="#">Contact</a>
+          <a href="<?php echo home_url(); ?>/contact/">Contact</a>
           <ul>
             <li><a href="#">Sales/Service</a></li>
-            <li><a href="#">RFP</a></li>
+            <li><a href="<?php echo home_url(); ?>/request-for-proposal/">RFP</a></li>
           </ul>
         </li>
       </ul>

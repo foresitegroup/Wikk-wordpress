@@ -1681,10 +1681,11 @@ H1.news-title {
   display: block;
   position: relative;
   z-index: 3;
+  padding-top: 70px;
 }
 
 #content {
-  padding: 70px 0;
+  padding-bottom: 70px;
   font-size: 16px;
   line-height: 1.4em;
 }
@@ -1782,6 +1783,7 @@ H1.news-title {
 #content FORM TEXTAREA { height: 110px; padding: 0.75em 0.6em; }
 
 #content FORM TEXTAREA[name$="_instructions"] { height: 72px; }
+#content FORM TEXTAREA[name="message"] { height: 240px; }
 
 #content FORM INPUT::-webkit-input-placeholder { color: #5B5B5B; }
 #content FORM INPUT:-moz-placeholder { color: #5B5B5B; }
@@ -2075,9 +2077,57 @@ H1.news-title {
 #content .rfp-sidebar H5 A:link,
 #content .rfp-sidebar H6 A:link { color: #F0532D; text-decoration: none; }
 
+#map {
+  padding-bottom: 26.875%;
+  position: relative;
+}
 
+#map IFRAME {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
+#map #map-text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 5;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 0 45px 45px 0;
+  padding: 60px 65px 60px calc((100% - 1080px) / 2);
+  background: #F0532D;
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
 
+#map #map-text > DIV {
+  background: url(images/footer-logo-white.svg) no-repeat;
+  padding: 0.75em 0 0.75em 11em;
+}
+
+#map #map-text H1 {
+  margin: 0;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 114.28%;
+  line-height: 1.2em;
+}
+
+#map #map-text H2 {
+  margin: 0;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 100%;
+  line-height: 1.2em;
+}
+
+#map #map-text A { color: #FFFFFF; }
 
 
 
@@ -2117,6 +2167,8 @@ H1.news-title {
 
   #share-links { right: -1%; }
   #share-links:before { left: 75%; }
+
+  #map #map-text { padding: 3em 5% 3em 2%; }
 }
 
 @media only screen and (max-width: 900px) {
@@ -2147,6 +2199,14 @@ H1.news-title {
   .related .tile { font-size: 1.3vw; }
 
   .related .prev, .related .next { width: 30px; height: 70px; }
+
+  #rfp-tabs .rfp-tab { font-size: 3vw; line-height: 1em; padding: 21px 0; }
+
+  #content FORM { width: 58%; }
+  #content .rfp-sidebar { width: 35%; }
+
+  #map #map-text { font-size: 1.25vw; line-height: 1.4em; }
+  #map #map-text > DIV { padding-left: 15vw; }
 }
 
 @media only screen and (max-width: 800px) {
@@ -2427,12 +2487,17 @@ H1.news-title {
   .news-post:link, .news-post:visited { margin-left: 0; }
   
   .post-gallery .slick-list { margin: 0 8%; }
+  
+  #content .content-two-col { flex-direction: column; }
+  #content FORM, #content .rfp-sidebar { width: 100%; }
+  #content .rfp-sidebar { margin-top: 4em; }
 }
 
 @media only screen and (max-width: 700px) {
-  #product-index-links > A {
-    font-size: 2.5vw;
-  }
+  #product-index-links > A { font-size: 2.5vw; }
+  
+  #map #map-text { font-size: 1.5vw; line-height: 1.4em; }
+  #map #map-text > DIV { background: none; padding: 0; }
 }
 
 @media only screen and (max-width: 600px) {
@@ -2552,6 +2617,8 @@ H1.news-title {
   .news-single { flex-direction: column-reverse; }
   #news-single-sidebar { width: 100%; margin-right: 0; }
   #news-single-text { width: 100%; padding-bottom: 2em; }
+
+  #map { padding-bottom: 40%; }
 }
 
 @media only screen and (max-width: 480px) {
