@@ -683,4 +683,70 @@ function get_products_by_ajax_callback() {
 
   wp_die();
 }
+
+
+///////////////
+// GALLERY
+///////////////
+add_action('init', 'gallery');
+function gallery() {
+  register_post_type('gallery', array(
+      'labels' => array(
+        'name' => 'Gallery',
+        'singular_name' => 'Gallery',
+        'add_new_item' => 'Add New Gallery',
+        'edit_item' => 'Edit Gallery',
+        'search_items' => 'Search Galleries',
+        'not_found' => 'No Galleries found'
+      ),
+      'show_ui' => true,
+      'menu_position' => 53,
+      'menu_icon' => 'dashicons-camera',
+      'supports' => array('title','editor'),
+      'has_archive' => true,
+      'exclude_from_search' => false,
+      'publicly_queryable' => true,
+      'show_in_nav_menus' => true
+  ));
+}
+
+add_action('attachments_register', 'gallery_gallery');
+function gallery_gallery($attachments) {
+  $fields = array(
+    array(
+      'name' => 'caption',
+      'type' => 'textarea',
+      'label' => __( 'Caption (HTML allowed)', 'attachments' ),
+      'default' => 'caption'
+    )
+  );
+
+  $args = array(
+    'label' => 'Images',
+    'post_type'  => array('gallery'),
+    'filetype' => 'image',
+    'button_text'  => __( 'Add Image', 'attachments' ),
+    'modal_text'  => __( 'Add Image', 'attachments' ),
+    'fields' => $fields
+  );
+
+  $attachments->register('gallery_gallery', $args);
+}
+
+add_action('admin_head', 'gallery_css');
+function gallery_css() {
+  if (get_post_type() == 'gallery') {
+    echo '<style>
+      #content_ifr, .wp-editor-area,
+      .attachment-field-gallery_gallery TEXTAREA { height: 80px !important; }
+    </style>';
+  }
+}
+
+add_filter('manage_gallery_posts_columns', 'set_custom_edit_gallery_columns');
+function set_custom_edit_gallery_columns($columns) {
+  unset($columns['date']);
+
+  return $columns;
+}
 ?>

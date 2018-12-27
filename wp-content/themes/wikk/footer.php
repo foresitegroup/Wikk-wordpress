@@ -11,7 +11,7 @@
         <li>
           <a href="<?php echo home_url(); ?>/news/innovations/">Innovations</a>
           <ul>
-            <li><a href="#">Gallery</a></li>
+            <li><a href="<?php echo home_url(); ?>/gallery/">Gallery</a></li>
             <li><a href="<?php echo home_url(); ?>/faq/">FAQ</a></li>
           </ul>
         </li>
