@@ -131,7 +131,7 @@ EOD;
   <div class="site-width">
     <input id="tab-standard" type="radio" name="tabs" checked>
     <label for="tab-standard" class="rfp-tab">Standard RFP</label>
-    <input id="tab-bollard" type="radio" name="tabs">
+    <input id="tab-bollard" type="radio" name="tabs"<?php if ($_SERVER['QUERY_STRING'] == "bollard") echo ' checked'; ?>>
     <label for="tab-bollard" class="rfp-tab">Custom Bollard Request</label>
 
     <div id="content">

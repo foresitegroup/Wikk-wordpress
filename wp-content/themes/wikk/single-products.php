@@ -22,9 +22,25 @@ if(have_posts()) : while(have_posts()) : the_post();
       <?php if ($post->products_part_number != "") echo '<h2>Part # <span>' . $post->products_part_number . "</span></h2>\n"; ?>
     </div>
     
-    <?php
-    if ($post->products_spec_sheet != "") echo '<a href="'.$post->products_spec_sheet.'" class="button">Print Spec Sheet</a>';
-    ?>
+    <div id="buttons">
+      <?php if (has_term(array('bollards', 'ingressr', 'switches'), 'product-category')) { ?>
+      <div class="text">
+        Not quite what you need?
+        <div>Wikk does fully custom work.</div>
+      </div>
+      <?php } ?>
+      
+      <div class="buttons">
+        <?php
+        if ($post->products_spec_sheet != "") echo '<div><a href="'.$post->products_spec_sheet.'" class="button fa">Print Spec Sheet <i class="fas fa-print"></i></a></div>';
+
+        if (has_term(array('bollards', 'ingressr', 'switches'), 'product-category')) {
+          $ContactLink = (has_term('bollards', 'product-category')) ? "/request-for-proposal/?bollard" : "/contact/";
+        ?>
+        <div><a href="<?php echo home_url() . $ContactLink; ?>" class="button contact">Contact Us</a></div>
+        <?php } ?>
+      </div>
+    </div>
   </div>
 
   <div id="product">

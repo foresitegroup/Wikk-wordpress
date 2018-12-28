@@ -854,16 +854,53 @@ H1.page-title {
 
 #product-header H2 SPAN { color: #8F7BB5; }
 
-#product-header .button { font-size: 14px; line-height: 1em; white-space: nowrap; }
+#product-header #buttons {
+  display: flex;
+  align-items: flex-end;
+}
 
-#product-header .button:after {
-  content: "\f02f";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
+#product-header #buttons .text {
+  padding: 9px 9px 9px 0;
+  text-align: right;
+  color: #858689;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.2em;
+}
+
+#product-header #buttons .text > DIV { color: #8F7BB5; }
+
+#product-header #buttons .buttons > DIV {
+  padding: 4px 0;
+}
+
+#product-header .button {
+  font-size: 12px;
+  line-height: 1em;
+  white-space: nowrap;
+}
+
+#product-header .button.fa {
+  position: relative;
+  padding-right: 2.75em;
+}
+
+#product-header .button .fas {
+  position: absolute;
+  top: 50%;
+  right: 0.5em;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   font-size: 150%;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 0.5em;
+}
+
+#product-header .button.contact {
+  width: 100%;
+  min-width: 166px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 #product {
@@ -2250,12 +2287,34 @@ H1.news-title {
   position: relative;
 }
 
+.gallery-single #mainimage .sidetitle {
+  top: -1em;
+  right: calc(((100% + 77%) / 2) + 1%);
+  z-index: 999;
+}
+
+.gallery-single #mainimage .sidetitle A:link,
+.gallery-single #mainimage .sidetitle A:visited {
+  position: absolute;
+  top: 50%;
+  right: -2em;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background: inherit;
+  color: rgba(143,123,181,0.6);
+  font-size: 200%;
+  padding-right: 1em;
+  box-sizing: border-box;
+}
+
+.gallery-single #mainimage .sidetitle A:hover { color: #F0532D; }
+
 .gallery-single .gallery-images-main .slick-slide { padding-bottom: 64px; }
 
 .gallery-single .gallery-images-main .slick-slide > DIV { text-align: center; }
 
 .gallery-single .gallery-image-main {
-  outline: 1px solid red;
   width: 77% !important;
   background-repeat: no-repeat;
   background-position: center center;
@@ -2270,7 +2329,6 @@ H1.news-title {
 }
 
 .gallery-single .gallery-image-main .gallery-image-main-caption {
-  outline: 1px solid green;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2428,6 +2486,9 @@ H1.news-title {
   #home-testimonials .site-width #slides { width: 90%; }
 
   .news-post:link, .news-post:visited { width: 45%; margin-left: 5%; }
+  
+  .gallery-single #mainimage .sidetitle { right: 98%; }
+  .gallery-single .gallery-image-main { width: 90% !important; }
 }
 
 @media only screen and (max-width: 750px) {
@@ -2602,7 +2663,7 @@ H1.news-title {
   #product-index-links > A .text { width: 70%; }
   #product-index-links > A .text H4 { word-break: break-all; }
 
-  #product-header .button { display: none; }
+  #product-header #buttons { display: none; }
 
   #product { flex-direction: column; }
 
@@ -2701,6 +2762,13 @@ H1.news-title {
   #content .content-two-col { flex-direction: column; }
   #content FORM, #content .rfp-sidebar { width: 100%; }
   #content .rfp-sidebar { margin-top: 4em; }
+
+  #mainimage .sidetitle {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    right: 98%;
+  }
 }
 
 @media only screen and (max-width: 700px) {
