@@ -426,22 +426,22 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
 
 .home-featured .text A.button { margin-top: 1.8em; }
 
-#home-testimonials {
+#testimonials {
   background: #F0532D;
   color: #FFFFFF;
 }
 
-#home-testimonials .site-width {
+#testimonials .site-width {
   padding: 60px 0 60px 5%;
   box-sizing: border-box;
   position: relative;
 }
 
-#home-testimonials .sidetitle { top: 42px; }
-#home-testimonials .sidetitle H1 { background: #F0532D; color: rgba(255,255,255,0.6); }
-#home-testimonials .sidetitle:before { background: rgba(255,255,255,0.6); }
+#testimonials .sidetitle { top: 42px; }
+#testimonials .sidetitle H1 { background: #F0532D; color: rgba(255,255,255,0.6); }
+#testimonials .sidetitle:before { background: rgba(255,255,255,0.6); }
 
-#home-testimonials #slides {
+#testimonials #slides {
   width: 66%;
   margin: 0 auto;
   text-align: center;
@@ -452,16 +452,16 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   align-items: center;
 }
 
-#home-testimonials #slides > DIV {
+#testimonials #slides > DIV {
   margin: 0 9%;
   padding-top: 0.5em;
   opacity: 0;
   display: none;
 }
 
-#home-testimonials #slides > DIV.active { display: block; }
+#testimonials #slides > DIV.active { display: block; }
 
-#home-testimonials #slides > DIV SPAN {
+#testimonials #slides > DIV SPAN {
   font-family: 'Days One', sans-serif;
   letter-spacing: 0.05em;
 }
@@ -2400,27 +2400,75 @@ H1.news-title {
 
 .gallery-images-nav .prev:hover, .gallery-images-nav .next:hover { fill: #8F7BB5; }
 
+/*********/
+/* ABOUT */
+/*********/
+#about { position: relative; }
+
+#about .site-width { position: relative; z-index: 5; }
+
+#about .text {
+  width: 50%;
+  margin-left: 50%;
+  text-align: right;
+  color: #6D6D6D;
+  line-height: 1.8em;
+  padding-bottom: 60px;
+}
+
+#about .text P { margin: 0 0 1.5em; }
+
+#about .text H2 {
+  margin: 2em 0 0.25em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 171.42%;
+  line-height: 1em;
+}
+
+#about .text H2:first-of-type { margin-top: 0; }
+
+#about .text H3 {
+  margin: 2em 0 1em;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 114.28%;
+  line-height: 1em;
+}
+
+#about #image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: calc(100% - 100px);
+  width: 41%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: auto 100%;
+}
+
+#about #image DIV {
+  position: absolute;
+  right: -10%;
+  bottom: 4%;
+  font-size: 12px;
+  line-height: 1.1em;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+#about #image DIV STRONG {
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media only screen and (min-width: 1740px) {
+  #about #image { background-position: bottom left; }
+}
 
 @media only screen and (max-width: 1100px) {
   .site-width, NAV UL { width: 96%; }
@@ -2448,7 +2496,7 @@ H1.news-title {
   .home-featured .text { font-size: 13px; }
   .home-featured .text .button { font-size: 128%; }
 
-  #home-testimonials .site-width #slides { width: 75%; }
+  #testimonials .site-width #slides { width: 75%; }
 
   FOOTER UL { font-size: 1.4vw; line-height: 1.2em; }
 
@@ -2475,6 +2523,8 @@ H1.news-title {
 
   #map #map-text { font-size: 1.25vw; line-height: 1.4em; }
   #map #map-text > DIV { padding-left: 15vw; }
+
+  #about #image { width: 45%; }
 }
 
 @media only screen and (max-width: 800px) {
@@ -2483,12 +2533,14 @@ H1.news-title {
 
   .home-featured .text { font-size: 12px; }
 
-  #home-testimonials .site-width #slides { width: 90%; }
+  #testimonials .site-width #slides { width: 90%; }
 
   .news-post:link, .news-post:visited { width: 45%; margin-left: 5%; }
   
   .gallery-single #mainimage .sidetitle { right: 98%; }
   .gallery-single .gallery-image-main { width: 90% !important; }
+
+  #about #image { width: 49%; }
 }
 
 @media only screen and (max-width: 750px) {
@@ -2550,11 +2602,11 @@ H1.news-title {
     text-align: center;
   }
 
-  #home-testimonials .site-width { padding: 100px 0 60px 0; width: 86.68%; }
+  #testimonials .site-width { padding: 100px 0 60px 0; width: 86.68%; }
 
-  #home-testimonials .site-width #slides { width: 100%; font-size: 20px; line-height: 1.5em; }
+  #testimonials .site-width #slides { width: 100%; font-size: 20px; line-height: 1.5em; }
 
-  #home-testimonials .site-width #slides > DIV { margin: 0 8%; }
+  #testimonials .site-width #slides > DIV { margin: 0 8%; }
   
   #home-blog .site-width { width: 86.68%; }
   #blog-tiles { flex-direction: column; }
@@ -2769,6 +2821,20 @@ H1.news-title {
     transform: rotate(-90deg);
     right: 98%;
   }
+
+  #about .text { width: 100%; margin-left: 0; text-align: left; }
+
+  #about #image {
+    position: relative;
+    width: 88%;
+    height: auto;
+    background-size: cover;
+    margin-bottom: 0;
+  }
+
+  #about #image:before { content: ''; display: block; padding-top: 120.48%; }
+
+  #about #image DIV { font-size: 1.6vw; }
 }
 
 @media only screen and (max-width: 700px) {
@@ -2884,7 +2950,7 @@ H1.news-title {
 
   .home-featured .text .button { font-size: 3.8vw; }
 
-  #home-testimonials .site-width #slides { min-height: 250px; font-size: 18px; }
+  #testimonials .site-width #slides { min-height: 250px; font-size: 18px; }
 
   FOOTER UL { font-size: 4.5vw; }
 

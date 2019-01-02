@@ -749,4 +749,206 @@ function set_custom_edit_gallery_columns($columns) {
 
   return $columns;
 }
+
+
+/////////////////
+// TESTIMONIALS
+/////////////////
+add_action('init', 'testimonials');
+function testimonials() {
+  register_post_type('testimonials', array(
+      'labels' => array(
+        'name' => 'Testimonials',
+        'singular_name' => 'Testimonial',
+        'add_new_item' => 'Add New Testimonial',
+        'edit_item' => 'Edit Testimonial',
+        'search_items' => 'Search Testimonials',
+        'not_found' => 'No Testimonials found'
+      ),
+      'show_ui' => true,
+      'menu_position' => 55,
+      'menu_icon' => 'dashicons-testimonial',
+      'supports' => array('title', 'editor')
+  ));
+}
+
+add_filter('enter_title_here', 'testimonials_title');
+function testimonials_title($input) {
+  if (get_post_type() === 'testimonials') return "Enter person's name here";
+  return $input;
+}
+
+add_filter('wp_insert_post_data', 'testimonials_custom_permalink');
+function testimonials_custom_permalink($data) {
+  if ($data['post_type'] == 'testimonials') {
+    $data['post_name'] = sanitize_title($data['post_title']);
+  }
+  return $data;
+}
+
+// Place fields after the title
+add_action('edit_form_after_title', 'testimonials_after_title');
+function testimonials_after_title($post) {
+  if (get_post_type() == 'testimonials') {
+    echo '<input type="text" name="testimonials_persons_t" placeholder="Enter person\'s title here (optional)" value="';
+    if ($post->testimonials_persons_t != "") echo $post->testimonials_persons_t;
+    echo '" id="testimonials_persons_title">';
+  }
+}
+
+add_action('admin_head', 'testimonials_css');
+function testimonials_css() {
+  if (get_post_type() == 'testimonials') {
+    echo '<style>
+      #testimonials_persons_title { padding: 3px 8px; font-size: 1.7em; line-height: 100%; height: 1.7em; width: 100%; outline: 0; }
+    </style>';
+  }
+}
+
+add_action('save_post', 'testimonials_save');
+function testimonials_save($post_id) {
+  if (get_post_type() != 'testimonials') return;
+  
+  if (!empty($_POST['testimonials_persons_t'])) {
+    update_post_meta($post_id, 'testimonials_persons_t', $_POST['testimonials_persons_t']);
+  } else {
+    delete_post_meta($post_id, 'testimonials_persons_t');
+  }
+}
+
+add_filter('manage_testimonials_posts_columns', 'set_custom_edit_testimonials_columns');
+function set_custom_edit_testimonials_columns($columns) {
+  unset($columns['title']);
+  unset($columns['date']);
+
+  $columns['title'] = "Person's Name";
+  $columns['testimonials_persons_t'] = "Person's Title";
+  $columns['post_excerpt'] = "Testimonial";
+
+  return $columns;
+}
+
+add_action('manage_testimonials_posts_custom_column', 'custom_testimonials_column', 10, 2);
+function custom_testimonials_column($column, $post_id) {
+  switch ($column) {
+    case 'testimonials_persons_t':
+      echo get_post_meta($post_id, 'testimonials_persons_t', true);
+      break;
+    case 'post_excerpt':
+      the_excerpt();
+      break;
+  }
+}
+
+add_filter('manage_edit-testimonials_sortable_columns', 'custom_testimonials_sortable_columns' );
+function custom_testimonials_sortable_columns($column) {
+  unset($column['title']);
+  return $column;
+}
+
+add_action('admin_head', 'admin_css');
+function admin_css() {
+  echo '<style>
+    .post-type-testimonials #post_excerpt { width: 50%; }
+  </style>';
+}
+
+add_shortcode('testimonials','get_testimonials');
+function get_testimonials() {
+  ob_start();
+
+  global $post;
+
+  $testimonials = new WP_Query(array('post_type'=>'testimonials', 'orderby'=>'menu_order', 'order'=> 'ASC', 'showposts' => -1));
+  if ($testimonials->have_posts()) :
+  ?>
+    <div id="testimonials">
+      <div class="site-width">
+        <div class="sidetitle"><h1>Testimonials</h1></div>
+
+        <div id="slides">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/paren-left.svg" alt="" id="pl">
+          <img src="<?php echo get_template_directory_uri(); ?>/images/paren-right.svg" alt="" id="pr">
+          
+          <?php
+          while($testimonials->have_posts()) : $testimonials->the_post();
+            echo '<div>"'.get_the_content().'"<br><br><span>- '.get_the_title();
+              if ($post->testimonials_persons_t != "") echo ',';
+              echo '</span>';
+              if ($post->testimonials_persons_t != "") echo ' '.$post->testimonials_persons_t;
+            echo '</div>';
+          endwhile;
+          ?>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var ParenTime = 1500;
+        var FadeTime = 1000;
+        var DelayTime = 5000;
+        var CrossFade = 500;
+        var TotalTime = (ParenTime*2) + (FadeTime*2) + DelayTime - (CrossFade*2);
+        var slideIndex = 0;
+
+        function SlideShow() {
+          $("#slides DIV").css("display", "none");
+          slideIndex++;
+          if (slideIndex > $("#slides DIV").length) slideIndex = 1;
+
+          $("#pl").animate({ left: "0" }, ParenTime);
+          $("#pr").animate({ left: $('#slides').width() - $('#pr').width() }, ParenTime);
+
+          setTimeout(function() {
+          $('#slides DIV:nth-of-type('+slideIndex+')').css("display", "block")
+            .animate({ opacity: 1 }, FadeTime)
+            .delay(DelayTime)
+            .animate({ opacity: 0 }, FadeTime);
+          }, ParenTime - CrossFade);
+
+          setTimeout(function() {
+            $("#pl").animate({ left: ($('#slides').width()*0.48) - $('#pl').width() }, ParenTime);
+            $("#pr").animate({ left: "52%" }, ParenTime);
+          }, DelayTime + (FadeTime*2));
+
+          setTimeout(SlideShow, TotalTime);
+        }
+
+        SlideShow();
+      });
+    </script>
+  <?php
+  endif;
+
+  wp_reset_query();
+  return ob_get_clean();
+}
+
+
+
+add_shortcode('map','get_map');
+function get_map() {
+  ob_start();
+  ?>
+
+  <div id="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5842.319313033677!2d-87.9992533677441!3d42.93276092758381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880511f28b528109%3A0xbf954d848b9bd3d7!2sWikk+Industries+Inc!5e0!3m2!1sen!2sus!4v1545838851361" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    <div id="map-text">
+      <div>
+        <h1>Wikk Industries, Inc.</h1>
+        6169A Industrial Ct.<br>
+        Greendale, WI 53129<br>
+        <br>
+
+        <h2>Phone: 414-421-9490</h2>
+        <h2>Toll-Free: 877-421-9490</h2>
+      </div>
+    </div>
+  </div>
+
+  <?php
+  return ob_get_clean();
+}
 ?>

@@ -1,6 +1,6 @@
   <div class="site-width prefooter<?php global $FooterTextClass; if (isset($FooterTextClass)) echo " ".$FooterTextClass; ?>">
     <?php global $FooterText; echo (isset($FooterText)) ? $FooterText : "Ready to Request a Proposal?"; ?>
-    <a href="#" class="button">Contact Us</a>
+    <a href="<?php echo home_url(); ?>/contact/" class="button">Contact Us</a>
   </div>
   
   <footer>
@@ -23,11 +23,10 @@
             <li><a href="<?php echo home_url(); ?>/product-category/transmitters-receivers/">Transmitters<br>&amp; Receivers</a></li>
           </ul>
         </li>
-        <li><a href="#">About</a></li>
+        <li><a href="<?php echo home_url(); ?>/about/">About</a></li>
         <li>
           <a href="<?php echo home_url(); ?>/contact/">Contact</a>
           <ul>
-            <li><a href="#">Sales/Service</a></li>
             <li><a href="<?php echo home_url(); ?>/request-for-proposal/">RFP</a></li>
           </ul>
         </li>

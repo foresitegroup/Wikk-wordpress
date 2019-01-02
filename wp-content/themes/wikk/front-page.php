@@ -20,14 +20,14 @@
       <h1>Elevating spaces through accessibility.</h1>
       Since its inception in 1980, Wikk has been a trusted resource to bridge the "accessibility gap" by delivering patented, code compliant solutions with user-friendly designs.  Our products have been used in some of the most iconic buildings in North America.  The Empire State Building, World Trade Center Oculus, Los Angeles Stadium, and The United States Capital to name a few.  We are a family-owned business that strives on a daily basis to continually exceed our customers' increasing expectations.  Let us show you simply. accessible.<br>
 
-      <a href="#" class="button">Learn More About Our Mission</a>
+      <a href="<?php echo home_url(); ?>/about/" class="button">Learn More About Our Mission</a>
     </div>
   </div>
 
   <div class="slide2" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slide2.jpg);">
     <div class="site-width">
       <img src="<?php echo get_template_directory_uri(); ?>/images/slide2-haptikk.png" alt="Haptikk Solutions"><br>
-      <a href="#" class="button">Learn More About Our Innovations</a>
+      <a href="<?php echo home_url(); ?>/news/innovations/" class="button">Learn More About Our Innovations</a>
     </div>
   </div>
 </div>
@@ -55,33 +55,12 @@
       <h3>with SFA Switch</h3>
       A robust bollard for everyday use. Removable Bollard for In-ground mounting,  Flat Recessed area for ADA switch and Card Reader, 1 Prep on the angle top for intercom, Welded Angle top to the front.<br>
 
-      <a href="#" class="button">See All Standard Bollard Options</a>
+      <a href="<?php echo home_url(); ?>/product-category/bollards/" class="button">See All Standard Bollard Options</a>
     </div>
   </div>
 </div>
 
-<div id="home-testimonials">
-  <div class="site-width">
-    <div class="sidetitle"><h1>Testimonials</h1></div>
-
-    <div id="slides">
-      <img src="<?php echo get_template_directory_uri(); ?>/images/paren-left.svg" alt="" id="pl">
-      <img src="<?php echo get_template_directory_uri(); ?>/images/paren-right.svg" alt="" id="pr">
-
-      <div>
-        "Wikk has provided us with a wide bredth of accessibility solutions that has not only helped us become a more inclusive environment, but has provided us with peace of mind as well. They are always there to help."<br>
-        <br>
-        <span>- Jane Jones,</span> Business Manager
-      </div>
-
-      <div>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo."<br>
-        <br>
-        <span>- John Smith,</span> Doctor
-      </div>
-    </div>
-  </div>
-</div>
+<?php echo do_shortcode('[testimonials]'); ?>
 
 <div id="home-blog">
   <div class="site-width">
@@ -133,38 +112,6 @@
       var theta = $(window).scrollTop() / 3000 % Math.PI;
       $('#fic IMG').css({ transform: 'rotate(' + theta + 'rad)' });
     });
-
-    var ParenTime = 1500;
-    var FadeTime = 1000;
-    var DelayTime = 5000;
-    var CrossFade = 500;
-    var TotalTime = (ParenTime*2) + (FadeTime*2) + DelayTime - (CrossFade*2);
-    var slideIndex = 0;
-
-    function SlideShow() {
-      $("#slides DIV").css("display", "none");
-      slideIndex++;
-      if (slideIndex > $("#slides DIV").length) slideIndex = 1;
-
-      $("#pl").animate({ left: "0" }, ParenTime);
-      $("#pr").animate({ left: $('#slides').width() - $('#pr').width() }, ParenTime);
-
-      setTimeout(function() {
-      $('#slides DIV:nth-of-type('+slideIndex+')').css("display", "block")
-        .animate({ opacity: 1 }, FadeTime)
-        .delay(DelayTime)
-        .animate({ opacity: 0 }, FadeTime);
-      }, ParenTime - CrossFade);
-
-      setTimeout(function() {
-        $("#pl").animate({ left: ($('#slides').width()*0.48) - $('#pl').width() }, ParenTime);
-        $("#pr").animate({ left: "52%" }, ParenTime);
-      }, DelayTime + (FadeTime*2));
-
-      setTimeout(SlideShow, TotalTime);
-    }
-
-    SlideShow();
   });
 </script>
 
