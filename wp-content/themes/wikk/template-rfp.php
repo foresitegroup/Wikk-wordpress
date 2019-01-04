@@ -136,7 +136,7 @@ EOD;
 
     <div id="content">
       <div id="content-standard">
-        <h4>Thank you for choosing Wikk.</h4>
+        <h4>Thank you for choosing Wikk<sup class="reg">&reg;</sup>.</h4>
         Please submit your request for proposal below. If you have any questions, or should you wish to submit another way, do not hesitate to call us at <span class="redtext">877-421-9490</span>.
 
         <div class="content-two-col">
@@ -158,7 +158,7 @@ EOD;
                   <input type="radio" name="item<?php echo $i; ?>" value="Bollard" id="item<?php echo $i; ?>-bollards" checked>
                   <label for="item<?php echo $i; ?>-bollards">Bollard</label>
                   <input type="radio" name="item<?php echo $i; ?>" value="INGRESS'R" id="item<?php echo $i; ?>-ingressr">
-                  <label for="item<?php echo $i; ?>-ingressr">INGRESS'R</label>
+                  <label for="item<?php echo $i; ?>-ingressr">INGRESS'R&reg;</label>
                   <input type="radio" name="item<?php echo $i; ?>" value="Switch" id="item<?php echo $i; ?>-switches">
                   <label for="item<?php echo $i; ?>-switches">Switch</label>
                   <input type="radio" name="item<?php echo $i; ?>" value="Transmitter/Receiver" id="item<?php echo $i; ?>-transmitters-receivers">
@@ -218,7 +218,7 @@ EOD;
       </div> <!-- #content-standard -->
 
       <div id="content-bollard">
-        <h4>Thank you for choosing Wikk.</h4>
+        <h4>Thank you for choosing Wikk<sup class="reg">&reg;</sup>.</h4>
         Please submit your request for proposal below. If you have any questions, or should you wish to submit another way, do not hesitate to call us at <span class="redtext">877-421-9490</span>.
 
         <div class="content-two-col">

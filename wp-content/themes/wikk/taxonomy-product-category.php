@@ -4,7 +4,9 @@
   <div id="product-header">
     <?php
     $tax = $wp_query->get_queried_object();
-    echo '<h1>'. $tax->name . '</h1>';
+    echo '<h1>'. $tax->name;
+    if ($tax->slug == "ingressr") echo '<sup class="reg">&reg;</sup>';
+    echo '</h1>';
     ?>
   </div>
 </div>
@@ -146,6 +148,6 @@
 
 <?php
 $FooterTextClass = "prodcat";
-$FooterText = "Not quite what you need? <span>Wikk does fully custom work.</span>";
+$FooterText = "Not quite what you need? <span>Wikk<sup class=\"reg\">&reg;</sup> does fully custom work.</span>";
 get_footer();
 ?>

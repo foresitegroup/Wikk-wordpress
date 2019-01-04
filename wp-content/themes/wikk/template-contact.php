@@ -18,7 +18,7 @@ get_header();
 
 <div class="site-width">
   <div id="content">
-    Have a general question about Wikk and it's various accessibility solutions? Complete the form below. For sales inquiries, consult our list of Sales Reps to find the Wikk representative who services your area.
+    Have a general question about Wikk&reg; and it's various accessibility solutions? Complete the form below. For sales inquiries, consult our list of Sales Reps to find the Wikk&reg; representative who services your area.
 
     <div class="content-two-col">
       <form action="<?php echo get_template_directory_uri(); ?>/form-contact.php" method="POST" id="contact" novalidate>
@@ -68,7 +68,7 @@ get_header();
           </label>
 
           <input type="checkbox" name="sendupdates" value="Send updates" id="send-updates" checked>
-          <label for="send-updates">Send me periodic updates and innovations from Wikk</label>
+          <label for="send-updates">Send me periodic updates and innovations from Wikk&reg;</label>
 
           <br>
           <input type="hidden" id="g-recaptcha-response-c" name="g-recaptcha-response-c">

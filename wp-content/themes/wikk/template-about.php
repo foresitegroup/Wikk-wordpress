@@ -45,7 +45,7 @@ echo do_shortcode('[testimonials]');
 
 echo do_shortcode('[map]');
 
-$FooterText = "Want to say Hi? Come visit Wikk's plant!";
+$FooterText = "Want to say Hi?";
 
 get_footer();
 ?>

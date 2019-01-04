@@ -18,7 +18,7 @@
         <li>
           <a href="<?php echo home_url(); ?>/product-category/bollards/">Bollards</a>
           <ul>
-            <li><a href="<?php echo home_url(); ?>/product-category/ingressr/">INGRESS'R</a></li>
+            <li><a href="<?php echo home_url(); ?>/product-category/ingressr/">INGRESS'R<sup class="reg">&reg;</sup></a></li>
             <li><a href="<?php echo home_url(); ?>/product-category/switches/">Switches</a></li>
             <li><a href="<?php echo home_url(); ?>/product-category/transmitters-receivers/">Transmitters<br>&amp; Receivers</a></li>
           </ul>
