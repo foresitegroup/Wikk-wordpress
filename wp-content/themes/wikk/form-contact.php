@@ -32,7 +32,20 @@ if($Retorno->success){
 
     $Message .= "\nWikk to Respond Via: " . $_POST['respond'];
     $Message .= "\n";
-
+    
+    // Add info to local database
+    $sendupdates = (isset($_POST['sendupdates'])) ? $_POST['sendupdates'] : "";
+    require_once('../../../wp-load.php');
+    global $wpdb;
+    $wpdb->insert('form_submissions',
+      array(
+        'firstname' => $_POST['firstname'], 'lastname' => $_POST['lastname'],
+        'email' => $_POST['email'], 'phone' => $_POST['phone'], 'sendupdates' => $sendupdates,
+        'what_form' => 'Contact', 'date_submitted' => time()
+      )
+    );
+    
+    // Add info to MailChimp
     if (isset($_POST['sendupdates'])) {
       $phone = ($_POST['phone'] != "") ? $_POST['phone'] : "";
       $mcdata = array(

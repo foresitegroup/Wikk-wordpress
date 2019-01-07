@@ -41,7 +41,23 @@ if($Retorno->success){
     $Message .= "\nWikk to Respond Via: " . $_POST['respond'];
     $Message .= "\nCustomer Type: " . $_POST['custtype'];
     $Message .= "\n";
-
+    
+    // Add info to local database
+    $sendupdates = (isset($_POST['sendupdates'])) ? $_POST['sendupdates'] : "";
+    require_once('../../../wp-load.php');
+    global $wpdb;
+    $wpdb->insert('form_submissions',
+      array(
+        'firstname' => $_POST['firstname'], 'lastname' => $_POST['lastname'],
+        'company' => $_POST['company'], 'email' => $_POST['email'], 'phone' => $_POST['phone'],
+        'address' => $_POST['address'], 'address2' => $_POST['suite'],
+        'city' => $_POST['city'], 'state' => $_POST['state'], 'zip' => $_POST['zip'],
+        'country' => $_POST['country'], 'sendupdates' => $sendupdates,
+        'what_form' => 'RFP Bollard', 'date_submitted' => time()
+      )
+    );
+    
+    // Add info to MailChimp
     if (isset($_POST['sendupdates'])) {
       $suite = ($_POST['suite'] != "") ? $_POST['suite'] : "";
       $mcdata = array(
