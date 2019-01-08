@@ -61,7 +61,7 @@
 
     <div id="header-menu">
       <span class="redtext">Service:</span> 877-421-9490
-      <a href="#" class="hm">Pro Area</a><br>
+      <a href="<?php echo home_url(); ?>/pro/" class="hm">Pro Area</a><br>
       <img src="<?php echo get_template_directory_uri(); ?>/images/made-in-the-usa.png" alt="Made in the USA">
     </div>
   </header>

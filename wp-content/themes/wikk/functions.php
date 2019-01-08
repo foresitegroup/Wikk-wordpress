@@ -951,4 +951,36 @@ function get_map() {
   <?php
   return ob_get_clean();
 }
+
+
+/////////////
+// PRO AREA
+/////////////
+add_action('init', 'pro');
+function pro() {
+  register_post_type('pro', array(
+      'labels' => array(
+        'name' => 'Pro Area',
+        'singular_name' => 'Item',
+        'add_new_item' => 'Add New Item',
+        'edit_item' => 'Edit Item',
+        'search_items' => 'Search Items',
+        'not_found' => 'No Items found'
+      ),
+      'show_ui' => true,
+      'menu_position' => 56,
+      'menu_icon' => 'dashicons-download',
+      'supports' => array('title'),
+      'taxonomies' => array('pro-category'),
+      'has_archive' => true,
+      'exclude_from_search' => false,
+      'publicly_queryable' => true,
+      'show_in_nav_menus' => true
+  ));
+}
+
+add_action('init', 'pro_create_taxonomy');
+function pro_create_taxonomy() {
+  register_taxonomy('pro-category', 'pro', array('labels' => array('name' => 'Pro Area Categories', 'singular_name' => 'Pro Area Category'), 'hierarchical' => true));
+}
 ?>
