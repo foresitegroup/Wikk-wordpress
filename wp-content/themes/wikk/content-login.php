@@ -41,16 +41,18 @@ get_header();
             <div>
               <label class="radio">
                 I represent the following:<br>
-                <input type="radio" name="rep" value="Builder" id="rep-builder" checked>
-                <label for="rep-builder">Builder</label>
-                <input type="radio" name="rep" value="Developer" id="rep-developer">
-                <label for="rep-developer">Developer</label>
-                <input type="radio" name="rep" value="Architect" id="rep-architect">
-                <label for="rep-architect">Architect</label>
-                <input type="radio" name="rep" value="Security" id="rep-security">
-                <label for="rep-security">Security</label>
-                <input type="radio" name="rep" value="Student" id="rep-student">
-                <label for="rep-student">Student</label>
+                <input type="radio" name="rep" value="Architect/Spec." id="rep-architect" checked>
+                <label for="rep-architect">Architect/Spec.</label>
+                <input type="radio" name="rep" value="Consultant" id="rep-consultant">
+                <label for="rep-consultant">Consultant</label>
+                <input type="radio" name="rep" value="Distributor" id="rep-distributor">
+                <label for="rep-distributor">Distributor</label>
+                <input type="radio" name="rep" value="End User" id="rep-user">
+                <label for="rep-user">End User</label>
+                <input type="radio" name="rep" value="Installer" id="rep-installer">
+                <label for="rep-installer">Installer</label>
+                <input type="radio" name="rep" value="OEM" id="rep-oem">
+                <label for="rep-oem">OEM</label>
               </label>
 
               <div class="two-col">

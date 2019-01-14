@@ -106,16 +106,18 @@ $CommonFields = <<<EOD
 
 <label class="radio">
   Customer Type:<br>
-  <input type="radio" name="custtype" value="Architect" id="custtype-architect" checked>
-  <label for="custtype-architect">Architect</label>
-  <input type="radio" name="custtype" value="Specifying Engineer" id="custtype-engineer">
-  <label for="custtype-engineer">Specifying Engineer</label>
+  <input type="radio" name="custtype" value="Architect/Spec." id="custtype-architect" checked>
+  <label for="custtype-architect">Architect/Spec.</label>
+  <input type="radio" name="custtype" value="Consultant" id="custtype-consultant">
+  <label for="custtype-consultant">Consultant</label>
   <input type="radio" name="custtype" value="Distributor" id="custtype-distributor">
   <label for="custtype-distributor">Distributor</label>
   <input type="radio" name="custtype" value="End User" id="custtype-user">
   <label for="custtype-user">End User</label>
-  <input type="radio" name="custtype" value="Other" id="custtype-other">
-  <label for="custtype-other">Other</label>
+  <input type="radio" name="custtype" value="Installer" id="custtype-installer">
+  <label for="custtype-installer">Installer</label>
+  <input type="radio" name="custtype" value="OEM" id="custtype-oem">
+  <label for="custtype-oem">OEM</label>
 </label>
 
 <input type="checkbox" name="sendupdates" value="Send updates" id="send-updates" checked>

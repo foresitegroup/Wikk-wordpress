@@ -714,7 +714,16 @@ H1.page-title {
 
 #product-index-sidebar #filter INPUT[type="checkbox"] { display: none; }
 
-#product-index-sidebar #filter INPUT[type="checkbox"] + LABEL { display: block; padding: 1em 0; position: relative; }
+#product-index-sidebar #filter INPUT[type="checkbox"] + LABEL {
+  display: block;
+  padding: 1em 0;
+  position: relative;
+  color: #818285;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1em;
+}
 
 #product-index-sidebar #filter INPUT[type="checkbox"] + LABEL:before {
   content: "\f0c8";
@@ -965,9 +974,9 @@ H1.page-title {
 }
 
 #bigimage IMG {
-  max-height: 100% !important;
+  max-height: 85% !important;
   width: auto !important;
-  max-width: 100% !important;
+  max-width: 85% !important;
   height: auto !important;
 }
 
