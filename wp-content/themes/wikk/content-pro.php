@@ -33,7 +33,7 @@
 
       <h3>Wikk 2019 Pricing Catalog</h3>
 
-      <a href="#" class="button">Download PDF <i class="fas fa-download"></i></a>
+      <a href="http://wikk.foresitegrp.webfactional.com/wp-content/uploads/2019/01/Wikk_Industries_2019_Pricing_Catalog.pdf" class="button">View PDF <i class="far fa-file-pdf"></i></a>
     </div>
   </div> <!-- #content -->
 </div> <!-- .proarea -->

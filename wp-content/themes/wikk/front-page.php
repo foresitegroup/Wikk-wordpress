@@ -32,30 +32,23 @@
   </div> -->
 </div>
 
-<!-- <div id="hero">
+<div id="featured-solution">
   <div class="site-width">
-    <div>
-      <h1>Elevating spaces through accessibility.</h1>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo. Etiam imperdiet risus massa, ut sollicitudin ipsum tristique ut. Morbi dignissim quis arcu a viverra. Sed nec diam at felis luctus iaculis.
-    </div>
-  </div>
-</div> -->
-
-<div class="home-featured">
-  <div class="site-width">
-    <div class="sidetitle"><h1>Featured Solution</h1></div>
+    <div class="sideheader"><h1>Featured Solution</h1></div>
 
     <div class="image">
-      <div id="fic"><img src="<?php echo get_template_directory_uri(); ?>/images/product-background.png" alt=""></div>
-      <img src="<?php echo get_template_directory_uri(); ?>/images/home-featured.png" alt="" id="fi">
+      <img src="<?php echo get_template_directory_uri(); ?>/images/product-background.png" alt="" id="fsbg">
+      <img src="http://wikk.foresitegrp.webfactional.com/wp-content/uploads/2019/01/HDPE-Switches.png" alt="" id="fsi">
     </div>
 
     <div class="text">
-      <h2>The RD-17 Bollard</h2>
-      <h3>with SFA Switch</h3>
-      A robust bollard for everyday use. Removable Bollard for In-ground mounting,  Flat Recessed area for ADA switch and Card Reader, 1 Prep on the angle top for intercom, Welded Angle top to the front.<br>
+      <h2>Problems Solved...</h2>
+      Wikk's new High Density Polyethylene (HDPE) switch eliminates logo degradation, prevents injury associated with stainless steel switches in extreme temperatures, and inhibits growth of mold, mildew & fungus.  The HDPE switch qualifies for LEED® rating points and is 100% Made in the USA.<br>
+      <br>
 
-      <a href="<?php echo home_url(); ?>/product-category/bollards/" class="button">See All Standard Bollard Options</a>
+      Did we mention a 10 year warranty to boot?<br>
+
+      <a href="<?php echo home_url(); ?>/product-category/switches/" class="button">Learn More</a>
     </div>
   </div>
 </div>
@@ -64,7 +57,7 @@
 
 <div id="home-blog">
   <div class="site-width">
-    <div class="sidetitle"><h1>Innovations / News</h1></div>
+    <div class="sideheader"><h1>Innovations / News</h1></div>
 
     <div id="blog-tiles">
       <?php
@@ -112,11 +105,12 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('.home-featured .image').height($('.home-featured .image #fi').height()-45);
+    // $('.home-featured .image').height($('.home-featured .image #fi').height()-45);
 
     $(window).scroll(function() {
       var theta = $(window).scrollTop() / 3000 % Math.PI;
-      $('#fic IMG').css({ transform: 'rotate(' + theta + 'rad)' });
+      // $('#fic IMG').css({ transform: 'rotate(' + theta + 'rad)' });
+      $('#fsbg').css({ transform: 'rotate(' + theta + 'rad)' });
     });
   });
 </script>

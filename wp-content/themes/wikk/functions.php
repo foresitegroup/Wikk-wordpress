@@ -864,7 +864,7 @@ function get_testimonials() {
   ?>
     <div id="testimonials">
       <div class="site-width">
-        <div class="sidetitle"><h1>Testimonials</h1></div>
+        <div class="sideheader"><h1>Testimonials</h1></div>
 
         <div id="slides">
           <img src="<?php echo get_template_directory_uri(); ?>/images/paren-left.svg" alt="" id="pl">
