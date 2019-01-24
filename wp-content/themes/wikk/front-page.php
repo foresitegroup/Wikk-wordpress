@@ -46,7 +46,10 @@
       Wikk's new High Density Polyethylene (HDPE) switch eliminates logo degradation, prevents injury associated with stainless steel switches in extreme temperatures, and inhibits growth of mold, mildew & fungus.  The HDPE switch qualifies for LEED® rating points and is 100% Made in the USA.<br>
       <br>
 
-      Did we mention a 10 year warranty to boot?<br>
+      <em class="purpletext">"Patent Pending"</em><br>
+      <br>
+
+      <h4>Did we mention a 10 year warranty to boot?</h4><br>
 
       <a href="<?php echo home_url(); ?>/product-category/switches/" class="button">Learn More</a>
     </div>
@@ -109,7 +112,6 @@
 
     $(window).scroll(function() {
       var theta = $(window).scrollTop() / 3000 % Math.PI;
-      // $('#fic IMG').css({ transform: 'rotate(' + theta + 'rad)' });
       $('#fsbg').css({ transform: 'rotate(' + theta + 'rad)' });
     });
   });

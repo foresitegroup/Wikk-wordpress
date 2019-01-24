@@ -37,18 +37,6 @@
     $(document).ready(function() {
       $("a[href^='http']").not("[href*='" + window.location.host + "']").prop('target','new');
       $("a[href$='.pdf']").prop('target', 'new');
-
-      function TitleLine() {
-        if ($(window).outerWidth() > 750) {
-          $('.sidetitle').each(function() {
-            $(this).css({ "width": $(this).parent().parent().height()-115 });
-          });
-        }
-      }
-
-      TitleLine();
-
-      $(window).resize(function(){ setTimeout(function() { TitleLine(); },100); });
     });
   </script>
 </head>
@@ -61,6 +49,7 @@
 
     <div id="header-menu">
       <span class="redtext">Service:</span> 877-421-9490
+      <span class="sep"></span>
       <a href="<?php echo home_url(); ?>/pro/" class="hm">Pro Area</a><br>
       <img src="<?php echo get_template_directory_uri(); ?>/images/made-in-the-usa.png" alt="Made in the USA">
     </div>

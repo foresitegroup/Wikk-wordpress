@@ -132,14 +132,14 @@ EOD;
 
   <div class="site-width">
     <input id="tab-standard" type="radio" name="tabs" checked>
-    <label for="tab-standard" class="rfp-tab">Standard RFP</label>
+    <label for="tab-standard" class="rfp-tab">Standard RFQ</label>
     <input id="tab-bollard" type="radio" name="tabs"<?php if ($_SERVER['QUERY_STRING'] == "bollard") echo ' checked'; ?>>
     <label for="tab-bollard" class="rfp-tab">Custom Bollard Request</label>
 
     <div id="content">
       <div id="content-standard">
         <h4>Thank you for choosing Wikk<sup class="reg">&reg;</sup>.</h4>
-        Please submit your request for proposal below. If you have any questions, or should you wish to submit another way, do not hesitate to call us at <span class="redtext">877-421-9490</span>.
+        Please submit your request for quote below. If you have any questions, or should you wish to submit another way, do not hesitate to call us at <span class="redtext">877-421-9490</span>.
 
         <div class="content-two-col">
           <form action="<?php echo get_template_directory_uri(); ?>/form-standard.php" method="POST" id="standard" novalidate>
@@ -211,8 +211,8 @@ EOD;
             Hurst Place, Woldingham Rd.<br>
             Woldingham, Surrey<br>
             United Kingdom. CR3 7AF<br>
-            <h6>Phone: 562-217-7811</h6>
-            <h6>Fax: 562-217-7811</h6>
+            <h6>Phone: +44 (0) 1883 652 652</h6>
+            <h6>Fax: +44 (0) 1883 652 055</h6>
             <h6>Email: <a href="mailto:sales@cfdltd.com">sales@cfdltd.com</a></h6>
             <a href="http://www.cfdltd.com" class="link">www.cfdltd.com</a>
           </div>
@@ -221,7 +221,7 @@ EOD;
 
       <div id="content-bollard">
         <h4>Thank you for choosing Wikk<sup class="reg">&reg;</sup>.</h4>
-        Please submit your request for proposal below. If you have any questions, or should you wish to submit another way, do not hesitate to call us at <span class="redtext">877-421-9490</span>.
+        Please submit your request for quote below. If you have any questions, or should you wish to submit another way, do not hesitate to call us at <span class="redtext">877-421-9490</span>.
 
         <div class="content-two-col">
           <form action="<?php echo get_template_directory_uri(); ?>/form-bollard.php" method="POST" enctype="multipart/form-data" id="bollard" novalidate>
@@ -242,6 +242,14 @@ EOD;
                 <div>
                 <?php } ?>
                 <h5>Item #<?php echo $i; ?>:</h5>
+                <label class="upload">
+                  Upload File<br>
+                  <div>
+                    <button>Select File <i class="fas fa-upload"></i></button>
+                    <input type="file" name="bollard<?php echo $i; ?>_upload">
+                  </div>
+                </label>
+
                 <label>
                   Quantity<br>
                   <input type="number" name="bollard<?php echo $i; ?>_quantity" placeholder="0">
@@ -255,14 +263,6 @@ EOD;
                 <label>
                   Special Instructions<br>
                   <textarea name="bollard<?php echo $i; ?>_instructions" placeholder="List any special instructions"></textarea>
-                </label>
-
-                <label class="upload">
-                  Upload File<br>
-                  <div>
-                    <button>Select File <i class="fas fa-upload"></i></button>
-                    <input type="file" name="bollard<?php echo $i; ?>_upload">
-                  </div>
                 </label><br>
               <?php
               if ($i >= 4) echo "</div>\n";
@@ -292,13 +292,17 @@ EOD;
             Regional Sales Manager
             <h5>317-441-8552</h5><br>
 
+            <h5>Brian Hawthorne</h5>
+            President
+            <h5>877-421-9490</h5><br>
+
             <h4>United Kingdom</h4>
             <h5>Controls for Doors, LLC.</h5>
             Hurst Place, Woldingham Rd.<br>
             Woldingham, Surrey<br>
             United Kingdom. CR3 7AF<br>
-            <h6>Phone: 562-217-7811</h6>
-            <h6>Fax: 562-217-7811</h6>
+            <h6>Phone: +44 (0) 1883 652 652</h6>
+            <h6>Fax: +44 (0) 1883 652 055</h6>
             <h6>Email: <a href="mailto:sales@cfdltd.com">sales@cfdltd.com</a></h6>
             <a href="http://www.cfdltd.com" class="link">www.cfdltd.com</a>
           </div>

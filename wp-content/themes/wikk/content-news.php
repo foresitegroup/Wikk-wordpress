@@ -1,19 +1,19 @@
 <?php $category = get_queried_object(); ?>
 
 <div class="site-width news-index">
-  <div class="sidetitle"><h1><?php echo $category->name; ?></h1></div>
+  <div class="sideheader"><h1><?php echo $category->name; ?></h1></div>
 
   <script type="text/javascript">
     $(document).ready(function() {
-      function TitleLineNews() {
-        $('.sidetitle').each(function() {
-          $('.sidetitle').css({ "width": $('.news-posts').height()-45 });
+      function HeaderLineNews() {
+        $('.sideheader').each(function() {
+          $('.sideheader').css({ "height": $('.news-posts').height()-45 });
         });
       }
 
-      TitleLineNews();
+      HeaderLineNews();
 
-      $(window).resize(function(){ setTimeout(function() { TitleLineNews(); },100); });
+      $(window).resize(function(){ setTimeout(function() { HeaderLineNews(); },100); });
     });
   </script>
   

@@ -35,7 +35,7 @@ if(have_posts()) : while(have_posts()) : the_post();
         if ($post->products_spec_sheet != "") echo '<div><a href="'.$post->products_spec_sheet.'" class="button fa">Print Spec Sheet <i class="fas fa-print"></i></a></div>';
 
         if (has_term(array('bollards', 'ingressr', 'switches'), 'product-category')) {
-          $ContactLink = (has_term('bollards', 'product-category')) ? "/request-for-proposal/?bollard" : "/contact/";
+          $ContactLink = (has_term('bollards', 'product-category')) ? "/request-for-quote/?bollard" : "/request-for-quote/";
         ?>
         <div><a href="<?php echo home_url() . $ContactLink; ?>" class="button contact">Contact Us</a></div>
         <?php } ?>
@@ -45,7 +45,7 @@ if(have_posts()) : while(have_posts()) : the_post();
 
   <div id="product">
     <div id="image">
-      <div class="sidetitle bottom"><h1></h1></div>
+      <div class="sideheader bottom"><h1></h1></div>
 
       <div id="images">
         <div id="bigimage"></div>
@@ -120,9 +120,11 @@ if(have_posts()) : while(have_posts()) : the_post();
   </div> <!-- #product -->
 </div> <!-- .site-width -->
 
+<?php if (has_term(array('bollards', 'ingressr', 'switches'), 'product-category')) { ?>
 <div class="site-width product-contact">
-  Not quite what you need? <span>Wikk does fully custom work.</span> <a href="contact.php" class="button">Contact Us</a>
+  Not quite what you need? <span>Wikk does fully custom work.</span> <a href="<?php echo home_url(); ?>/request-for-quote/" class="button">Contact Us</a>
 </div>
+<?php } ?>
 
 <div class="site-width">
   <?php
@@ -178,7 +180,7 @@ if(have_posts()) : while(have_posts()) : the_post();
       ?>
     </div>
 
-    <div class="sidetitle bottom"><h1></h1></div>
+    <div class="sideheader bottom"><h1></h1></div>
   </div> <!-- .related -->
   <?php } ?>
 </div> <!-- .site-width -->

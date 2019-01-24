@@ -56,7 +56,7 @@ function register_my_menus() {
       'main-menu' => __('Main Menu'),
       // 'footer-buttons' => __('Footer Buttons'),
       // 'social' => __('Footer Social'),
-      // 'footer-menu' => __('Footer Menu')
+      'footer-menu' => __('Footer Menu')
     )
   );
 }
@@ -302,6 +302,8 @@ $products_attributes = array(
   array('name' => 'switch_style', 'value' => 'Rectangular'),
   array('name' => 'switch_style', 'value' => 'Narrow'),
   array('name' => 'switch_style', 'value' => 'Key Switch'),
+  array('name' => 'switch_style', 'value' => 'Combo'),
+  array('name' => 'switch_style', 'value' => 'Touchless'),
   array('name' => 'tranrec_type', 'value' => 'Transmitter'),
   array('name' => 'tranrec_type', 'value' => 'Receiver'),
   array('name' => 'tranrec_frequency', 'value' => '300'),
@@ -887,7 +889,7 @@ function get_testimonials() {
       $(document).ready(function() {
         var ParenTime = 1500;
         var FadeTime = 1000;
-        var DelayTime = 5000;
+        var DelayTime = 10000;
         var CrossFade = 500;
         var TotalTime = (ParenTime*2) + (FadeTime*2) + DelayTime - (CrossFade*2);
         var slideIndex = 0;

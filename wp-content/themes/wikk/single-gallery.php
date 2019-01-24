@@ -64,7 +64,7 @@
 
       <?php
       echo '<div id="mainimage">';
-        echo '<div class="sidetitle bottom"><h1></h1></div>';
+        echo '<div class="sideheader bottom"><h1></h1></div>';
 
         echo '<div class="gallery-images-main">' . "\n";
           while($gallimages->get()) :
@@ -88,15 +88,15 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    function TitleLineGallery() {
-      $('.sidetitle').each(function() {
-        $('#mainimage .sidetitle').css({ "width": $('#mainimage .slick-slide').height()-5 });
+    function HeaderLineGallery() {
+      $('.sideheader').each(function() {
+        $('#mainimage .sideheader').css({ "height": $('#mainimage .slick-slide').height()-5 });
       });
     }
 
-    TitleLineGallery();
+    HeaderLineGallery();
 
-    $(window).resize(function(){ setTimeout(function() { TitleLineGallery(); },100); });
+    $(window).resize(function(){ setTimeout(function() { HeaderLineGallery(); },100); });
 
     function SlideCounter() {
       var il = $('#mainimage .slick-current .gallery-image-main').css("background-image").replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '');
@@ -104,7 +104,7 @@
       
       var slideindex = $('#mainimage .slick-slide.slick-active').data("slick-index");
       var firsttile = slideindex+1;
-      $('#mainimage .sidetitle H1').html('Image '+firsttile+'/'+$('#mainimage .slick-slide').not($('.slick-cloned')).length+ImgLink);
+      $('#mainimage .sideheader H1').html('Image '+firsttile+'/'+$('#mainimage .slick-slide').not($('.slick-cloned')).length+ImgLink);
 
       $('[data-fancybox="gallery"]').fancybox({ infobar: false, buttons: ['close'], loop : true });
     }

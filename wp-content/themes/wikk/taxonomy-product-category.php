@@ -4,10 +4,27 @@
   <div id="product-header">
     <?php
     $tax = $wp_query->get_queried_object();
-    echo '<h1>'. $tax->name;
-    if ($tax->slug == "ingressr") echo '<sup class="reg">&reg;</sup>';
-    echo '</h1>';
-    ?>
+
+    echo "<div>";
+      echo '<h1>'. $tax->name;
+      if ($tax->slug == "ingressr") echo '<sup class="reg">&reg;</sup>';
+      echo '</h1>';
+
+      if ($tax->slug == "bollards") {
+        echo "<h2>Stock Bollards - Ready in 24hrs</h2>";
+        echo '<h3>For complete listing of bollard offerings, see our Price Catalog in the <a href="'.home_url().'/pro/">Pro Area</a></h3>';
+      }
+    echo "</div>";
+
+    if (has_term(array('bollards', 'ingressr', 'switches'), 'product-category')) {
+      $ContactLink = (has_term('bollards', 'product-category')) ? "/request-for-quote/?bollard" : "/request-for-quote/";
+      ?>
+      <div id="contact-button">
+        Not quite what you need?
+        <div>Wikk does fully custom work.</div>
+        <a href="<?php echo home_url() . $ContactLink; ?>" class="button">Contact Us</a>
+      </div>
+    <?php } ?>
   </div>
 </div>
 
@@ -25,7 +42,8 @@
       <label for="toggle-filter">Filters</label>
       
       <div id="filter-search">
-        <form action="<?php echo home_url($wp->request.'/'); ?>" method="POST" name="filter" id="filter">
+        <!-- <form action="<?php //echo home_url($wp->request.'/'); ?>" method="POST" name="filter" id="filter"> -->
+        <form action="<?php echo home_url(); ?>/product-category/<?php echo $tax->slug; ?>/" method="POST" name="filter" id="filter">
           <?php
           if ($tax->slug == "bollards") {
             echo "<h5>Shape</h5>";
@@ -62,20 +80,20 @@
         </form>
       </div>
 
-      <div class="sidetitle"><h1>Filters</h1></div>
+      <div class="sideheader"><h1>Filters</h1></div>
     </div>
 
     <script type="text/javascript">
       $(document).ready(function() {
-        function TitleLineProduct() {
-          $('.sidetitle').each(function() {
-            $('#product-index-sidebar .sidetitle').css({ "width": $('#filter-search').height()+28 });
+        function HeaderLineProduct() {
+          $('.sideheader').each(function() {
+            $('#product-index-sidebar .sideheader').css({ "height": $('#filter-search').height()+28 });
           });
         }
 
-        TitleLineProduct();
+        HeaderLineProduct();
 
-        $(window).resize(function(){ setTimeout(function() { TitleLineProduct(); },100); });
+        $(window).resize(function(){ setTimeout(function() { HeaderLineProduct(); },100); });
       });
     </script>
 
@@ -97,6 +115,7 @@
 
       $modifications = array();
       $modifications['meta_query'][] = $meta_query;
+      $modifications['posts_per_page'] = 12;
 
       $args = array_merge($wp_query->query_vars, $modifications);
       query_posts($args);
@@ -147,7 +166,9 @@
 </div>
 
 <?php
-$FooterTextClass = "prodcat";
-$FooterText = "Not quite what you need? <span>Wikk<sup class=\"reg\">&reg;</sup> does fully custom work.</span>";
+if (has_term(array('bollards', 'ingressr', 'switches'), 'product-category')) {
+  $FooterTextClass = "prodcat";
+  $FooterText = "Not quite what you need? <span>Wikk<sup class=\"reg\">&reg;</sup> does fully custom work.</span>";
+}
 get_footer();
 ?>
