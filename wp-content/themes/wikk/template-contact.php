@@ -98,8 +98,8 @@ get_header();
         Hurst Place, Woldingham Rd.<br>
         Woldingham, Surrey<br>
         United Kingdom. CR3 7AF<br>
-        <h6>Phone: 562-217-7811</h6>
-        <h6>Fax: 562-217-7811</h6>
+        <h6>Phone: +44 (0) 1883 652 652</h6>
+        <h6>Fax: +44 (0) 1883 652 055</h6>
         <h6>Email: <a href="mailto:sales@cfdltd.com">sales@cfdltd.com</a></h6>
         <a href="http://www.cfdltd.com" class="link">www.cfdltd.com</a>
       </div>

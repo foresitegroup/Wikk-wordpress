@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $files = $_SESSION[$_GET['f']];
 
 $zip = new ZipArchive();
@@ -18,4 +19,6 @@ $zip->close();
 header('Content-disposition: attachment; filename='.$_SESSION[$_GET['f'].'_name'].'.zip');
 header('Content-type: application/zip');
 readfile($tmp_file);
+
+unlink($tmp_file);
 ?>

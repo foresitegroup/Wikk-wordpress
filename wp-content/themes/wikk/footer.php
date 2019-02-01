@@ -8,6 +8,24 @@
     <a href="<?php echo home_url() . $ButtonURL; ?>" class="button"><?php echo $ButtonText; ?></a>
   </div>
   
+  <?php global $ShowCBR; if (isset($ShowCBR)) { ?>
+  <div id="cbr-banner">
+    <div class="site-width">
+      <div class="image">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/cbr.png" alt="">
+      </div>
+
+      <div class="text">
+        <h2>Custom Bollard Resources</h2>
+
+        Wikk&reg; Industries stands as an industry pioneer in providing custom bollard solutions to our clients. With almost every aspect of our bollards being customizable, we aim to provide the most personal and effective solution to each of our clients.<br>
+
+        <a href="<?php home_url(); ?>/custom-bollard-resources/" class="button">View Resources</a>
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+  
   <footer>
     <div class="site-width">
       <img src="<?php echo get_template_directory_uri(); ?>/images/footer-logo.svg" alt="" id="footer-logo">

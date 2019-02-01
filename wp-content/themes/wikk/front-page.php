@@ -18,7 +18,10 @@
   <div class="slide1" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slide1.jpg);">
     <div class="site-width">
       <h1>Elevating spaces through accessibility.</h1>
-      Since its inception in 1980, Wikk&reg; has been a trusted resource to bridge the "accessibility gap" by delivering patented, code compliant solutions with user-friendly designs.  Our products have been used in some of the most iconic buildings in North America.  The Empire State Building, World Trade Center Oculus, Los Angeles Stadium, and The United States Capital to name a few.  We are a family-owned business that strives on a daily basis to continually exceed our customers' increasing expectations.  Let us show you simply. accessible.<br>
+      Since its founding in 1980, Wikk&reg; has been a trusted resource to bridge the "accessibility gap" by delivering patented, code compliant solutions with user-friendly designs.  Our products are being used in some of the most iconic buildings in North America, including the Empire State Building, World Trade Center Oculus, Los Angeles Stadium, and the United States Capitol to name a few.  We are a family-owned business that strives on a daily basis to continually exceed our customers' increasing expectations.<br>
+      <br>
+
+      Let us show you <strong class="redtext">simply. accessible.</strong><br>
 
       <a href="<?php echo home_url(); ?>/about/" class="button">Learn More About Our Mission</a>
     </div>
@@ -37,21 +40,37 @@
     <div class="sideheader"><h1>Featured Solution</h1></div>
 
     <div class="image">
-      <img src="<?php echo get_template_directory_uri(); ?>/images/product-background.png" alt="" id="fsbg">
+      <div id="fsbg"></div>
       <img src="http://wikk.foresitegrp.webfactional.com/wp-content/uploads/2019/01/HDPE-Switches.png" alt="" id="fsi">
     </div>
 
     <div class="text">
       <h2>Problems Solved...</h2>
-      Wikk's new High Density Polyethylene (HDPE) switch eliminates logo degradation, prevents injury associated with stainless steel switches in extreme temperatures, and inhibits growth of mold, mildew & fungus.  The HDPE switch qualifies for LEED® rating points and is 100% Made in the USA.<br>
+      Wikk's new High Density Polyethylene (HDPE) switch eliminates logo degradation, prevents injury associated with stainless steel switches in extreme temperatures, and inhibits growth of mold, mildew and fungus.  The HDPE switch qualifies for LEED&reg; rating points and is made in the USA.<br>
       <br>
 
-      <em class="purpletext">"Patent Pending"</em><br>
+      <em class="purpletext">Patent Pending</em><br>
       <br>
 
-      <h4>Did we mention a 10 year warranty to boot?</h4><br>
+      <h4>Did we mention this switch has a 10 year warranty to boot?</h4><br>
 
-      <a href="<?php echo home_url(); ?>/product-category/switches/" class="button">Learn More</a>
+      <a href="<?php home_url(); ?>/product-category/switches/" class="button">Learn More</a>
+    </div>
+  </div>
+</div>
+
+<div id="cbr-banner">
+  <div class="site-width">
+    <div class="image">
+      <img src="<?php echo get_template_directory_uri(); ?>/images/cbr.png" alt="">
+    </div>
+
+    <div class="text">
+      <h2>Custom Bollard Resources</h2>
+
+      Wikk&reg; Industries stands as an industry pioneer in providing custom bollard solutions to our clients. With almost every aspect of our bollards being customizable, we aim to provide the most personal and effective solution to each of our clients.<br>
+
+      <a href="<?php home_url(); ?>/custom-bollard-resources/" class="button">View Resources</a>
     </div>
   </div>
 </div>
@@ -105,16 +124,5 @@
 <div id="home-blog-more">
   <a href="<?php echo home_url(); ?>/news/innovations/" class="button">See All Innovations &amp; News</a>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    // $('.home-featured .image').height($('.home-featured .image #fi').height()-45);
-
-    $(window).scroll(function() {
-      var theta = $(window).scrollTop() / 3000 % Math.PI;
-      $('#fsbg').css({ transform: 'rotate(' + theta + 'rad)' });
-    });
-  });
-</script>
 
 <?php get_footer(); ?>

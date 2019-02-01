@@ -39,20 +39,20 @@ $(document).ready(function() {
     SlideCounter();
   });
 
-  function HeaderLineProduct() {
-    $('.sideheader').each(function() {
-      $('#image .sideheader').css({ "height": $('#images').height() });
-    });
-  }
+  // function HeaderLineProduct() {
+  //   // $('.sideheader').each(function() {
+  //   //   $('#image .sideheader').css({ "height": $('#images').height() });
+  //   // });
+  // }
 
-  HeaderLineProduct();
+  // HeaderLineProduct();
 
-  $(window).resize(function(){ setTimeout(function() { HeaderLineProduct(); },100); });
+  // $(window).resize(function(){ setTimeout(function() { HeaderLineProduct(); },100); });
 
   function SetActive(target) {
     $('#caption').html($(target).html());
 
-    $('#bigimage').height($('#tabs').height()-$('#imagethumbs').height()-$('#caption').outerHeight());
+    // $('#bigimage').height($('#tabs').height()-$('#imagethumbs').height()-$('#caption').outerHeight());
 
     // Get the active thumbnail background and set it as the main image
     var bg = $(target).css("background-image");

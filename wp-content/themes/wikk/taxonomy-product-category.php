@@ -170,5 +170,8 @@ if (has_term(array('bollards', 'ingressr', 'switches'), 'product-category')) {
   $FooterTextClass = "prodcat";
   $FooterText = "Not quite what you need? <span>Wikk<sup class=\"reg\">&reg;</sup> does fully custom work.</span>";
 }
+
+if (has_term(array('bollards'), 'product-category')) $ShowCBR = "yes";
+
 get_footer();
 ?>

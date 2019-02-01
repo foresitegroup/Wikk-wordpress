@@ -45,24 +45,28 @@ if(have_posts()) : while(have_posts()) : the_post();
 
   <div id="product">
     <div id="image">
-      <div class="sideheader bottom"><h1></h1></div>
-
-      <div id="images">
-        <div id="bigimage"></div>
-
-        <div id="imagethumbs">
-          <?php
-          $images = new Attachments('products_gallery');
-          if($images->exist()) :
-            while($images->get()) :
-              echo '<div style="background-image: url('.$images->src('full').');">';
-                echo $images->field('caption');
-              echo "</div>\n";
-            endwhile;
-          endif;
-          ?>
-        </div>
-      </div>
+      <table id="images">
+        <tr>
+          <td rowspan="2" id="sh">
+            <div class="sideheader bottom"><h1></h1></div>
+          </td>
+          <td id="bigimage"></td>
+        </tr>
+        <tr>
+          <td id="imagethumbs">
+            <?php
+            $images = new Attachments('products_gallery');
+            if($images->exist()) :
+              while($images->get()) :
+                echo '<div style="background-image: url('.$images->src('full').');">';
+                  echo $images->field('caption');
+                echo "</div>\n";
+              endwhile;
+            endif;
+            ?>
+          </td>
+        </tr>
+      </table>
 
       <div id="caption"></div>
     </div>
