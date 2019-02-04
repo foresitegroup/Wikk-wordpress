@@ -2864,7 +2864,7 @@ H2.cbr-h2 {
 
 @media only screen and (max-width: 750px) {
   .hero .slide1 { background-size: auto 93%; }
-  .hero .slide1 .site-width { width: 96%; padding: 0 13%; font-size: 2.666vw; }
+  .hero .slide1 .site-width { width: 96%; padding: 0 13%; font-size: 2.4vw; }
   .hero .slide1 .site-width H1 { font-size: 200%; }
   .hero .slide1 .site-width A.button { font-size: 125%; }
 
@@ -2896,6 +2896,8 @@ H2.cbr-h2 {
   #featured-solution .site-width { flex-direction: column; width: 86.68%; }
   
   #featured-solution .image { width: 100%; margin: 0; padding: 30px 0 40px; }
+
+  #featured-solution .image:before { content: ""; display: block; padding-top: 100%; }
 
   #featured-solution .text { width: 100%; font-size: 20px; line-height: 1.6em; }
 
@@ -3232,6 +3234,8 @@ H2.cbr-h2 {
   .hero .slick-slide > DIV > DIV,
   #hero .site-width { height: 500px; }
 
+  .hero .slide1 .site-width { padding: 0 7%; font-size: 2.5vw; }
+
   .hero .slide2 .site-width { width: 60%; top: 45%; }
   .hero .slide2 .site-width A.button { font-size: 2.5vw; }
 
@@ -3266,7 +3270,7 @@ H2.cbr-h2 {
 @media only screen and (max-width: 480px) {
   /* Phone */
   .hero .slide1 { background-size: auto 70%; }
-  .hero .slide1 .site-width { padding: 0 10%; font-size: 3.3vw; }
+  .hero .slide1 .site-width { padding: 0; font-size: 3vw; }
   .hero .slide1 .site-width A.button { font-size: 110%; }
 
   .hero .slide2 .site-width { width: 75%; }
