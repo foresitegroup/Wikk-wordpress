@@ -74,7 +74,7 @@ $(document).ready(function() {
 
       // Copy thumbnail caption to Fancybox caption
       if ($('#imagethumbs > DIV:nth-of-type('+i+')').html() != '') {
-        var str = $('#imagethumbs > DIV:nth-of-type('+i+')').html().replace(/(['])/g, "\\$1");
+        var str = $('#imagethumbs > DIV:nth-of-type('+i+')').html().replace(/\'/g,'&apos;');
         ImgLinks += " data-caption='"+str+"'";
       }
 

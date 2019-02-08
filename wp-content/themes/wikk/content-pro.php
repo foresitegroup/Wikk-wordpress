@@ -1,13 +1,5 @@
 <?php get_header(); ?>
 
-<?php if (isset($_COOKIE["WIpa"])) { ?>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#menu-main-menu, FOOTER').addClass('hide');
-  });
-</script>
-<?php } ?>
-
 <div class="site-width proarea">
   <h1 class="news-title">Pro Area</h1>
 

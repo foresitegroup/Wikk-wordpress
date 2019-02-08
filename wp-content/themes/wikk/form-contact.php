@@ -18,11 +18,11 @@ if($Retorno->success){
      )
   {
     $Subject = $_POST['subject'];
-    // $SendTo = "sales@wikk.com";
-    $SendTo = "lippert@gmail.com";
+    $SendTo = "sales@wikk.com";
+    // $SendTo = "lippert@gmail.com";
     $Headers = "From: Contact Form <donotreply@wikk.com>\r\n";
     $Headers .= "Reply-To: " . $_POST['email'] . "\r\n";
-    // $Headers .= "Bcc: mark@foresitegrp.com\r\n";
+    $Headers .= "Bcc: mark@foresitegrp.com\r\n";
 
     $Message = $_POST['firstname'] . " " . $_POST['lastname'] . "\n";
     $Message .= $_POST['email'] . "\n";
@@ -93,11 +93,9 @@ if($Retorno->success){
 
     $Message = stripslashes($Message);
 
-    // mail($SendTo, $Subject, $Message, $Headers);
+    mail($SendTo, $Subject, $Message, $Headers);
 
     $feedback = "Thank you for your inquiry. You will be contacted soon.";
-    $feedback .= "<br>";
-    $feedback .= "<pre>".$Message."</pre>";
   } else {
     $feedback = "Some required information is missing! Please go back and make sure all required fields are filled.";
   }

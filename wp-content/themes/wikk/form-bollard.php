@@ -21,11 +21,11 @@ if($Retorno->success){
      )
   {
     $Subject = "Custom Bollard RFP";
-    // $SendTo = "engineering@wikk.com, customerservice@wikk.com";
-    $SendTo = "lippert@gmail.com";
+    $SendTo = "engineering@wikk.com, customerservice@wikk.com";
+    // $SendTo = "lippert@gmail.com";
     $Headers = "From: Custom Bollard RFP Form <donotreply@wikk.com>\r\n";
     $Headers .= "Reply-To: " . $_POST['email'] . "\r\n";
-    // $Headers .= "Bcc: mark@foresitegrp.com\r\n";
+    $Headers .= "Bcc: mark@foresitegrp.com\r\n";
 
     $Message = $_POST['firstname'] . " " . $_POST['lastname'] . "\n";
     $Message .= $_POST['company'] . "\n";
@@ -152,11 +152,9 @@ if($Retorno->success){
 
     $Message = stripslashes($Message);
 
-    // mail($SendTo, $Subject, $Message, $Headers);
+    mail($SendTo, $Subject, $Message, $Headers);
 
     $feedback = "Thank you for your request. You will be contacted soon.";
-    $feedback .= "<br>";
-    $feedback .= "<pre>".$Message."</pre>";
 
     if ($InvalidFile != "") $feedback .= "<br>" . $InvalidFile;
     if ($TooBig != "") $feedback .= "<br>" . $TooBig;

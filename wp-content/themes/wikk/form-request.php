@@ -21,11 +21,11 @@ if($Retorno->success){
      )
   {
     $Subject = "Pro Area";
-    // $SendTo = "engineering@wikk.com, customerservice@wikk.com";
-    $SendTo = "lippert@gmail.com";
+    $SendTo = "engineering@wikk.com, customerservice@wikk.com";
+    // $SendTo = "lippert@gmail.com";
     $Headers = "From: Pro Area Form <donotreply@wikk.com>\r\n";
     $Headers .= "Reply-To: " . $_POST['email'] . "\r\n";
-    // $Headers .= "Bcc: mark@foresitegrp.com\r\n";
+    $Headers .= "Bcc: mark@foresitegrp.com\r\n";
     
     $Message = "I represent the following: " . $_POST['rep'];
     $Message .= $_POST['firstname'] . " " . $_POST['lastname'] . "\n";
@@ -116,11 +116,9 @@ if($Retorno->success){
 
     $Message = stripslashes($Message);
 
-    // mail($SendTo, $Subject, $Message, $Headers);
+    mail($SendTo, $Subject, $Message, $Headers);
 
     $feedback = "<h4>Thank You!</h4> Your request has been approved.<br><br>Your password is: <span class=\"redtext\">Wikk2019</span>";
-    // $feedback .= "<br>";
-    // $feedback .= "<pre>".$Message."</pre>";
   } else {
     $feedback = "Some required information is missing! Please go back and make sure all required fields are filled.";
   }

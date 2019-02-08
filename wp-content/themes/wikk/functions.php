@@ -286,11 +286,11 @@ $products_attributes = array(
   array('name' => 'bollard_shape', 'value' => 'Square'),
   array('name' => 'bollard_material', 'value' => 'Aluminum'),
   array('name' => 'bollard_material', 'value' => 'Stainless Steel'),
-  array('name' => 'bollard_finish', 'value' => 'Clear Anodized'),
-  array('name' => 'bollard_finish', 'value' => 'Black Anodized'),
-  array('name' => 'bollard_finish', 'value' => 'Dark Bronze Anodized'),
+  array('name' => 'bollard_finish', 'value' => 'Clear Anodized (628)'),
+  array('name' => 'bollard_finish', 'value' => 'Black Anodized (711)'),
+  array('name' => 'bollard_finish', 'value' => 'Dark Bronze Anodized (710)'),
   array('name' => 'bollard_finish', 'value' => 'Light Bronze Anodized'),
-  array('name' => 'bollard_finish', 'value' => 'Satin'),
+  array('name' => 'bollard_finish', 'value' => 'Satin Stainless Steel (630)'),
   array('name' => 'ingressr_material', 'value' => 'Aluminum'),
   array('name' => 'ingressr_material', 'value' => 'Stainless Steel'),
   array('name' => 'ingressr_product_group', 'value' => 'I09'),
@@ -299,8 +299,8 @@ $products_attributes = array(
   array('name' => 'ingressr_product_group', 'value' => 'I36 NAR'),
   array('name' => 'switch_style', 'value' => 'Round'),
   array('name' => 'switch_style', 'value' => 'Square'),
-  array('name' => 'switch_style', 'value' => 'Rectangular'),
-  array('name' => 'switch_style', 'value' => 'Narrow'),
+  array('name' => 'switch_style', 'value' => 'Rectangular (SFA)'),
+  array('name' => 'switch_style', 'value' => 'Narrow (AA)'),
   array('name' => 'switch_style', 'value' => 'Key Switch'),
   array('name' => 'switch_style', 'value' => 'Combo'),
   array('name' => 'switch_style', 'value' => 'Touchless'),
@@ -673,7 +673,7 @@ add_action('wp_ajax_nopriv_get_products_by_ajax', 'get_products_by_ajax_callback
 function get_products_by_ajax_callback() {
   echo '<option value="">Select...</option>';
 
-  $prodcats = new WP_Query(array('post_type' => 'products', 'tax_query' => array(array('taxonomy' => 'product-category', 'field' => 'slug', 'terms' => $_POST['prodcat']))));
+  $prodcats = new WP_Query(array('post_type' => 'products', 'posts_per_page' => -1, 'tax_query' => array(array('taxonomy' => 'product-category', 'field' => 'slug', 'terms' => $_POST['prodcat']))));
 
   if ($prodcats->have_posts()) {
     while ($prodcats->have_posts()) {
@@ -969,7 +969,7 @@ function pro() {
         'search_items' => 'Search Items',
         'not_found' => 'No Items found'
       ),
-      'show_ui' => true,
+      'show_ui' => false,
       'menu_position' => 56,
       'menu_icon' => 'dashicons-download',
       'supports' => array('title'),

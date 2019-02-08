@@ -848,9 +848,10 @@ H1.page-title {
   letter-spacing: 0.1em;
 }
 
-#product-index-links > A .text H2 { font-size: 275%; }
+#product-index-links > A .text H2 { font-size: 250%; }
 #product-index-links > A .text H3 { font-size: 109.09%; }
 #product-index-links > A .text H4 {
+  font-size: 150%;
   margin: 0.4em 0 1.5em;
   color: #8F7BB5;
 }
