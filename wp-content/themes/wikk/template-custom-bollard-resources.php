@@ -23,51 +23,59 @@ get_header();
   $square = array('name' => 'Square Bollards', 'slug' => 'square',
     'files' => array(
       'Square Bollard Checklist' =>
-      content_url().'/uploads/2019/01/Square_Bollard_Checklist.pdf',
+      content_url().'/uploads/2019/02/Square_Bollard_Checklist.pdf',
       'Square Bollard Examples' =>
-      content_url().'/uploads/2019/01/Square_Bollard_Examples.pdf',
+      content_url().'/uploads/2019/02/Square_Bollard_Examples.pdf',
       'High Low Switch Examples' =>
-      content_url().'/uploads/2019/01/High_Low_Switch_Examples.pdf'
+      content_url().'/uploads/2019/02/High_Low_Switch_Examples.pdf',
+      'Square Bollard Custom Samples' =>
+      content_url().'/uploads/2019/02/Square_Bollard_Custom_Samples.pdf'
     )
   );
 
   $round = array('name' => 'Round Bollards', 'slug' => 'round',
     'files' => array(
       'Round Bollard Checklist' =>
-      content_url().'/uploads/2019/01/Round_Bollard_Checklist.pdf',
+      content_url().'/uploads/2019/02/Round_Bollard_Checklist.pdf',
       'Round Bollard Examples' =>
-      content_url().'/uploads/2019/01/Round_Bollard_Examples.pdf',
+      content_url().'/uploads/2019/02/Round_Bollard_Examples.pdf',
       'High Low Switch Examples' =>
-      content_url().'/uploads/2019/01/High_Low_Switch_Examples.pdf'
+      content_url().'/uploads/2019/02/High_Low_Switch_Examples.pdf',
+      'Round Bollard Custom Samples' =>
+      content_url().'/uploads/2019/02/Round_Bollard_Custom_Samples.pdf'
     )
   );
 
   $rectangular = array('name' => 'Rectangular Bollards', 'slug' => 'rectangular',
     'files' => array(
       'Rectangular Bollard Checklist' =>
-      content_url().'/uploads/2019/01/Rectangular_Bollard_Checklist.pdf',
+      content_url().'/uploads/2019/02/Rectangular_Bollard_Checklist.pdf',
       'Rectangular Bollard Examples' =>
-      content_url().'/uploads/2019/01/Rectangular_Bollard_Examples.pdf',
+      content_url().'/uploads/2019/02/Rectangular_Bollard_Examples.pdf',
       'High Low Switch Examples' =>
-      content_url().'/uploads/2019/01/High_Low_Switch_Examples.pdf'
+      content_url().'/uploads/2019/02/High_Low_Switch_Examples.pdf',
+      'Triangular and Rectangular Bollard Custom Samples' =>
+      content_url().'/uploads/2019/02/Triangular_and_Rectangular_Bollard_Custom_Samples.pdf'
     )
   );
 
   $triangular = array('name' => 'Triangular Bollards', 'slug' => 'triangular',
     'files' => array(
       'Triangular Bollard Checklist' =>
-      content_url().'/uploads/2019/01/Triangular_Bollard_Checklist.pdf'
+      content_url().'/uploads/2019/02/Triangular_Bollard_Checklist.pdf',
+      'Triangular and Rectangular Bollard Custom Samples' =>
+      content_url().'/uploads/2019/02/Triangular_and_Rectangular_Bollard_Custom_Samples.pdf'
     )
   );
 
   $colors = array('name' => 'Special Colors & Finishes', 'slug' => 'colors',
     'files' => array(
       'Powdercoating for Exterior and Interior' =>
-      content_url().'/uploads/2019/01/Powdercoating_for_Exterior_and_Interior.pdf',
+      content_url().'/uploads/2019/02/Powdercoating_for_Exterior_and_Interior.pdf',
       'Super Durable Powdercoating Colors' =>
-      content_url().'/uploads/2019/01/Super_Durable_Powdercoating_Colors.pdf',
+      content_url().'/uploads/2019/02/Super_Durable_Powdercoating_Colors.pdf',
       'Anodized Finish' =>
-      content_url().'/uploads/2019/01/Anodized_Finish.pdf'
+      content_url().'/uploads/2019/02/Anodized_Finish.pdf'
     )
   );
 

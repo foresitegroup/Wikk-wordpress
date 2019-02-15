@@ -1,17 +1,5 @@
 <?php
-include_once "inc/fintoozler.php";
-
-class Captcha{
-  public function getCaptcha($SecretKey){
-    $Resposta=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".RECAPTCHA_SECRET_KEY."&response={$SecretKey}");
-    $Retorno=json_decode($Resposta);
-    return $Retorno;
-  }
-}
-
-$ObjCaptcha = new Captcha();
-$Retorno = $ObjCaptcha->getCaptcha($_POST['g-recaptcha-response-p']);
-if($Retorno->success){
+if ($_POST['fintoozler'] == "") {
   if (
       $_POST['firstname'] != "" && $_POST['lastname'] != "" &&
       $_POST['company'] != "" && $_POST['email'] != "" &&
@@ -22,12 +10,12 @@ if($Retorno->success){
   {
     $Subject = "Pro Area";
     $SendTo = "engineering@wikk.com, customerservice@wikk.com";
-    // $SendTo = "lippert@gmail.com";
+    // $SendTo = "mark@foresitegrp.com";
     $Headers = "From: Pro Area Form <donotreply@wikk.com>\r\n";
     $Headers .= "Reply-To: " . $_POST['email'] . "\r\n";
     $Headers .= "Bcc: mark@foresitegrp.com\r\n";
     
-    $Message = "I represent the following: " . $_POST['rep'];
+    $Message = "I represent the following: " . $_POST['rep'] . "\n";
     $Message .= $_POST['firstname'] . " " . $_POST['lastname'] . "\n";
     $Message .= $_POST['company'] . "\n";
     $Message .= $_POST['email'] . "\n";

@@ -121,7 +121,8 @@ get_header();
               <input type="checkbox" name="sendupdates" value="Send updates" id="send-updates" checked>
               <label for="send-updates">Send me periodic updates and innovations from Wikk</label>
 
-              <input type="hidden" id="g-recaptcha-response-p" name="g-recaptcha-response-p">
+              <input type="text" name="fintoozler" autocomplete="off" style="position: absolute; width: 0; height: 0; padding: 0; opacity: 0;">
+
               <input type="submit" name="submit" value="Submit">
             </div>
           </form>
@@ -144,15 +145,6 @@ get_header();
     </div> <!-- #request -->
   </div> <!-- .login -->
 </div> <!-- .proarea -->
-
-<script src="https://www.google.com/recaptcha/api.js?render=<?php echo RECAPTCHA_SITE_KEY; ?>"></script>
-<script>
-  grecaptcha.ready(function() {
-    grecaptcha.execute('<?php echo RECAPTCHA_SITE_KEY; ?>', {action: 'proarea_form'}).then(function(token) {
-      document.getElementById('g-recaptcha-response-p').value=token;
-    });
-  });
-</script>
 
 <div id="alert-modal" class="modal proarea"><div></div></div>
 

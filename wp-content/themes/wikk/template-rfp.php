@@ -183,37 +183,42 @@ EOD;
               }
               ?>
 
+              <input type="text" name="fintoozler" autocomplete="off" style="position: absolute; width: 0; height: 0; padding: 0; opacity: 0;">
+
               <br>
-              <input type="hidden" id="g-recaptcha-response-s" name="g-recaptcha-response-s">
               <input type="submit" name="submit" value="Submit">
             </div>
           </form>
 
           <div class="rfp-sidebar">
+            <h3>Customer Service</h3>
+            <h5>877-421-9490</h5>
+            <h6><a href="mailto:customerservice@wikk.com">customerservice@wikk.com</a></h6>
+            <br>
+            <br>
+
             <h3>Sales Reps</h3>
 
             <h4>USA - West of the Mississippi + Canada</h4>
             <h5>Kyle Holloway</h5>
             Director of Sales
-            <h5>562-217-7811</h5><br>
+            <h5>562-217-7811</h5>
+            <h6><a href="mailto:kyle@wikk.com">kyle@wikk.com</a></h6><br>
 
             <h4>USA - East of the Mississippi</h4>
             <h5>Katie Gainey</h5>
             Regional Sales Manager
-            <h5>317-441-8552</h5><br>
+            <h5>317-441-8552</h5>
+            <h6><a href="mailto:katie@wikk.com">katie@wikk.com</a></h6><br>
 
             <h5>Brian Hawthorne</h5>
             President
             <h5>877-421-9490</h5><br>
 
-            <h4>United Kingdom</h4>
+            <h4>INTERNATIONAL - United Kingdom</h4>
             <h5>Controls for Doors, LLC.</h5>
-            Hurst Place, Woldingham Rd.<br>
-            Woldingham, Surrey<br>
-            United Kingdom. CR3 7AF<br>
-            <h6>Phone: +44 (0) 1883 652 652</h6>
-            <h6>Fax: +44 (0) 1883 652 055</h6>
-            <h6>Email: <a href="mailto:sales@cfdltd.com">sales@cfdltd.com</a></h6>
+            Surrey, United Kingdom<br>
+            <h6><a href="mailto:sales@cfdltd.com">sales@cfdltd.com</a></h6>
             <a href="http://www.cfdltd.com" class="link">www.cfdltd.com</a>
           </div>
         </div>
@@ -273,37 +278,42 @@ EOD;
               <input type="hidden" name="upload_dir" value="<?php echo $upload_dir['basedir']; ?>/rfp/">
               <input type="hidden" name="upload_url" value="<?php echo $upload_dir['baseurl']; ?>/rfp/">
 
+              <input type="text" name="fintoozler" autocomplete="off" style="position: absolute; width: 0; height: 0; padding: 0; opacity: 0;">
+
               <br>
-              <input type="hidden" id="g-recaptcha-response-b" name="g-recaptcha-response-b">
               <input type="submit" name="submit" value="Submit">
             </div>
           </form>
 
           <div class="rfp-sidebar">
+            <h3>Customer Service</h3>
+            <h5>877-421-9490</h5>
+            <h6><a href="mailto:customerservice@wikk.com">customerservice@wikk.com</a></h6>
+            <br>
+            <br>
+
             <h3>Sales Reps</h3>
 
             <h4>USA - West of the Mississippi + Canada</h4>
             <h5>Kyle Holloway</h5>
             Director of Sales
-            <h5>562-217-7811</h5><br>
+            <h5>562-217-7811</h5>
+            <h6><a href="mailto:kyle@wikk.com">kyle@wikk.com</a></h6><br>
 
             <h4>USA - East of the Mississippi</h4>
             <h5>Katie Gainey</h5>
             Regional Sales Manager
-            <h5>317-441-8552</h5><br>
+            <h5>317-441-8552</h5>
+            <h6><a href="mailto:katie@wikk.com">katie@wikk.com</a></h6><br>
 
             <h5>Brian Hawthorne</h5>
             President
             <h5>877-421-9490</h5><br>
 
-            <h4>United Kingdom</h4>
+            <h4>INTERNATIONAL - United Kingdom</h4>
             <h5>Controls for Doors, LLC.</h5>
-            Hurst Place, Woldingham Rd.<br>
-            Woldingham, Surrey<br>
-            United Kingdom. CR3 7AF<br>
-            <h6>Phone: +44 (0) 1883 652 652</h6>
-            <h6>Fax: +44 (0) 1883 652 055</h6>
-            <h6>Email: <a href="mailto:sales@cfdltd.com">sales@cfdltd.com</a></h6>
+            Surrey, United Kingdom<br>
+            <h6><a href="mailto:sales@cfdltd.com">sales@cfdltd.com</a></h6>
             <a href="http://www.cfdltd.com" class="link">www.cfdltd.com</a>
           </div>
         </div>
@@ -313,16 +323,6 @@ EOD;
 </div> <!-- #rfp-tabs -->
 
 <div id="alert-modal" class="modal"><div></div></div>
-
-<script src="https://www.google.com/recaptcha/api.js?render=<?php echo RECAPTCHA_SITE_KEY; ?>"></script>
-<script>
-  grecaptcha.ready(function() {
-    grecaptcha.execute('<?php echo RECAPTCHA_SITE_KEY; ?>', {action: 'rfp_forms'}).then(function(token) {
-      document.getElementById('g-recaptcha-response-s').value=token;
-      document.getElementById('g-recaptcha-response-b').value=token;
-    });
-  });
-</script>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/jquery-ui.min.css">
 <script src="<?php echo get_template_directory_uri(); ?>/inc/jquery-ui.min.js"></script>

@@ -1,17 +1,5 @@
 <?php
-include_once "inc/fintoozler.php";
-
-class Captcha{
-  public function getCaptcha($SecretKey){
-    $Resposta=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".RECAPTCHA_SECRET_KEY."&response={$SecretKey}");
-    $Retorno=json_decode($Resposta);
-    return $Retorno;
-  }
-}
-
-$ObjCaptcha = new Captcha();
-$Retorno = $ObjCaptcha->getCaptcha($_POST['g-recaptcha-response-c']);
-if($Retorno->success){
+if ($_POST['fintoozler'] == "") {
   if (
       $_POST['firstname'] != "" && $_POST['lastname'] != "" &&
       $_POST['email'] != "" && $_POST['subject'] != "" && $_POST['message'] != ""
