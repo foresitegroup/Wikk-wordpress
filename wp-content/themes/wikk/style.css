@@ -1702,9 +1702,37 @@ H1.news-title {
   line-height: 1.8em;
 }
 
+#news-single-text H1, #news-single-text H2 {
+  margin: 0 0 0.7em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.4em;
+}
+
+#news-single-text H2 { font-size: 22px; line-height: 1.4em; }
+
 #news-single-text P { margin: 0 0 1.5em; }
 
 #news-single-text STRONG { color: #F0532D; }
+
+#news-single-text IMG {
+  max-width: 100%;
+  height: auto;
+}
+
+#news-single-text IMG.alignleft {
+  max-width: 50%;
+  float: left;
+  margin-right: 2em;
+}
+
+#news-single-text IMG.alignright {
+  max-width: 50%;
+  float: right;
+  margin-left: 2em;
+}
 
 .post-gallery-wrap { padding-bottom: 50px; }
 
@@ -1918,19 +1946,19 @@ TEXTAREA { height: 110px; padding: 0.75em 0.6em; }
 #content FORM TEXTAREA[name$="_instructions"] { height: 72px; }
 #content FORM TEXTAREA[name="message"] { height: 240px; }
 
-INPUT::-webkit-input-placeholder { color: #5B5B5B; }
-INPUT:-moz-placeholder { color: #5B5B5B; }
-INPUT::-moz-placeholder { color: #5B5B5B; }
-INPUT:-ms-input-placeholder { color: #5B5B5B; }
+INPUT::-webkit-input-placeholder { color: rgba(91,91,91,0.5); }
+INPUT:-moz-placeholder { color: rgba(91,91,91,0.5); }
+INPUT::-moz-placeholder { color: rgba(91,91,91,0.5); }
+INPUT:-ms-input-placeholder { color: rgba(91,91,91,0.5); }
 INPUT:focus::-webkit-input-placeholder { color: transparent; }
 INPUT:focus:-moz-placeholder { color: transparent; }
 INPUT:focus::-moz-placeholder { color: transparent; }
 INPUT:focus:-ms-input-placeholder { color: transparent; }
 
-TEXTAREA::-webkit-input-placeholder { color: #5B5B5B; }
-TEXTAREA:-moz-placeholder { color: #5B5B5B; }
-TEXTAREA::-moz-placeholder { color: #5B5B5B; }
-TEXTAREA:-ms-input-placeholder { color: #5B5B5B; }
+TEXTAREA::-webkit-input-placeholder { color: rgba(91,91,91,0.5); }
+TEXTAREA:-moz-placeholder { color: rgba(91,91,91,0.5); }
+TEXTAREA::-moz-placeholder { color: rgba(91,91,91,0.5); }
+TEXTAREA:-ms-input-placeholder { color: rgba(91,91,91,0.5); }
 TEXTAREA:focus::-webkit-input-placeholder { color: transparent; }
 TEXTAREA:focus:-moz-placeholder { color: transparent; }
 TEXTAREA:focus::-moz-placeholder { color: transparent; }
