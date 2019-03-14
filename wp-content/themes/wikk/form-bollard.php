@@ -120,11 +120,11 @@ if ($_POST['fintoozler'] == "") {
         $Message .= "\nItem #".$i." Special Instructions: " . $_POST['bollard'.$i.'_instructions'];
 
       if (isset($_FILES['bollard'.$i.'_upload']['tmp_name']) && $_FILES['bollard'.$i.'_upload']['tmp_name'] != "") {
-        $Message .= "\nItem #".$i." File Name: " . $_FILES['bollard'.$i.'_upload']['name'];
+        $Message .= "\nItem #".$i." File Name: " . str_replace(" ", "_", $_FILES['bollard'.$i.'_upload']['name']);
 
         if (in_array(strtolower(pathinfo($_FILES['bollard'.$i.'_upload']['name'], PATHINFO_EXTENSION)), $allowed)) {
           if ($_FILES['bollard'.$i.'_upload']['size'] <= 5242880) {
-            move_uploaded_file($_FILES['bollard'.$i.'_upload']['tmp_name'], $_POST['upload_dir'].$_FILES['bollard'.$i.'_upload']['name']);
+            move_uploaded_file($_FILES['bollard'.$i.'_upload']['tmp_name'], $_POST['upload_dir'].str_replace(" ", "_", $_FILES['bollard'.$i.'_upload']['name']));
             $Message .= "\nItem #".$i." File Link: " . $_POST['upload_url'].$_FILES['bollard'.$i.'_upload']['name'];
           } else {
             $TooBig .= "<br>" . $_FILES['bollard'.$i.'_upload']['name'] . " exceeded the file size limit and was not attached.";
