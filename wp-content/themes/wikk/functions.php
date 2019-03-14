@@ -265,6 +265,9 @@ function products_mb_attributes_content($post) {
   echo "<br><strong>Bollard Finish</strong><br>\n";
   products_attributes('bollard_finish');
 
+  echo "<br><strong>Bollard Type</strong><br>\n";
+  products_attributes('bollard_type');
+
   echo "<br><strong>INGRESS'R Finish</strong><br>\n";
   products_attributes('ingressr_material');
 
@@ -284,6 +287,7 @@ function products_mb_attributes_content($post) {
 $products_attributes = array(
   array('name' => 'bollard_shape', 'value' => 'Round'),
   array('name' => 'bollard_shape', 'value' => 'Square'),
+  array('name' => 'bollard_shape', 'value' => 'Tri/Rect'),
   array('name' => 'bollard_material', 'value' => 'Aluminum'),
   array('name' => 'bollard_material', 'value' => 'Stainless Steel'),
   array('name' => 'bollard_finish', 'value' => 'Clear Anodized (628)'),
@@ -291,6 +295,8 @@ $products_attributes = array(
   array('name' => 'bollard_finish', 'value' => 'Dark Bronze Anodized (710)'),
   array('name' => 'bollard_finish', 'value' => 'Light Bronze Anodized'),
   array('name' => 'bollard_finish', 'value' => 'Satin Stainless Steel (630)'),
+  array('name' => 'bollard_type', 'value' => 'Stock'),
+  array('name' => 'bollard_type', 'value' => 'Custom'),
   array('name' => 'ingressr_material', 'value' => 'Aluminum'),
   array('name' => 'ingressr_material', 'value' => 'Stainless Steel'),
   array('name' => 'ingressr_product_group', 'value' => 'I09'),

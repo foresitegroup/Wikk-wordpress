@@ -12,7 +12,8 @@
 
       if ($tax->slug == "bollards") {
         echo "<h2>Stock Bollards - Ready in 24hrs</h2>";
-        echo '<h3>For complete listing of bollard offerings, see our Price Catalog in the <a href="'.home_url().'/pro/">Pro Area</a></h3>';
+        echo "<h2>Custom Bollards - Variable Lead Time</h2>";
+        // echo '<h3>For complete listing of bollard offerings, see our Price Catalog in the <a href="'.home_url().'/pro/">Pro Area</a></h3>';
       }
     echo "</div>";
 
@@ -54,6 +55,9 @@
 
             echo "<br><br><h5>Finish</h5>";
             products_attributes_frontend('bollard_finish');
+
+            echo "<br><br><h5>Type</h5>";
+            products_attributes_frontend('bollard_type');
           }
 
           if ($tax->slug == "ingressr") {
@@ -148,6 +152,8 @@
             }
 
             if ($post->products_part_number != "") echo '<h4>#' . $post->products_part_number . "</h4>\n";
+
+            if ($tax->slug == "bollards" && $post->bollard_type != "") echo "<h5>".$post->bollard_type."</h5>";
           echo "</div>\n";
 
           echo "</a>\n";

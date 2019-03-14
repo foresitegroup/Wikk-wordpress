@@ -839,7 +839,8 @@ H1.page-title {
 
 #product-index-links > A .text H2,
 #product-index-links > A .text H3,
-#product-index-links > A .text H4 {
+#product-index-links > A .text H4,
+#product-index-links > A .text H5 {
   margin: 0;
   color: #F0532D;
   font-family: 'Days One', sans-serif;
@@ -850,11 +851,8 @@ H1.page-title {
 
 #product-index-links > A .text H2 { font-size: 250%; }
 #product-index-links > A .text H3 { font-size: 109.09%; }
-#product-index-links > A .text H4 {
-  font-size: 150%;
-  margin: 0.4em 0 1.5em;
-  color: #8F7BB5;
-}
+#product-index-links > A .text H4 { font-size: 150%; margin-top: 0.4em; color: #8F7BB5; overflow-wrap: break-word; word-wrap: break-word; }
+#product-index-links > A .text H5 { font-size: 109.09%; margin-top: 1em; color: #858689; }
 
 #product-index-links.switches > A .text H2 { font-size: 181.81%; letter-spacing: 0; }
 #product-index-links > A .text H2 DIV { font-size: 60%; line-height: 1.2em; letter-spacing: 0; }

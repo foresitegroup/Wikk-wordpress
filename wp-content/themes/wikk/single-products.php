@@ -19,7 +19,10 @@ if(have_posts()) : while(have_posts()) : the_post();
   <div id="product-header">
     <div>
       <h1><?php if (has_term('bollards', 'product-category')) echo "Bollard "; the_title(); ?></h1>
-      <?php if ($post->products_part_number != "") echo '<h2>Part # <span>' . $post->products_part_number . "</span></h2>\n"; ?>
+      <?php
+      if ($post->products_part_number != "") echo '<h2>Part # <span>' . $post->products_part_number . "</span></h2>\n";
+      if (has_term('bollards', 'product-category') && $post->bollard_type != "") echo '<h2>' . $post->bollard_type . "</h2>\n";
+      ?>
     </div>
     
     <div id="buttons">
