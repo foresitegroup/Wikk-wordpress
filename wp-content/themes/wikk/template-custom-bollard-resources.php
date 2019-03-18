@@ -95,13 +95,13 @@ get_header();
       echo '</td><td class="cbr-col2">';
       echo '<a href="'.$value.'"><i class="far fa-file-pdf"></i> '.$key.'</a>';
       echo '</td><td class="cbr-col3">';
-      echo '<a href="'.get_template_directory_uri().'/download.php?f='.$value.'"><i class="fas fa-download"></i> Download</a>';
+      echo '<a href="'.$value.'" download="'.basename($value).'"><i class="fas fa-download"></i> Download</a>';
       echo "</td></tr>";
 
       $i++;
     }
     
-    if ($i > 2) echo '<tr><td colspan="3" class="cbr-da"><a href="'.get_template_directory_uri().'/download-zip.php?f='.$array['slug'].'"><i class="fas fa-download"></i> Download All</a></td></tr>';
+    if ($i > 2 && class_exists('ZipArchive')) echo '<tr><td colspan="3" class="cbr-da"><a href="'.get_template_directory_uri().'/download-zip.php?f='.$array['slug'].'"><i class="fas fa-download"></i> Download All</a></td></tr>';
 
     echo "</table>";
   }
