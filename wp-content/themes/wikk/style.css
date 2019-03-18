@@ -2670,35 +2670,164 @@ INPUT[type="submit"]:hover { border-color: #8F7BB5; color: #8F7BB5; }
 #menu-main-menu.hide { visibility: hidden; }
 FOOTER.hide { display: none; }
 
+.proheader-text STRONG { color: #F0532D; }
+
 .pro {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-top: 40px;
 }
 
 .pro .pro-sidebar {
   width: 28.33%;
-  padding-bottom: 2.5em;
+  padding: 2.5em 1.8em;
   font-size: 13.43px;
-}
-
-.pro-content {
-  width: 59%;
-  padding: 0 50px;
   text-align: center;
 }
 
-.pro-content IMG { max-width: 100%; height: auto; }
+.pro .pro-sidebar H3 { margin: 0; font-size: 28px; }
 
-.pro-content H3 {
-  margin: 0 0 0.5em;
-  color: #8F7BB5;
+.pro .pro-sidebar .catalog-image-wrap { position: relative; }
+
+.pro .pro-sidebar .catalog-image-wrap:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  background: #8E7EAE;
+}
+
+.pro .pro-sidebar .catalog-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  z-index: 2;
+}
+
+.pro .pro-sidebar .catalog-image:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.pro .pro-sidebar .catalog-image IMG {
+  max-width: 100%;
+  height: auto;
+}
+
+.pro-content { width: 68%; }
+
+.pro-content H2 {
+  margin: 1em 0;
+  color: #F0532D;
   font-family: 'Days One', sans-serif;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 1em;
 }
 
+.pro-content .pro-subcat-wrap + H2 { margin-top: 2.5em; }
+
+.pro-subcat {
+  width: 100%;
+  margin-bottom: 21px;
+  border-radius: 10px;
+  padding: 15px 0;
+  background: #EBEBEB;
+  color: #F0532D;
+}
+
+.pro-subcat .pro-subcat-name {
+  box-sizing: border-box;
+  padding: 5px 20px;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1em;
+}
+
+.pro-subcat-wrap { position: relative; }
+
+.pro-subcat-wrap INPUT[id^="toggle-sc"] { display: none; }
+
+.pro-subcat-wrap INPUT[id^="toggle-sc"] + LABEL {
+  position: absolute;
+  z-index: 100000;
+  top: 24px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1em;
+}
+
+.pro-subcat-wrap INPUT[id^="toggle-sc"] + LABEL:before { content: "View "; }
+.pro-subcat-wrap INPUT[id^="toggle-sc"] + LABEL:after {
+  content: "\f0d7";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 0.25em;
+}
+
+.pro-subcat-wrap INPUT[id^="toggle-sc"]:checked + LABEL:before { content: "Hide "; }
+.pro-subcat-wrap INPUT[id^="toggle-sc"]:checked + LABEL:after { content: "\f0d8"; }
+
+.pro-subcat-wrap INPUT[id^="toggle-sc"] + LABEL + TABLE TBODY { display: none }
+.pro-subcat-wrap INPUT[id^="toggle-sc"]:checked + LABEL + TABLE TBODY {
+  display: block;
+}
+
+.pro-subcat .ps-col1 {
+  width: 59%;
+  box-sizing: border-box;
+  padding: 5px 20px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1em;
+}
+
+.pro-subcat .ps-col2 {
+  width: 12%;
+  box-sizing: border-box;
+  padding: 5px 20px;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1em;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.pro-subcat .ps-da {
+  box-sizing: border-box;
+  padding: 5px 20px;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2em;
+  text-align: right;
+}
+
+.pro-subcat .far {
+  font-size: 150%;
+  vertical-align: -0.1em;
+}
+
+
+
+
+/****************************/
+/* CUSTOM BOLLARD RESOURCES */
+/****************************/
 H2.cbr-h2 {
   margin: 0.5em 0 1em;
   color: #F0532D;
@@ -2885,10 +3014,11 @@ H2.cbr-h2 {
   .login #password LABEL { width: 50%; }
 
   .login #request-password #content .content-two-col { flex-direction: column; }
-  .proarea .pro { flex-direction: column-reverse; }
+  .proarea .pro { flex-direction: column; }
   .login #request-password #content FORM { width: 100%; }
   .proarea .pro-content { width: 100%; padding: 0; }
-  .login .pro-sidebar, .pro .pro-sidebar { width: 100%; margin-top: 3em; }
+  .login .pro-sidebar { width: 100%; margin-top: 3em; }
+  .pro .pro-sidebar { width: 100%; margin-bottom: 3em; }
 }
 
 @media only screen and (max-width: 750px) {
