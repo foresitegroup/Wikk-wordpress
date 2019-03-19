@@ -104,7 +104,7 @@ get_header();
                 content_url().'/uploads/2019/03/Bollard_Round_Stainless_Steel_Short_Spec_Sheet.pdf',
                 'Square Aluminum' =>
                 content_url().'/uploads/2019/03/Bollard_Square_Aluminum_Short_Spec_Sheet.pdf',
-                'Square Stainless Steek' =>
+                'Square Stainless Steel' =>
                 content_url().'/uploads/2019/03/Bollard_Square_Stainless_Steel_Short_Spec_Sheet.pdf'
               )
             );
