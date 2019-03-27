@@ -178,6 +178,16 @@ EOD;
                   Quantity<br>
                   <input type="number" name="item<?php echo $i; ?>_quantity" placeholder="0">
                 </label>
+
+                <label>
+                  Description<br>
+                  <textarea name="item<?php echo $i; ?>_description" placeholder="Describe your desired product"></textarea>
+                </label>
+
+                <label>
+                  Special Instructions<br>
+                  <textarea name="item<?php echo $i; ?>_instructions" placeholder="List any special instructions"></textarea>
+                </label><br>
               <?php
               if ($i >= 4) echo "</div>\n";
               }

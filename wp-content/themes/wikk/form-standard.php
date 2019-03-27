@@ -110,7 +110,9 @@ if ($_POST['fintoozler'] == "") {
     for ($i=1; $i <= 6; $i++) {
       if ($_POST['item'.$i.'_product'] != "") $Message .= "\nItem #".$i.": " . $_POST['item'.$i] . " - " . $_POST['item'.$i.'_product'];
       if ($_POST['item'.$i.'_quantity'] != "") $Message .= "\nItem #".$i." Quantity: " . $_POST['item'.$i.'_quantity'];
-      if ($_POST['item'.$i.'_product'] != "" || $_POST['item'.$i.'_quantity'] != "") $Message .= "\n";
+      if ($_POST['item'.$i.'_description'] != "") $Message .= "\nItem #".$i." Description: " . $_POST['item'.$i.'_description'];
+      if ($_POST['item'.$i.'_instructions'] != "") $Message .= "\nItem #".$i." Special Instructions: " . $_POST['item'.$i.'_instructions'];
+      if ($_POST['item'.$i.'_product'] != "" || $_POST['item'.$i.'_quantity'] != "" || $_POST['item'.$i.'_description'] != "" || $_POST['item'.$i.'_instructions'] != "") $Message .= "\n";
     }
 
     $Message = stripslashes($Message);
