@@ -107,19 +107,21 @@
 
       $meta_query = array('relation' => 'AND');
 
+      $modifications = array();
+      $modifications['posts_per_page'] = 12;
+
       foreach ($attnames as $attname) {
         if (isset($_REQUEST[$attname])) {
           $meta_query_shape = array('relation' => 'OR');
           foreach ($_REQUEST[$attname] as $value) {
             $meta_query_shape[] = array('key' => $attname, 'value' => $value, 'compare' => 'LIKE');
+            $modifications['posts_per_page'] = 9999;
           }
           $meta_query[] = $meta_query_shape;
         }
       }
 
-      $modifications = array();
       $modifications['meta_query'][] = $meta_query;
-      $modifications['posts_per_page'] = 12;
 
       $args = array_merge($wp_query->query_vars, $modifications);
       query_posts($args);
