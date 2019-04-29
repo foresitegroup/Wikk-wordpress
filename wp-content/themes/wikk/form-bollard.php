@@ -125,7 +125,7 @@ if ($_POST['fintoozler'] == "") {
         if (in_array(strtolower(pathinfo($_FILES['bollard'.$i.'_upload']['name'], PATHINFO_EXTENSION)), $allowed)) {
           if ($_FILES['bollard'.$i.'_upload']['size'] <= 5242880) {
             move_uploaded_file($_FILES['bollard'.$i.'_upload']['tmp_name'], $_POST['upload_dir'].str_replace(" ", "_", $_FILES['bollard'.$i.'_upload']['name']));
-            $Message .= "\nItem #".$i." File Link: " . $_POST['upload_url'].$_FILES['bollard'.$i.'_upload']['name'];
+            $Message .= "\nItem #".$i." File Link: " . $_POST['upload_url'].str_replace(" ", "_", $_FILES['bollard'.$i.'_upload']['name']);
           } else {
             $TooBig .= "<br>" . $_FILES['bollard'.$i.'_upload']['name'] . " exceeded the file size limit and was not attached.";
             $Message .= "\nThis file exceeded the file size limit and was not attached.";
