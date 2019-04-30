@@ -84,46 +84,6 @@ $CommonFields = <<<EOD
 </label>
 
 <br><br>
-
-<h3>Project Info</h3>
-<label>
-  Request Date<br>
-  <input type="text" name="requestdate" id="standard-date" placeholder="MM/DD/YYYY">
-</label>
-
-<label>
-  Name of Project<br>
-  <input type="text" name="projectname" placeholder="Your Company, Inc.">
-</label>
-
-<label class="radio">
-  Wikk to Respond Via:<br>
-  <input type="radio" name="respond" value="Email" id="respond-email" checked>
-  <label for="respond-email">Email</label>
-  <input type="radio" name="respond" value="Phone" id="respond-phone">
-  <label for="respond-phone">Phone</label>
-</label>
-
-<label class="radio">
-  Customer Type:<br>
-  <input type="radio" name="custtype" value="Architect/Spec." id="custtype-architect" checked>
-  <label for="custtype-architect">Architect/Spec.</label>
-  <input type="radio" name="custtype" value="Consultant" id="custtype-consultant">
-  <label for="custtype-consultant">Consultant</label>
-  <input type="radio" name="custtype" value="Distributor" id="custtype-distributor">
-  <label for="custtype-distributor">Distributor</label>
-  <input type="radio" name="custtype" value="End User" id="custtype-user">
-  <label for="custtype-user">End User</label>
-  <input type="radio" name="custtype" value="Installer" id="custtype-installer">
-  <label for="custtype-installer">Installer</label>
-  <input type="radio" name="custtype" value="OEM" id="custtype-oem">
-  <label for="custtype-oem">OEM</label>
-</label>
-
-<input type="checkbox" name="sendupdates" value="Send updates" id="send-updates" checked>
-<label for="send-updates">Send me periodic updates and innovations from Wikk</label>
-
-<br>
 EOD;
 ?>
 
@@ -145,6 +105,46 @@ EOD;
           <form action="<?php echo get_template_directory_uri(); ?>/form-standard.php" method="POST" id="standard" novalidate>
             <div>
               <?php echo $CommonFields; ?>
+
+              <h3>Project Info</h3>
+              <label>
+                Request Date<br>
+                <input type="text" name="requestdate" id="standard-date" placeholder="MM/DD/YYYY">
+              </label>
+
+              <label>
+                Name of Project<br>
+                <input type="text" name="projectname" placeholder="Your Company, Inc.">
+              </label>
+
+              <label class="radio">
+                Wikk to Respond Via:<br>
+                <input type="radio" name="respond" value="Email" id="respond-email" checked>
+                <label for="respond-email">Email</label>
+                <input type="radio" name="respond" value="Phone" id="respond-phone">
+                <label for="respond-phone">Phone</label>
+              </label>
+
+              <label class="radio">
+                Customer Type:<br>
+                <input type="radio" name="custtype" value="Architect/Spec." id="custtype-architect" checked>
+                <label for="custtype-architect">Architect/Spec.</label>
+                <input type="radio" name="custtype" value="Consultant" id="custtype-consultant">
+                <label for="custtype-consultant">Consultant</label>
+                <input type="radio" name="custtype" value="Distributor" id="custtype-distributor">
+                <label for="custtype-distributor">Distributor</label>
+                <input type="radio" name="custtype" value="End User" id="custtype-user">
+                <label for="custtype-user">End User</label>
+                <input type="radio" name="custtype" value="Installer" id="custtype-installer">
+                <label for="custtype-installer">Installer</label>
+                <input type="radio" name="custtype" value="OEM" id="custtype-oem">
+                <label for="custtype-oem">OEM</label>
+              </label>
+
+              <input type="checkbox" name="sendupdates" value="Send updates" id="send-updates" checked>
+              <label for="send-updates">Send me periodic updates and innovations from Wikk</label>
+
+              <br>
 
               <h3>Product Info</h3>
               <?php
@@ -242,6 +242,46 @@ EOD;
           <form action="<?php echo get_template_directory_uri(); ?>/form-bollard.php" method="POST" enctype="multipart/form-data" id="bollard" novalidate>
             <div>
               <?php echo $CommonFields; ?>
+
+              <h3>Project Info</h3>
+              <label>
+                Request Date<br>
+                <input type="text" name="requestdate" id="bollard-date" placeholder="MM/DD/YYYY">
+              </label>
+
+              <label>
+                Name of Project<br>
+                <input type="text" name="projectname" placeholder="Your Company, Inc.">
+              </label>
+
+              <label class="radio">
+                Wikk to Respond Via:<br>
+                <input type="radio" name="respond" value="Email" id="bollard-respond-email" checked>
+                <label for="bollard-respond-email">Email</label>
+                <input type="radio" name="respond" value="Phone" id="bollard-respond-phone">
+                <label for="bollard-respond-phone">Phone</label>
+              </label>
+
+              <label class="radio">
+                Customer Type:<br>
+                <input type="radio" name="custtype" value="Architect/Spec." id="bollard-custtype-architect" checked>
+                <label for="bollard-custtype-architect">Architect/Spec.</label>
+                <input type="radio" name="bollard-custtype" value="Consultant" id="bollard-custtype-consultant">
+                <label for="bollard-custtype-consultant">Consultant</label>
+                <input type="radio" name="bollard-custtype" value="Distributor" id="bollard-custtype-distributor">
+                <label for="bollard-custtype-distributor">Distributor</label>
+                <input type="radio" name="bollard-custtype" value="End User" id="bollard-custtype-user">
+                <label for="bollard-custtype-user">End User</label>
+                <input type="radio" name="bollard-custtype" value="Installer" id="bollard-custtype-installer">
+                <label for="bollard-custtype-installer">Installer</label>
+                <input type="radio" name="bollard-custtype" value="OEM" id="bollard-custtype-oem">
+                <label for="bollard-custtype-oem">OEM</label>
+              </label>
+
+              <input type="checkbox" name="sendupdates" value="Send updates" id="bollard-send-updates" checked>
+              <label for="bollard-send-updates">Send me periodic updates and innovations from Wikk</label>
+
+              <br>
 
               <h3>Bollard Requests</h3>
               <strong>For each custom bollard request, please submit a quantity, description, and drawing.</strong><br>

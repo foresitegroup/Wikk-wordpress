@@ -2006,7 +2006,7 @@ TEXTAREA:focus:-ms-input-placeholder { color: transparent; }
 #content FORM INPUT[type="checkbox"] { display: none; }
 
 #content FORM .radio LABEL,
-#content FORM LABEL[for="send-updates"] {
+#content FORM LABEL[for$="send-updates"] {
   display: inline-block;
   margin: 0.5em 1.5em 0 0;
   color: #5B5B5B;
@@ -2017,10 +2017,10 @@ TEXTAREA:focus:-ms-input-placeholder { color: transparent; }
   height: 20px;
 }
 
-#content FORM LABEL[for="send-updates"] { display: block; margin: 0 0 2em 0; }
+#content FORM LABEL[for$="send-updates"] { display: block; margin: 0 0 2em 0; }
 
 #content FORM .radio LABEL:before,
-#content FORM LABEL[for="send-updates"]:before {
+#content FORM LABEL[for$="send-updates"]:before {
   content: "";
   display: inline-block;
   vertical-align: middle;
@@ -2032,7 +2032,7 @@ TEXTAREA:focus:-ms-input-placeholder { color: transparent; }
 }
 
 #content FORM .radio INPUT[type="radio"]:checked + LABEL:before,
-#content FORM INPUT[type="checkbox"]:checked + LABEL[for="send-updates"]:before {
+#content FORM INPUT[type="checkbox"]:checked + LABEL[for$="send-updates"]:before {
   background: radial-gradient(#F0532D, #F0532D 45%, #FFFFFF 45%, #FFFFFF 100%);
 }
 
