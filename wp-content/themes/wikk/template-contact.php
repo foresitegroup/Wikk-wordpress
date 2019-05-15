@@ -86,21 +86,16 @@ get_header();
 
         <h3>Sales Reps</h3>
 
-        <h4>USA - West of the Mississippi + Canada</h4>
+        <h4>USA + Canada</h4>
         <h5>Kyle Holloway</h5>
         Director of Sales
         <h5>562-217-7811</h5>
         <h6><a href="mailto:kyle@wikk.com">kyle@wikk.com</a></h6><br>
 
-        <h4>USA - East of the Mississippi</h4>
-        <h5>Katie Gainey</h5>
-        Regional Sales Manager
-        <h5>317-441-8552</h5>
-        <h6><a href="mailto:katie@wikk.com">katie@wikk.com</a></h6><br>
-
         <h5>Brian Hawthorne</h5>
         President
-        <h5>877-421-9490</h5><br>
+        <h5>877-421-9490</h5>
+        <h6><a href="mailto:brain@wikk.com">brain@wikk.com</a></h6><br>
 
         <h4>INTERNATIONAL - United Kingdom</h4>
         <h5>Controls for Doors, LLC.</h5>
