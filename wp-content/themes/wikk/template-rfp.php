@@ -219,7 +219,7 @@ EOD;
             <h5>Brian Hawthorne</h5>
             President
             <h5>877-421-9490</h5>
-            <h6><a href="mailto:brain@wikk.com">brain@wikk.com</a></h6><br>
+            <h6><a href="mailto:brian@wikk.com">brian@wikk.com</a></h6><br>
 
             <h4>INTERNATIONAL - United Kingdom</h4>
             <h5>Controls for Doors, LLC.</h5>
