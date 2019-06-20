@@ -991,4 +991,228 @@ add_action('init', 'pro_create_taxonomy');
 function pro_create_taxonomy() {
   register_taxonomy('pro-category', 'pro', array('labels' => array('name' => 'Pro Area Categories', 'singular_name' => 'Pro Area Category'), 'hierarchical' => true));
 }
+
+
+/////////////////////
+// FORM SUBMISSIONS
+/////////////////////
+if (!class_exists('WP_List_Table')) require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
+
+class Form_Submissions_List_Table extends WP_List_Table {
+  function __construct() {
+    global $status, $page;
+            
+    //Set parent defaults
+    parent::__construct( array(
+      'singular' => 'form_submission',  //singular name of the listed records
+      'plural'   => 'form_submissions', //plural name of the listed records
+      'ajax'     => false               //does this table support ajax?
+    ));
+  }
+
+  function column_default($item, $column_name){
+    switch($column_name){
+      case 'firstname':
+      case 'lastname':
+      case 'company':
+      case 'email':
+      case 'phone':
+      case 'address':
+      case 'address2':
+      case 'city':
+      case 'state':
+      case 'zip':
+      case 'country':
+      case 'what_form':
+        return $item[$column_name];
+      case 'sendupdates':
+        return ($item[$column_name] != "") ? "Yes" : "No";
+      case 'date_submitted':
+        return date("n/j/y g:ia", $item[$column_name]);
+      default:
+        return print_r($item,true); //Show the whole array for troubleshooting purposes
+    }
+  }
+  
+  // Required for bulk actions checkbox
+  function column_cb($item){
+    return '<input type="checkbox" name="fsb[]" value="'.$item['id'].'" />';
+  }
+
+  function get_columns(){
+    $columns = array(
+      'cb' => '<input type="checkbox" />',
+      'firstname' => 'First Name',
+      'lastname' => 'Last Name',
+      'company' => 'Company',
+      'email' => 'Email',
+      'phone' => 'Phone',
+      'address' => 'Address',
+      'address2' => 'Address 2',
+      'city' => 'City',
+      'state' => 'State',
+      'zip' => 'Zip',
+      'country' => 'Country',
+      'sendupdates' => 'Send Updates',
+      'what_form' => 'What Form',
+      'date_submitted' => 'Date'
+    );
+    return $columns;
+  }
+
+  function get_sortable_columns() {
+    $sortable_columns = array(
+      'firstname' => array('firstname',true),
+      'lastname' => array('lastname',true),
+      'company' => array('company',true),
+      'email' => array('email',true),
+      'phone' => array('phone',true),
+      'address' => array('address',true),
+      'address2' => array('address2',true),
+      'city' => array('city',true),
+      'state' => array('state',true),
+      'zip' => array('zip',true),
+      'country' => array('country',true),
+      'sendupdates' => array('sendupdates',true),
+      'what_form' => array('what_form',true),
+      'date_submitted' => array('date_submitted',true)
+    );
+    return $sortable_columns;
+  }
+
+  function get_bulk_actions() {
+    $actions = array(
+      'delete' => 'Delete'
+    );
+    return $actions;
+  }
+
+  function process_bulk_action() {
+    global $wpdb;
+
+    //Detect when a bulk action is being triggered...
+    if('delete'===$this->current_action()) {
+      foreach ($_GET['fsb'] as $id) {
+        $wpdb->delete("form_submissions", ['id' => $id], ['%d']);
+      }
+    }
+  }
+
+  function prepare_items() {
+    global $wpdb;
+
+    // Define column headers and build an array
+    $columns = $this->get_columns();
+    $hidden = array();
+    $sortable = $this->get_sortable_columns();
+
+    $this->_column_headers = array($columns, $hidden, $sortable);
+    
+    // Handle bulk actions
+    $this->process_bulk_action();
+    
+    // Get the data from the database
+    $data = $wpdb->get_results("SELECT * FROM form_submissions", ARRAY_A);
+
+    // Sort columns
+    function usort_reorder($a,$b){
+      $orderby = (!empty($_REQUEST['orderby'])) ? $_REQUEST['orderby'] : 'date_submitted';
+      $order = (!empty($_REQUEST['order'])) ? $_REQUEST['order'] : 'desc';
+      $result = strcmp($a[$orderby], $b[$orderby]);
+      return ($order==='asc') ? $result : -$result;
+    }
+    usort($data, 'usort_reorder');
+    
+    /*
+    *  The remainder of this subfunction deals with pagination
+    */
+    // How many records per page to display
+    $per_page = 100;
+
+    $current_page = $this->get_pagenum();
+
+    $total_items = count($data);
+
+    $data = array_slice($data,(($current_page-1)*$per_page),$per_page);
+
+    $this->items = $data;
+
+    $this->set_pagination_args(array(
+      'total_items' => $total_items,                //WE have to calculate the total number of items
+      'per_page'    => $per_page,                   //WE have to determine how many items to show on a page
+      'total_pages' => ceil($total_items/$per_page) //WE have to calculate the total number of pages
+    ));
+  }
+}
+
+function form_submissions_add_menu_items(){
+  add_menu_page('Form Submissions', 'Form Submissions', 'activate_plugins', 'form_submissions', 'form_submissions_page', 'dashicons-clipboard', 55);
+}
+add_action('admin_menu', 'form_submissions_add_menu_items');
+
+function form_submissions_page(){
+  date_default_timezone_set('America/Chicago');
+
+  //Create an instance of our package class...
+  $FSListTable = new Form_Submissions_List_Table();
+
+  //Fetch, prepare, sort, and filter our data...
+  $FSListTable->prepare_items();
+
+  echo '<style>
+    .form_submissions TH { font-size: 10px; font-weight: bold; }
+    .form_submissions TD { font-size: 10px; }
+  </style>';
+
+  echo '<div class="wrap">';
+    echo '<h2>Form Submissions</h2>';
+
+    echo '<a href="'.admin_url('admin-ajax.php?action=fs_export').'" class="button">Export List to CSV</a>';
+
+    echo '<form id="form_submissions-filter" method="get">';
+      echo '<input type="hidden" name="page" value="'. $_REQUEST['page'] . '" />';
+      $FSListTable->display();
+    echo '</form>';
+
+    echo '<a href="'.admin_url('admin-ajax.php?action=fs_export').'" class="button">Export List to CSV</a>';
+  echo '</div>';
+}
+
+function export_form_submissions() {
+  date_default_timezone_set('America/Chicago');
+  
+  global $wpdb;
+
+  $results = $wpdb->get_results("SELECT * FROM form_submissions ORDER BY date_submitted DESC", ARRAY_A );
+
+  $headers = "First Name, Last Name, Company, Email, Phone, Address, Address 2, City, State, Zip, Country, Send Updates, What Form, Date";
+
+  if (count($results) > 0) {
+    $output = "";
+
+    foreach($results as $result) {
+      $output .= '"'.$result['firstname'].'",';
+      $output .= '"'.$result['lastname'].'",';
+      $output .= '"'.$result['company'].'",';
+      $output .= '"'.$result['email'].'",';
+      $output .= '"'.$result['phone'].'",';
+      $output .= '"'.$result['address'].'",';
+      $output .= '"'.$result['address2'].'",';
+      $output .= '"'.$result['city'].'",';
+      $output .= '"'.$result['state'].'",';
+      $output .= '"'.$result['zip'].'",';
+      $output .= '"'.$result['country'].'",';
+      $output .= '"'.$result['sendupdates'].'",';
+      $output .= '"'.$result['what_form'].'",';
+      $output .= '"'.date("n/j/y g:ia", $result['date_submitted']).'"';
+      $output .= "\n";
+    }
+  }
+
+  header("Content-type: application/vnd.ms-excel");
+  header("Content-disposition: filename=form_submissions_".date("Y-m-d_H-i",time()).".csv");
+  print $headers."\n".$output;
+  exit;
+}
+add_action('wp_ajax_fs_export','export_form_submissions');
 ?>
