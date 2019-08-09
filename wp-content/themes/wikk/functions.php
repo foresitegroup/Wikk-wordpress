@@ -857,6 +857,7 @@ function custom_testimonials_sortable_columns($column) {
 add_action('admin_head', 'admin_css');
 function admin_css() {
   echo '<style>
+    .widefat { width: 96%; box-sizing: border-box; }
     .post-type-testimonials #post_excerpt { width: 50%; }
   </style>';
 }
@@ -1215,4 +1216,82 @@ function export_form_submissions() {
   exit;
 }
 add_action('wp_ajax_fs_export','export_form_submissions');
+
+
+/////////////////
+// PARTNERS
+/////////////////
+add_action('init', 'partners');
+function partners() {
+  register_post_type('partners', array(
+      'labels' => array(
+        'name' => 'Partners',
+        'singular_name' => 'Partner',
+        'add_new_item' => 'Add New Partner',
+        'edit_item' => 'Edit Partner',
+        'search_items' => 'Search Partners',
+        'not_found' => 'No Partners found'
+      ),
+      'show_ui' => true,
+      'menu_position' => 55,
+      'menu_icon' => 'dashicons-groups',
+      'supports' => array('title', 'editor', 'thumbnail')
+  ));
+}
+
+add_action('add_meta_boxes', 'partners_mb');
+function partners_mb() {
+  add_meta_box('partners_mb', 'Partner Link', 'partners_mb_content', 'partners', 'normal');
+}
+
+function partners_mb_content($post) {
+  ?>
+  <input type="text" name="partners_link" id="partners_link" placeholder="Link" value="<?php if ($post->partners_link != "") echo $post->partners_link; ?>">
+  <?php
+}
+
+add_action('admin_head', 'partners_css');
+function partners_css() {
+  if (get_post_type() == 'partners') {
+    echo '<style>
+      #partners_mb INPUT[type="text"] { width: 100%; margin: 0.5em 0; padding: 0.32em 8px; box-sizing: border-box; }
+      #set-post-thumbnail-desc ~ STRONG, #set-post-thumbnail-desc ~ STRONG + BR, INPUT[name="featured_image_caption"] { display: none; }
+    </style>';
+  }
+}
+
+add_action('save_post', 'partners_save');
+function partners_save($post_id) {
+  if (get_post_type() != 'partners') return;
+  
+  if (!empty($_POST['partners_link'])) {
+    update_post_meta($post_id, 'partners_link', $_POST['partners_link']);
+  } else {
+    delete_post_meta($post_id, 'partners_link');
+  }
+}
+
+add_filter('manage_partners_posts_columns', 'set_custom_edit_partners_columns');
+function set_custom_edit_partners_columns($columns) {
+  unset($columns['date']);
+
+  $columns['post_excerpt'] = "Description";
+
+  return $columns;
+}
+
+add_action('manage_partners_posts_custom_column', 'custom_partners_column', 10, 2);
+function custom_partners_column($column, $post_id) {
+  switch ($column) {
+    case 'post_excerpt':
+      the_excerpt();
+      break;
+  }
+}
+
+add_filter('manage_edit-partners_sortable_columns', 'custom_partners_sortable_columns' );
+function custom_partners_sortable_columns($column) {
+  unset($column['title']);
+  return $column;
+}
 ?>
