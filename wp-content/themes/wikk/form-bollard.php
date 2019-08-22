@@ -13,7 +13,7 @@ if ($_POST['fintoozler'] == "") {
     // $SendTo = "lippert@gmail.com";
     $Headers = "From: Custom Bollard RFP Form <donotreply@wikk.com>\r\n";
     $Headers .= "Reply-To: " . $_POST['email'] . "\r\n";
-    $Headers .= "Bcc: mark@foresitegrp.com\r\n";
+    $Headers .= "Bcc: foresitegroupllc@gmail.com\r\n";
 
     $Message = $_POST['firstname'] . " " . $_POST['lastname'] . "\n";
     $Message .= $_POST['company'] . "\n";
