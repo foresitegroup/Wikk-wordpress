@@ -238,6 +238,17 @@ function products_mb_content($post) {
   <?php
   wp_editor(html_entity_decode($post->products_literature, ENT_QUOTES), 'products_literature', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
   ?>
+
+  <hr>
+
+  <h3>CUSTOM TAB</h3>
+  <?php
+  echo '<input type="text" name="products_custom_tab_text" placeholder="Enter tab text here" value="';
+  if ($post->products_custom_tab_text != "") echo $post->products_custom_tab_text;
+  echo '" id="products_custom_tab_text" maxlength="18">';
+
+  wp_editor(html_entity_decode($post->products_custom_tab, ENT_QUOTES), 'products_custom_tab', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
+  ?>
   <?php
 }
 
@@ -404,6 +415,18 @@ function products_save($post_id) {
     delete_post_meta($post_id, 'products_literature');
   }
 
+  if (!empty($_POST['products_custom_tab_text'])) {
+    update_post_meta($post_id, 'products_custom_tab_text', $_POST['products_custom_tab_text']);
+  } else {
+    delete_post_meta($post_id, 'products_custom_tab_text');
+  }
+
+  if (!empty($_POST['products_custom_tab'])) {
+    update_post_meta($post_id, 'products_custom_tab', $_POST['products_custom_tab']);
+  } else {
+    delete_post_meta($post_id, 'products_custom_tab');
+  }
+
   if (!empty($_POST['products_mounting'])) {
     update_post_meta($post_id, 'products_mounting', $_POST['products_mounting']);
   } else {
@@ -436,7 +459,7 @@ function products_css() {
       #products_mb .wp-editor-wrap { margin: 1em 0 2em; }
       #products_mb HR { margin: 3em 0 2.5em; border-top: 1px dashed #000000; }
       #filter-by-date { display: none; }
-      #products_title_sort { width: 100%; padding: 0.32em 8px; box-sizing: border-box; }
+      #products_title_sort, #products_custom_tab_text { width: 100%; padding: 0.32em 8px; box-sizing: border-box; }
       .related-posts-select .chosen-container { min-width: 0; }
     </style>';
   }

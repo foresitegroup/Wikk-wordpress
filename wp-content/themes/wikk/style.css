@@ -1153,12 +1153,15 @@ H1.page-title {
   text-align: center;
 }
 
+#tabs.tabcount5 LABEL { width: 20%; font-size: 12px; }
+
 #tabs LABEL:first-of-type { margin-left: 0; }
 
 #tab-models:checked + LABEL,
 #tab-overview:checked + LABEL,
 #tab-options:checked + LABEL,
-#tab-literature:checked + LABEL {
+#tab-literature:checked + LABEL,
+#tab-custom-tab:checked + LABEL {
   position: relative;
   z-index: 11;
   padding: 21px 0;
@@ -1178,12 +1181,14 @@ H1.page-title {
 }
 
 #tabs > DIV:first-of-type { border-radius: 0 14px 14px 14px; }
-#tabs > DIV:nth-of-type(4) { border-radius: 14px 0 14px 14px; }
+#tabs.tabcount4 > DIV:nth-of-type(4) { border-radius: 14px 0 14px 14px; }
+#tabs.tabcount5 > DIV:nth-of-type(5) { border-radius: 14px 0 14px 14px; }
 
 #tab-models:checked ~ #content-models,
 #tab-overview:checked ~ #content-overview,
 #tab-options:checked ~ #content-options,
-#tab-literature:checked ~ #content-literature { display: block; }
+#tab-literature:checked ~ #content-literature,
+#tab-custom-tab:checked ~ #content-custom-tab { display: block; }
 
 #tabs > DIV > DIV {
   box-sizing: border-box;
