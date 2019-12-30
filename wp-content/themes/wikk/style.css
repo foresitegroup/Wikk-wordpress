@@ -253,6 +253,8 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   position: relative;
 }
 
+.hero .slick-slide > DIV > DIV.slide40 { background-position: center top; }
+
 .hero .slick-slide > DIV > DIV:after {
   content: "";
   position: absolute;
@@ -295,13 +297,21 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
 
 .hero .slide1 .site-width A.button { margin-top: 2em; }
 
-.hero .slide2 .site-width {
+.hero .slide2 .site-width,
+.hero .slide40 .site-width {
   position: absolute;
   z-index: 2;
   top: 50%;
-  left: 50%;
-  width: auto;
+  transform: translateY(-50%);
+  width: 100%;
   text-align: center;
+}
+
+.hero .slide40 .site-width IMG {
+  display: inline-block;
+  max-width: 730px;
+  height: auto;
+  margin-bottom: 40px;
 }
 
 .hero .slide2 .site-width A.button { margin-top: 1em; }
@@ -3092,6 +3102,8 @@ H2.cbr-h2 {
   .hero .slide2 .site-width IMG { max-width: 100%; height: auto; }
   .hero .slide2 .site-width A.button { font-size: 2.2vw; }
 
+  .hero .slide40 .site-width IMG { max-width: 90%; height: auto; }
+
   #hero .site-width DIV { padding: 0 13%; font-size: 2.666vw; background-size: auto 93%; }
 
   #hero .site-width DIV H1 { font-size: 200%; }
@@ -3499,6 +3511,8 @@ H2.cbr-h2 {
 
   .hero .slide2 .site-width { width: 75%; }
   .hero .slide2 .site-width A.button { font-size: 3vw; }
+
+  .hero .slide40 .site-width A.button { font-size: 110%; }
 
   #hero .site-width DIV { padding: 0 10%; font-size: 3.3vw; background-size: auto 70%; }
 

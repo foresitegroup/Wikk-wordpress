@@ -27,10 +27,17 @@
     </div>
   </div>
 
-  <!-- <div class="slide2" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slide2.jpg);">
+  <!-- <div class="slide2" style="background-image: url(<?php //echo get_template_directory_uri(); ?>/images/slide2.jpg);">
     <div class="site-width">
-      <img src="<?php echo get_template_directory_uri(); ?>/images/slide2-haptikk.png" alt="Haptikk Solutions"><br>
-      <a href="<?php echo home_url(); ?>/news/innovations/" class="button">Learn More About Our Innovations</a>
+      <img src="<?php //echo get_template_directory_uri(); ?>/images/slide2-haptikk.png" alt="Haptikk Solutions"><br>
+      <a href="<?php //echo home_url(); ?>/news/innovations/" class="button">Learn More About Our Innovations</a>
+    </div>
+  </div> -->
+
+  <!-- <div class="slide40" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slide-40-years.jpg);">
+    <div class="site-width">
+      <img src="<?php echo get_template_directory_uri(); ?>/images/40-years.png" alt="Celebrating 40 years of service"><br>
+      <a href="<?php echo home_url(); ?>/about/" class="button">Learn More About Wikk's Impact</a>
     </div>
   </div> -->
 </div>
