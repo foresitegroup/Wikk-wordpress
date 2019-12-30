@@ -169,6 +169,12 @@ get_header();
           }
         });
 
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,6})+$/;
+        if (!regex.test($(form).find('input[type="email"]').val())) {
+          $(form).find('input[type="email"]').addClass('alert').attr("placeholder", "NOT A VALID EMAIL ADDRESS").val('');
+          missing = 'yes';
+        }
+
         return (missing == 'no') ? true : false;
       }
 

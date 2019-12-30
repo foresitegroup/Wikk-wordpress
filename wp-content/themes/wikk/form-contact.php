@@ -7,7 +7,7 @@ if ($_POST['fintoozler'] == "") {
   {
     $Subject = $_POST['subject'];
     $SendTo = "sales@wikk.com";
-    // $SendTo = "lippert@gmail.com";
+    // $SendTo = "marklippert@protonmail.com";
     $Headers = "From: Contact Form <donotreply@wikk.com>\r\n";
     $Headers .= "Reply-To: " . $_POST['email'] . "\r\n";
     $Headers .= "Bcc: foresitegroupllc@gmail.com\r\n";
