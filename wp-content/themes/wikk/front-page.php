@@ -48,20 +48,14 @@
 
     <div class="image">
       <div id="fsbg"></div>
-      <img src="http://wikk.foresitegrp.webfactional.com/wp-content/uploads/2019/01/HDPE-Switches.png" alt="" id="fsi">
+      <img src="https://wikk.com/wp-content/uploads/2019/09/Bollards.png" alt="" id="fsi">
     </div>
 
     <div class="text">
-      <h2>Problems Solved...</h2>
-      Wikk's new High Density Polyethylene (HDPE) switch eliminates logo degradation, prevents injury associated with stainless steel switches in extreme temperatures, and inhibits growth of mold, mildew and fungus.  The HDPE switch qualifies for LEED&reg; rating points and is made in the USA.<br>
+      <h2>Built Right.<br>Built by<br>Wikk.</h2>
       <br>
 
-      <em class="purpletext">Patent Pending</em><br>
-      <br>
-
-      <h4>Did we mention this switch has a 10 year warranty to boot?</h4><br>
-
-      <a href="<?php home_url(); ?>/product-category/switches/" class="button">Learn More</a>
+      <a href="<?php home_url(); ?>/product-category/bollards/" class="button">Learn More</a>
     </div>
   </div>
 </div>
@@ -75,7 +69,7 @@
     <div class="text">
       <h2>Custom Bollard Resources</h2>
 
-      Wikk&reg; Industries stands as an industry pioneer in providing custom bollard solutions to our clients. With almost every aspect of our bollards being customizable, we aim to provide the most personal and effective solution to each of our clients.<br>
+      Wikk Industries stands as an industry pioneer in providing custom bollard solutions to our clients. With almost every aspect of our bollards being customizable, we aim to provide the most personal and effective solution to each of our clients.<br>
 
       <a href="<?php home_url(); ?>/custom-bollard-resources/" class="button">View Resources</a>
     </div>

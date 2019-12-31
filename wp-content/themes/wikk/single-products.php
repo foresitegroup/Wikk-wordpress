@@ -78,9 +78,9 @@ if(have_posts()) : while(have_posts()) : the_post();
     $tabcount = 0;
     if ($post->products_models != "") $tabcount++;
     if ($post->products_overview != "") $tabcount++;
+    if ($post->products_custom_tab != "") $tabcount++;
     if ($post->products_options != "") $tabcount++;
     if ($post->products_literature != "") $tabcount++;
-    if ($post->products_custom_tab != "") $tabcount++;
     ?>
 
     <div id="tabs" class="tabcount<?php echo $tabcount; ?>">
@@ -92,6 +92,10 @@ if(have_posts()) : while(have_posts()) : the_post();
       <input id="tab-overview" type="radio" name="tabs"<?php if ($post->products_models == "") echo " checked"; ?>>
       <label for="tab-overview">Overview</label>
       <?php } ?>
+      <?php if ($post->products_custom_tab != "") { ?>
+      <input id="tab-custom-tab" type="radio" name="tabs">
+      <label for="tab-custom-tab"><?php echo $post->products_custom_tab_text; ?></label>
+      <?php } ?>
       <?php if ($post->products_options != "") { ?>
       <input id="tab-options" type="radio" name="tabs">
       <label for="tab-options">Custom Options</label>
@@ -99,10 +103,6 @@ if(have_posts()) : while(have_posts()) : the_post();
       <?php if ($post->products_literature != "") { ?>
       <input id="tab-literature" type="radio" name="tabs">
       <label for="tab-literature">Literature</label>
-      <?php } ?>
-      <?php if ($post->products_custom_tab != "") { ?>
-      <input id="tab-custom-tab" type="radio" name="tabs">
-      <label for="tab-custom-tab"><?php echo $post->products_custom_tab_text; ?></label>
       <?php } ?>
       
       <?php if ($post->products_models != "") { ?>

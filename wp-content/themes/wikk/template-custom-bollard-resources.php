@@ -14,12 +14,19 @@ get_header();
   endif;
   ?>
 
-  Wikk&reg; Industries stands as an industry pioneer in providing custom bollard solutions to our clients. With almost every aspect of our bollards being customizable, we aim to provide the most personal and effective solution to each of our clients. To get started with a custom bollard order, utilize the resources below, then contact us via our <a href="<?php home_url(); ?>/request-for-quote/?bollard">Custom Bollard Request</a> form, or hop on the phone with one of our customer representatives at <a href="tel:877-421-9490">877-421-9490</a>.<br>
+  Wikk Industries stands as an industry pioneer in providing custom bollard solutions to our clients. With almost every aspect of our bollards being customizable, we aim to provide the most personal and effective solution to each of our clients. To get started with a custom bollard order, utilize the resources below, then contact us via our <a href="<?php home_url(); ?>/request-for-quote/?bollard">Custom Bollard Request</a> form, or hop on the phone with one of our customer representatives at <a href="tel:877-421-9490">877-421-9490</a>.<br>
   <br>
 
   <h2 class="cbr-h2">PDF Resources</h2>
 
   <?php
+  $cleaning = array('name' => 'Cleaning Wikk Bollards', 'slug' => 'cleaning',
+    'files' => array(
+      'Cleaning Stainless Steel' =>
+      content_url().'/uploads/2019/08/Stainless-Steel-Cleaning.pdf',
+     )
+  );
+
   $square = array('name' => 'Square Bollards', 'slug' => 'square',
     'files' => array(
       'Square Bollard Checklist' =>
@@ -68,6 +75,13 @@ get_header();
     )
   );
 
+  $ingressr = array('name' => 'INGRESSRs', 'slug' => 'ingressr',
+    'files' => array(
+      'Custom INGRESSR Checklist' =>
+      content_url().'/uploads/2019/07/INGRESSR-CHECK-LIST-01-02-18.pdf'
+     )
+  );
+
   $colors = array('name' => 'Special Colors & Finishes', 'slug' => 'colors',
     'files' => array(
       'Powdercoating for Exterior and Interior' =>
@@ -79,7 +93,7 @@ get_header();
     )
   );
 
-  $arrays = array($square, $round, $rectangular, $triangular, $colors);
+  $arrays = array($cleaning, $square, $round, $rectangular, $triangular, $ingressr, $colors);
 
   foreach ($arrays as $array) {
     $_SESSION[$array['slug']] = $array['files'];

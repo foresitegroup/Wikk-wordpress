@@ -9,7 +9,7 @@ if ($_POST['fintoozler'] == "") {
      )
   {
     $Subject = "Standard RFP";
-    $SendTo = "engineering@wikk.com, customerservice@wikk.com";
+    $SendTo = "webmaster@wikk.com, customerservice@wikk.com";
     // $SendTo = "lippert@gmail.com";
     $Headers = "From: Standard RFP Form <donotreply@wikk.com>\r\n";
     $Headers .= "Reply-To: " . $_POST['email'] . "\r\n";

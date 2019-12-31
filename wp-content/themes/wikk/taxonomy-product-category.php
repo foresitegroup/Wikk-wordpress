@@ -7,14 +7,14 @@
 
     echo "<div>";
       echo '<h1>'. $tax->name;
-      if ($tax->slug == "ingressr") echo '<sup class="reg">&reg;</sup>';
+      //if ($tax->slug == "ingressr") echo '<sup class="reg">&reg;</sup>';
       echo '</h1>';
 
-      if ($tax->slug == "bollards") {
-        echo "<h2>Stock Bollards - Ready in 24hrs</h2>";
-        echo "<h2>Custom Bollards - Variable Lead Time</h2>";
+      // if ($tax->slug == "bollards") {
+      //   echo "<h2>Stock Bollards - Ready in 24hrs</h2>";
+      //   echo "<h2>Custom Bollards - Variable Lead Time</h2>";
         // echo '<h3>For complete listing of bollard offerings, see our Price Catalog in the <a href="'.home_url().'/pro/">Pro Area</a></h3>';
-      }
+      // }
     echo "</div>";
 
     if (has_term(array('bollards', 'ingressr', 'switches'), 'product-category')) {
@@ -61,10 +61,10 @@
           }
 
           if ($tax->slug == "ingressr") {
-            echo "<h5>Material</h5>";
-            products_attributes_frontend('ingressr_material');
+            // echo "<h5>Material</h5>";
+            // products_attributes_frontend('ingressr_material');
 
-            echo "<br><br><h5>Product Group</h5>";
+            echo "<h5>Product Group</h5>";
             products_attributes_frontend('ingressr_product_group');
           }
 
@@ -176,7 +176,7 @@
 <?php
 if (has_term(array('bollards', 'ingressr', 'switches'), 'product-category')) {
   $FooterTextClass = "prodcat";
-  $FooterText = "Not quite what you need? <span>Wikk<sup class=\"reg\">&reg;</sup> does fully custom work.</span>";
+  $FooterText = "Not quite what you need? <span>Wikk does fully custom work.</span>";
 }
 
 if (has_term(array('bollards'), 'product-category')) $ShowCBR = "yes";

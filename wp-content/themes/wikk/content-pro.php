@@ -18,7 +18,7 @@ get_header();
         <div class="catalog-image" style="background-image: url(http://wikk.com/wp-content/uploads/2019/01/pricing-catalog.png);"></div>
       </div>
 
-      <a href="http://wikk.com/wp-content/uploads/2019/01/Wikk_Industries_2019_Pricing_Catalog.pdf" class="button">View PDF <i class="far fa-file-pdf"></i></a>
+      <a href="https://wikk.com/wp-content/uploads/2019/09/Wikk_Industries_2019_Pricing_Catalog.pdf" class="button">View PDF <i class="far fa-file-pdf"></i></a>
     </div>
 
     <div class="pro-content">
@@ -46,6 +46,28 @@ get_header();
       <h2>Customer Resources</h2>
       
       <div class="pro-subcat-wrap">
+        <input type="checkbox" id="toggle-sc-overstock" role="button">
+        <label for="toggle-sc-overstock">Items</label>
+        <table class="pro-subcat">
+          <thead>
+            <tr><td class="pro-subcat-name" colspan="2">Overstock</td></tr>
+          </thead>
+          <tbody>
+            <?php
+            $instructionsheets = array('name' => 'Overstock', 'slug' => 'Overstock',
+              'files' => array(
+                "Bollards" =>
+                content_url()."/uploads/2019/11/Overstock.pdf",
+              )
+            );
+
+            ListPDFs($instructionsheets);
+            ?>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pro-subcat-wrap">
         <input type="checkbox" id="toggle-sc-instruction-sheets" role="button">
         <label for="toggle-sc-instruction-sheets">Resources</label>
         <table class="pro-subcat">
@@ -63,7 +85,7 @@ get_header();
                 "36\" INGRESS'R" =>
                 content_url()."/uploads/2019/03/36_Inch_INGRESSR_Mounting_Instructions.pdf",
                 "36\" Narrow INGRESS'R" =>
-                content_url()."/uploads/2019/03/36_Inch_Narrow_INGRESSR_Mounting_Instructions.pdf",
+                content_url()."/uploads/2019/03/36_Inch_Narrow_INGRESSR_Installation_Instructions.pdf",
                 "42\" INGRESS'R" =>
                 content_url()."/uploads/2019/03/42_Inch_INGRESSR_Mounting_Instructions.pdf",
                 "N4RF / N6RF" =>
