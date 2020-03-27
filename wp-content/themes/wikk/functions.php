@@ -301,11 +301,10 @@ $products_attributes = array(
   array('name' => 'bollard_shape', 'value' => 'Tri/Rect'),
   array('name' => 'bollard_material', 'value' => 'Aluminum'),
   array('name' => 'bollard_material', 'value' => 'Stainless Steel'),
-  array('name' => 'bollard_finish', 'value' => 'Clear Anodized (628)'),
-  array('name' => 'bollard_finish', 'value' => 'Black Anodized (711)'),
-  array('name' => 'bollard_finish', 'value' => 'Dark Bronze Anodized (710)'),
+  array('name' => 'bollard_finish', 'value' => 'Clear Anodized'),
+  array('name' => 'bollard_finish', 'value' => 'Dark Bronze Anodized'),
   array('name' => 'bollard_finish', 'value' => 'Light Bronze Anodized'),
-  array('name' => 'bollard_finish', 'value' => 'Satin Stainless Steel (630)'),
+  array('name' => 'bollard_finish', 'value' => 'Satin Stainless Steel'),
   array('name' => 'bollard_type', 'value' => 'Stock'),
   array('name' => 'bollard_type', 'value' => 'Custom'),
   array('name' => 'ingressr_material', 'value' => 'Aluminum'),
@@ -326,8 +325,7 @@ $products_attributes = array(
   array('name' => 'tranrec_frequency', 'value' => '300'),
   array('name' => 'tranrec_frequency', 'value' => '310'),
   array('name' => 'tranrec_frequency', 'value' => '433'),
-  array('name' => 'tranrec_frequency', 'value' => '868'),
-  array('name' => 'tranrec_frequency', 'value' => '915')
+  array('name' => 'tranrec_frequency', 'value' => '868')
 );
 
 $attnames = array_unique(array_map(function ($i) { return $i['name']; }, $products_attributes));

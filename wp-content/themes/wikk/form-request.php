@@ -105,7 +105,7 @@ if ($_POST['fintoozler'] == "") {
 
     mail($SendTo, $Subject, $Message, $Headers);
 
-    $feedback = "<h4>Thank You!</h4> Your request has been approved.<br><br>Your password is: <span class=\"redtext\">Wikk2019</span>";
+    $feedback = "<h4>Thank You!</h4> Your request has been approved.<br><br>Your password is: <span class=\"redtext\">Wikk1980</span>";
   } else {
     $feedback = "Some required information is missing! Please go back and make sure all required fields are filled.";
   }

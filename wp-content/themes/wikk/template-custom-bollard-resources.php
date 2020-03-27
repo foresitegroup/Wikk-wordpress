@@ -30,7 +30,7 @@ get_header();
   $square = array('name' => 'Square Bollards', 'slug' => 'square',
     'files' => array(
       'Square Bollard Checklist' =>
-      content_url().'/uploads/2019/02/Square_Bollard_Checklist.pdf',
+      content_url().'/uploads/2020/03/Square_Bollard_Checklist.pdf',
       'Square Bollard Examples' =>
       content_url().'/uploads/2019/02/Square_Bollard_Examples.pdf',
       'High Low Switch Examples' =>
