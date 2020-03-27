@@ -801,7 +801,7 @@ H1.page-title {
   display: flex;
   justify-content: space-between;
   min-height: 324px;
-  width: 29.77%;
+  width: 46.75%;
   margin: 0 0 27px 3.25%;
   box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
   border-radius: 14px;
@@ -823,9 +823,9 @@ H1.page-title {
 #product-index-links > A:active { box-shadow: 0 0 25px 0 rgba(240,83,45,0.4); }
 
 #product-index-links > A .image {
-  width: 32%;
+  width: 25%;
   background-repeat: no-repeat;
-  background-position: left center;
+  background-position: center;
   background-size: contain;
 }
 
@@ -837,7 +837,7 @@ H1.page-title {
 }
 
 #product-index-links > A .text {
-  width: 62.5%;
+  width: 70%;
   align-self: center;
 }
 
@@ -861,7 +861,18 @@ H1.page-title {
 
 #product-index-links > A .text H2 { font-size: 250%; }
 #product-index-links > A .text H3 { font-size: 109.09%; }
-#product-index-links > A .text H4 { font-size: 150%; margin-top: 0.4em; color: #8F7BB5; overflow-wrap: break-word; word-wrap: break-word; }
+
+#product-index-links > A .text H4 {
+  font-size: 150%;
+  margin-top: 0.4em;
+  color: #8F7BB5;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 #product-index-links > A .text H5 { font-size: 109.09%; margin-top: 1em; color: #858689; }
 
 #product-index-links.switches > A .text H2 { font-size: 181.81%; letter-spacing: 0; }
@@ -3257,7 +3268,7 @@ H2.cbr-h2 {
 
   #product-index-links > A { width: 45%; margin: 0 1.5% 27px 1.5%; font-size: 17px; }
 
-  #product-index-links > A .image { width: 30%; }
+  #product-index-links > A .image { width: 30%; background-position: left center; }
   #product-index-links > A .text { width: 70%; }
   #product-index-links > A .text H4 { word-break: break-all; }
 
@@ -3486,6 +3497,7 @@ H2.cbr-h2 {
   #product-header #contact-button > DIV { display: inline; padding-right: 0 0.5em; }
 
   #product-index-links > A { width: 93%; font-size: 3.5vw; }
+  #product-index-links > A .image { background-position: center; }
 
   .related .prev, .related .next { width: 20px; height: 47px; }
 

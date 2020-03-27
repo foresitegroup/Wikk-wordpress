@@ -145,15 +145,15 @@
           
           echo '<div class="text">';
             if ($tax->slug == "bollards") echo "<h3>Bollard</h3>";
-            if ($tax->slug == "ingressr") echo "<h3>INGRESS'R</h3>";
+            if ($tax->slug == "ingressr") echo "<h2>INGRESS'R</h2>";
             
             if ($tax->slug == "ingressr") {
-              echo "<h2>" . preg_replace('/\(.+?\)/', '<div>$0</div>', get_the_title()) . "</h2>";
+              echo "<h4>" . preg_replace('/\(.+?\)/', '<div>$0</div>', get_the_title()) . "</h4>";
             } else {
               the_title('<h2>', '</h2>');
             }
 
-            if ($post->products_part_number != "") echo '<h4>#' . $post->products_part_number . "</h4>\n";
+            if ($post->products_part_number != "") echo '<h4>' . $post->products_part_number . "</h4>\n";
 
             if ($tax->slug == "bollards" && $post->bollard_type != "") echo "<h5>".$post->bollard_type."</h5>";
           echo "</div>\n";
