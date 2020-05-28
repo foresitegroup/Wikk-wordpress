@@ -2,7 +2,7 @@
 function forceRedirect($url) { header('Location:'.$url); exit; }
 
 if (isset($_POST['password'])) {
-  if ($_POST['password'] == "Wikk1980") {
+  if ($_POST['password'] == "Wikk-2020") {
     setcookie("WIpa", md5($_POST['password']));
   }
   forceRedirect(home_url().'/pro/');
