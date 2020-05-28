@@ -285,6 +285,9 @@ function products_mb_attributes_content($post) {
   echo "<br><strong>INGRESS'R Product Group</strong><br>\n";
   products_attributes('ingressr_product_group');
 
+  echo "<br><strong>INGRESS'R Type</strong><br>\n";
+  products_attributes('ingressr_type');	
+	
   echo "<br><strong>Switch Style</strong><br>\n";
   products_attributes('switch_style');
 
@@ -302,13 +305,16 @@ $products_attributes = array(
   array('name' => 'bollard_material', 'value' => 'Aluminum'),
   array('name' => 'bollard_material', 'value' => 'Stainless Steel'),
   array('name' => 'bollard_finish', 'value' => 'Clear Anodized'),
+  # array('name' => 'bollard_finish', 'value' => 'Black Anodized'),
   array('name' => 'bollard_finish', 'value' => 'Dark Bronze Anodized'),
-  array('name' => 'bollard_finish', 'value' => 'Light Bronze Anodized'),
   array('name' => 'bollard_finish', 'value' => 'Satin Stainless Steel'),
+  array('name' => 'bollard_finish', 'value' => 'Powder Coated'),
   array('name' => 'bollard_type', 'value' => 'Stock'),
   array('name' => 'bollard_type', 'value' => 'Custom'),
   array('name' => 'ingressr_material', 'value' => 'Aluminum'),
   array('name' => 'ingressr_material', 'value' => 'Stainless Steel'),
+  array('name' => 'ingressr_type', 'value' => 'Stock'),
+  array('name' => 'ingressr_type', 'value' => 'Custom'),
   array('name' => 'ingressr_product_group', 'value' => 'I09'),
   array('name' => 'ingressr_product_group', 'value' => 'I24'),
   array('name' => 'ingressr_product_group', 'value' => 'I36'),
@@ -325,7 +331,7 @@ $products_attributes = array(
   array('name' => 'tranrec_frequency', 'value' => '300'),
   array('name' => 'tranrec_frequency', 'value' => '310'),
   array('name' => 'tranrec_frequency', 'value' => '433'),
-  array('name' => 'tranrec_frequency', 'value' => '868')
+  array('name' => 'tranrec_frequency', 'value' => '868'),
 );
 
 $attnames = array_unique(array_map(function ($i) { return $i['name']; }, $products_attributes));

@@ -61,10 +61,10 @@
           }
 
           if ($tax->slug == "ingressr") {
-            // echo "<h5>Material</h5>";
-            // products_attributes_frontend('ingressr_material');
+            echo "<h5>Type</h5>";
+            products_attributes_frontend('ingressr_type');
 
-            echo "<h5>Product Group</h5>";
+            echo "<br><br><h5>Product Group</h5>";
             products_attributes_frontend('ingressr_product_group');
           }
 
@@ -157,7 +157,7 @@
 
             if ($tax->slug == "bollards" && $post->bollard_type != "") echo "<h5>".$post->bollard_type."</h5>";
           echo "</div>\n";
-
+					
           echo "</a>\n";
         endwhile;
       endif;

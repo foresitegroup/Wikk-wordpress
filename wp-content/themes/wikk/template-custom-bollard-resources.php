@@ -20,13 +20,24 @@ get_header();
   <h2 class="cbr-h2">PDF Resources</h2>
 
   <?php
-  $cleaning = array('name' => 'Cleaning Wikk Bollards', 'slug' => 'cleaning',
+	
+		$bases = array('name' => 'Base Examples', 'slug' => 'bases',
+    'files' => array(
+      'Round Base Examples' =>
+      content_url().'/uploads/2020/04/ROUND-BASE-EXAMPLES.pdf',
+		'Square Base Examples' =>
+      content_url().'/uploads/2020/04/SQUARE-BASE-EXAMPLES.pdf',
+     )
+  );
+	
+	
+	$cleaning = array('name' => 'Cleaning Wikk Bollards', 'slug' => 'cleaning',
     'files' => array(
       'Cleaning Stainless Steel' =>
       content_url().'/uploads/2019/08/Stainless-Steel-Cleaning.pdf',
      )
   );
-
+	
   $square = array('name' => 'Square Bollards', 'slug' => 'square',
     'files' => array(
       'Square Bollard Checklist' =>
@@ -81,7 +92,7 @@ get_header();
       content_url().'/uploads/2019/07/INGRESSR-CHECK-LIST-01-02-18.pdf'
      )
   );
-
+		
   $colors = array('name' => 'Special Colors & Finishes', 'slug' => 'colors',
     'files' => array(
       'Powdercoating for Exterior and Interior' =>
@@ -93,7 +104,7 @@ get_header();
     )
   );
 
-  $arrays = array($cleaning, $square, $round, $rectangular, $triangular, $ingressr, $colors);
+  $arrays = array($cleaning, $bases, $square, $round, $rectangular, $triangular, $ingressr, $colors);
 
   foreach ($arrays as $array) {
     $_SESSION[$array['slug']] = $array['files'];
