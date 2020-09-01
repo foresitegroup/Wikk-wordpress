@@ -13,7 +13,7 @@ if ($_POST['fintoozler'] == "") {
     $Headers = "From: Pro Area Form <donotreply@wikk.com>\r\n";
     $Headers .= "Reply-To: " . $_POST['email'] . "\r\n";
     $Headers .= "Bcc: foresitegroupllc@gmail.com\r\n";
-    
+
     $Message = "I represent the following: " . $_POST['rep'] . "\n";
     $Message .= $_POST['firstname'] . " " . $_POST['lastname'] . "\n";
     $Message .= $_POST['company'] . "\n";
@@ -23,7 +23,7 @@ if ($_POST['fintoozler'] == "") {
     if ($_POST['suite'] != "") $Message .= $_POST['suite'] . "\n";
     $Message .= $_POST['city'] . ", " . $_POST['state'] . " " . $_POST['zip'] . "\n";
     $Message .= $_POST['country'] . "\n";
-    
+
     // Add info to local database
     $sendupdates = (isset($_POST['sendupdates'])) ? $_POST['sendupdates'] : "";
     require_once('../../../wp-load.php');
@@ -38,7 +38,7 @@ if ($_POST['fintoozler'] == "") {
         'what_form' => 'Pro Area', 'date_submitted' => time()
       )
     );
-    
+
     // Add info to MailChimp
     if (isset($_POST['sendupdates'])) {
       $suite = ($_POST['suite'] != "") ? $_POST['suite'] : "";
@@ -104,8 +104,14 @@ if ($_POST['fintoozler'] == "") {
     $Message = stripslashes($Message);
 
     mail($SendTo, $Subject, $Message, $Headers);
+    
+    // Send email to user
+    // $UserMessage = "Thanks for requesting access to Wikk's Pro Area, a reservoir for useful, in-depth tools for industry professionals. Wikk's Pro Area password is: Wikk-2020";
+    // mail($_POST['email'], "Wikk's Pro Area", $UserMessage, "From: Wikk <donotreply@wikk.com>\r\n");
 
-    $feedback = "<h4>Thank You!</h4> Your request has been approved.<br><br>Your password is: <span class=\"redtext\">Wikk1980</span>";
+    // $feedback = "<h4>Thank You!</h4> The password to Wikk's Pro Area will be sent to the email address you entered. If you don't see the email, please make sure to check any spam folders you may have set up.";
+
+    $feedback = "<h4>Thank You!</h4> Thanks for requesting access to Wikk's Pro Area, a reservoir for useful, in-depth tools for industry professionals. Wikk's Pro Area password is: <strong class='redtext'>Wikk-2020</strong>.";
   } else {
     $feedback = "Some required information is missing! Please go back and make sure all required fields are filled.";
   }
