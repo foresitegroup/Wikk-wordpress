@@ -11,17 +11,17 @@ get_header();
   </div>
 
   <div class="pro">
-    <div class="pro-sidebar">
+    <!-- <div class="pro-sidebar">
       <h3>Wikk 2019 Pricing Catalog</h3>
 
       <div class="catalog-image-wrap">
-        <div class="catalog-image" style="background-image: url(http://wikk.com/wp-content/uploads/2019/01/pricing-catalog.png);"></div>
+        <div class="catalog-image" style="background-image: url(https://wikk.com/wp-content/uploads/2019/01/pricing-catalog.png);"></div>
       </div>
 
       <a href="https://wikk.com/wp-content/uploads/2019/09/Wikk_Industries_2019_Pricing_Catalog.pdf" class="button">View PDF <i class="far fa-file-pdf"></i></a>
-    </div>
+    </div> -->
 
-    <div class="pro-content">
+    <div class="pro-content" style="width: 100%;">
       <?php
       function ListPDFs($array) {
         $_SESSION[$array['slug']] = $array['files'];
@@ -45,7 +45,7 @@ get_header();
 
       <h2>Customer Resources</h2>
       
-      <div class="pro-subcat-wrap">
+		      <div class="pro-subcat-wrap">
         <input type="checkbox" id="toggle-sc-overstock" role="button">
         <label for="toggle-sc-overstock">Items</label>
         <table class="pro-subcat">
@@ -58,7 +58,7 @@ get_header();
               'files' => array(
                 "Bollards" =>
                 content_url()."/uploads/2019/11/Overstock.pdf",
-              )
+                )
             );
 
             ListPDFs($instructionsheets);
@@ -66,8 +66,7 @@ get_header();
           </tbody>
         </table>
       </div>
-
-      <div class="pro-subcat-wrap">
+		<div class="pro-subcat-wrap">
         <input type="checkbox" id="toggle-sc-instruction-sheets" role="button">
         <label for="toggle-sc-instruction-sheets">Resources</label>
         <table class="pro-subcat">
@@ -136,6 +135,7 @@ get_header();
           </tbody>
         </table>
       </div>
+
     </div> <!-- .procontent -->
   </div> <!-- .pro -->
 </div> <!-- .proarea -->
