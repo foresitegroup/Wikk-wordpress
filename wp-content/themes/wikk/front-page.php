@@ -1,47 +1,5 @@
 <?php get_header(); ?>
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/slick.css">
-<script src="<?php echo get_template_directory_uri(); ?>/inc/slick.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.hero').slick({
-      autoplay: true,
-      autoplaySpeed: 7000,
-      fade: true,
-      speed: 2000,
-      arrows: false
-    });
-  });
-</script>
-
-<div class="hero">
-  <!-- <div class="slide1" style="background-image: url(<?php //echo get_template_directory_uri(); ?>/images/slide1.jpg);">
-    <div class="site-width">
-      <h1>Elevating spaces through accessibility.</h1>
-      Since its founding in 1980, Wikk&reg; has been a trusted resource to bridge the "accessibility gap" by delivering patented, code compliant solutions with user-friendly designs.  Our products are being used in some of the most iconic buildings in North America, including the Empire State Building, World Trade Center Oculus, Los Angeles Stadium, and the United States Capitol to name a few.  We are a family-owned business that strives on a daily basis to continually exceed our customers' increasing expectations.<br>
-      <br>
-
-      Let us show you <strong class="redtext">simply. accessible.</strong><br>
-
-      <a href="<?php //echo home_url(); ?>/about/" class="button">Learn More About Our Mission</a>
-    </div>
-  </div> -->
-
-  <!-- <div class="slide2" style="background-image: url(<?php //echo get_template_directory_uri(); ?>/images/slide2.jpg);">
-    <div class="site-width">
-      <img src="<?php //echo get_template_directory_uri(); ?>/images/slide2-haptikk.png" alt="Haptikk Solutions"><br>
-      <a href="<?php //echo home_url(); ?>/news/innovations/" class="button">Learn More About Our Innovations</a>
-    </div>
-  </div> -->
-
-  <div class="slide40" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slide-40-years.jpg);">
-    <div class="site-width">
-      <img src="<?php echo get_template_directory_uri(); ?>/images/40-years.png" alt="Celebrating 40 years of service"><br>
-      <a href="<?php echo home_url(); ?>/about/" class="button">Learn More About Wikk's Impact</a>
-    </div>
-  </div>
-</div>
-
 <div id="featured-solution">
   <div class="site-width">
     <div class="sideheader"><h1>Featured Solution</h1></div>
@@ -58,6 +16,48 @@
       <a href="<?php home_url(); ?>/product-category/bollards/" class="button">Learn More</a>
     </div>
   </div>
+</div>
+
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/slick.css">
+<script src="<?php echo get_template_directory_uri(); ?>/inc/slick.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.hero').slick({
+      autoplay: true,
+      autoplaySpeed: 7000,
+      fade: true,
+      speed: 2000,
+      arrows: false
+    });
+  });
+</script>
+
+<div class="hero">
+  <div class="slide1" style="background-image: url(<?php echo get_template_directory_uri(); ?>/images/slide1.jpg);">
+    <div class="site-width">
+      <h1>Elevating spaces through accessibility.</h1>
+      Since its founding in 1980, Wikk&reg; has been a trusted resource to bridge the "accessibility gap" by delivering patented, code compliant solutions with user-friendly designs.  Our products are being used in some of the most iconic buildings in North America, including the Empire State Building, World Trade Center Oculus, Los Angeles Stadium, and the United States Capitol to name a few.  We are a family-owned business that strives on a daily basis to continually exceed our customers' increasing expectations.<br>
+      <br>
+
+      Let us show you <strong class="redtext">simply. accessible.</strong><br>
+
+      <a href="<?php echo home_url(); ?>/about/" class="button">Learn More About Our Mission</a>
+    </div>
+  </div>
+
+  <!-- <div class="slide2" style="background-image: url(<?php //echo get_template_directory_uri(); ?>/images/slide2.jpg);">
+    <div class="site-width">
+      <img src="<?php //echo get_template_directory_uri(); ?>/images/slide2-haptikk.png" alt="Haptikk Solutions"><br>
+      <a href="<?php //echo home_url(); ?>/news/innovations/" class="button">Learn More About Our Innovations</a>
+    </div>
+  </div> -->
+
+  <!-- <div class="slide40" style="background-image: url(<?php //echo get_template_directory_uri(); ?>/images/slide-40-years.jpg);">
+    <div class="site-width">
+      <img src="<?php //echo get_template_directory_uri(); ?>/images/40-years.png" alt="Celebrating 40 years of service"><br>
+      <a href="<?php //echo home_url(); ?>/about/" class="button">Learn More About Wikk's Impact</a>
+    </div>
+  </div> -->
 </div>
 
 <div id="cbr-banner">
