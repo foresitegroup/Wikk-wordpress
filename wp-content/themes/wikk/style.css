@@ -801,6 +801,7 @@ H1.page-title {
   display: flex;
   justify-content: space-between;
   min-height: 324px;
+  /*width: 30%;*/
   width: 46.75%;
   margin: 0 0 27px 3.25%;
   box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
@@ -823,8 +824,10 @@ H1.page-title {
 #product-index-links > A:active { box-shadow: 0 0 25px 0 rgba(240,83,45,0.4); }
 
 #product-index-links > A .image {
+  /*width: 32%;*/
   width: 25%;
   background-repeat: no-repeat;
+  /*background-position: left center;*/
   background-position: center;
   background-size: contain;
 }
@@ -837,6 +840,7 @@ H1.page-title {
 }
 
 #product-index-links > A .text {
+  /*width: 62.5%;*/
   width: 70%;
   align-self: center;
 }
