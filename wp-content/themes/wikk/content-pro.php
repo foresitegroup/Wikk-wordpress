@@ -45,7 +45,7 @@ get_header();
 
       <h2>Customer Resources</h2>
       
-		      <div class="pro-subcat-wrap">
+		  <!-- <div class="pro-subcat-wrap">
         <input type="checkbox" id="toggle-sc-overstock" role="button">
         <label for="toggle-sc-overstock">Items</label>
         <table class="pro-subcat">
@@ -54,19 +54,20 @@ get_header();
           </thead>
           <tbody>
             <?php
-            $instructionsheets = array('name' => 'Overstock', 'slug' => 'Overstock',
-              'files' => array(
-                "Bollards" =>
-                content_url()."/uploads/2019/11/Overstock.pdf",
-                )
-            );
+            // $instructionsheets = array('name' => 'Overstock', 'slug' => 'Overstock',
+            //   'files' => array(
+            //     "Bollards" =>
+            //     content_url()."/uploads/2019/11/Overstock.pdf",
+            //     )
+            // );
 
-            ListPDFs($instructionsheets);
+            // ListPDFs($instructionsheets);
             ?>
           </tbody>
         </table>
-      </div>
-		<div class="pro-subcat-wrap">
+      </div> -->
+      
+		  <div class="pro-subcat-wrap">
         <input type="checkbox" id="toggle-sc-instruction-sheets" role="button">
         <label for="toggle-sc-instruction-sheets">Resources</label>
         <table class="pro-subcat">
