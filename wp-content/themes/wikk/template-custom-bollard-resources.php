@@ -20,8 +20,7 @@ get_header();
   <h2 class="cbr-h2">PDF Resources</h2>
 
   <?php
-	
-		$bases = array('name' => 'Base Examples', 'slug' => 'bases',
+	$bases = array('name' => 'Base Examples', 'slug' => 'bases',
     'files' => array(
       'Round Base Examples' =>
       content_url().'/uploads/2020/04/ROUND-BASE-EXAMPLES.pdf',
@@ -96,11 +95,13 @@ get_header();
   $colors = array('name' => 'Special Colors & Finishes', 'slug' => 'colors',
     'files' => array(
       'Powdercoating for Exterior and Interior' =>
-      content_url().'/uploads/2019/02/Powdercoating_for_Exterior_and_Interior.pdf',
+      content_url().'/uploads/2021/01/Powdercoating_for_Exterior_and_Interior.pdf',
       'Super Durable Powdercoating Colors' =>
-      content_url().'/uploads/2019/02/Super_Durable_Powdercoating_Colors.pdf',
+      content_url().'/uploads/2021/01/Super_Durable_Powdercoating_Colors.pdf',
       'Anodized Finish' =>
-      content_url().'/uploads/2019/02/Anodized_Finish.pdf'
+      content_url().'/uploads/2019/02/Anodized_Finish.pdf',
+      'Metallics & Special Effects Powder Coating Colors' =>
+      content_url().'/uploads/2021/01/Metallics_and_Special_Effects_Powder_Coating_Colors.pdf'
     )
   );
 
