@@ -291,6 +291,9 @@ function products_mb_sort_content($post) {
 }
 
 function products_mb_attributes_content($post) {
+  echo "<br><strong>Bollard Type</strong><br>\n";
+  products_attributes('bollard_type');
+  
   echo "<strong>Bollard Shape</strong><br>\n";
   products_attributes('bollard_shape');
 
@@ -299,9 +302,6 @@ function products_mb_attributes_content($post) {
 
   echo "<br><strong>Bollard Finish</strong><br>\n";
   products_attributes('bollard_finish');
-
-  echo "<br><strong>Bollard Type</strong><br>\n";
-  products_attributes('bollard_type');
 
   echo "<br><strong>INGRESS'R Finish</strong><br>\n";
   products_attributes('ingressr_material');

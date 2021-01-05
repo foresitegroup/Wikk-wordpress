@@ -47,7 +47,10 @@
         <form action="<?php echo home_url(); ?>/product-category/<?php echo $tax->slug; ?>/" method="POST" name="filter" id="filter">
           <?php
           if ($tax->slug == "bollards") {
-            echo "<h5>Shape</h5>";
+            echo "<h5>Type</h5>";
+            products_attributes_frontend('bollard_type');
+            
+            echo "<br><br><h5>Shape</h5>";
             products_attributes_frontend('bollard_shape');
 
             echo "<br><br><h5>Material</h5>";
@@ -55,9 +58,6 @@
 
             echo "<br><br><h5>Finish</h5>";
             products_attributes_frontend('bollard_finish');
-
-            echo "<br><br><h5>Type</h5>";
-            products_attributes_frontend('bollard_type');
           }
 
           if ($tax->slug == "ingressr") {
