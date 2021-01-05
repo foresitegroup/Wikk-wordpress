@@ -255,8 +255,32 @@ function products_mb_content($post) {
 function products_mb_mounting_content($post) {
   ?>
   <?php
-  wp_editor(html_entity_decode($post->products_mounting, ENT_QUOTES), 'products_mounting', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => true));
+  $product_mounting_options = get_post_meta($post->ID, 'product_mounting_options', true);
   ?>
+  <div id="product_mounting_options_rows">
+    <?php
+    if (isset($product_mounting_options['image_url'])) {
+      for($i = 0; $i < count($product_mounting_options['image_url']); $i++) {
+        ?>
+        <div class="product_mounting_options_box">
+          <div class="product_mounting_options_image" style="background-image: url(<?php esc_html_e($product_mounting_options['image_url'][$i]); ?>);">
+            <input type="hidden" name="pmo[image_url][]" value="<?php esc_html_e($product_mounting_options['image_url'][$i]); ?>">
+          </div>
+
+          <div class="product_mounting_options_inputs">
+            <input type="text" name="pmo[name][]" value="<?php esc_html_e($product_mounting_options['name'][$i]); ?>" placeholder="Name"><br>
+            <textarea name="pmo[excerpt][]" placeholder="Excerpt Text"><?php esc_html_e($product_mounting_options['excerpt'][$i]); ?></textarea><br>
+            <textarea name="pmo[popup][]" placeholder="Pop-Up Text"><?php esc_html_e($product_mounting_options['popup'][$i]); ?></textarea><br>
+            <button onclick="remove_option(this)">Remove Option</button>
+          </div>
+        </div>
+        <?php
+      }
+    }
+    ?>
+  </div>
+
+  <div id="product_mounting_options_add" onclick="add_option()">Add Option</div>
   <?php
 }
 
@@ -437,6 +461,12 @@ function products_save($post_id) {
     delete_post_meta($post_id, 'products_mounting');
   }
 
+  if (!empty($_POST['pmo'])) {
+    update_post_meta($post_id, 'product_mounting_options', $_POST['pmo']);
+  } else {
+    delete_post_meta($post_id, 'product_mounting_options');
+  }
+
   $pts = ($_POST['products_title_sort'] == "") ? $_POST['post_title'] : $_POST['products_title_sort'];
   update_post_meta($post_id, 'products_title_sort', $pts);
 
@@ -455,7 +485,8 @@ function products_save($post_id) {
 add_action('admin_head', 'products_css');
 function products_css() {
   if (get_post_type() == 'products') {
-    echo '<style>
+    ?>
+    <style>
       #products_part_number { padding: 3px 8px; font-size: 1.7em; line-height: 100%; height: 1.7em; width: 100%; outline: 0; }
       #products_spec_sheet { width: 85%; padding: 0.32em 8px; box-sizing: border-box; margin: 1.5em 0.75em 1.5em 0; }
       #products_spec_sheet_button { margin: 1.5em 0; }
@@ -465,7 +496,88 @@ function products_css() {
       #filter-by-date { display: none; }
       #products_title_sort, #products_custom_tab_text { width: 100%; padding: 0.32em 8px; box-sizing: border-box; }
       .related-posts-select .chosen-container { min-width: 0; }
-    </style>';
+
+      .product_mounting_options_box {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        position: relative;
+        cursor: move;
+        background: #FFFFFF;
+      }
+
+      .product_mounting_options_image {
+        position: relative;
+        z-index: 2;
+        width: 280px;
+        height: 280px;
+        border-radius: 3px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      .product_mounting_options_inputs { flex-grow: 2; text-align: right; }
+
+      .product_mounting_options_inputs INPUT { width: 95%; margin-bottom: 1em; }
+      .product_mounting_options_inputs TEXTAREA { width: 95%; margin-bottom: 1em; height: 11em; }
+
+      .product_mounting_options_inputs BUTTON {
+        outline: 0;
+        border: 0;
+        border-radius: 3px;
+        padding: 0.7em 1em;
+        background: #DD2D2D;
+        color: #FFFFFF;
+        cursor: pointer;
+      }
+
+      .product_mounting_options_inputs BUTTON:hover { background: #BB2D2D; }
+
+      #product_mounting_options_add {
+        display: inline-block;
+        margin-top: 0.4em;
+        outline: 0;
+        border: 0;
+        border-radius: 3px;
+        padding: 0.7em 1em;
+        background: #007CBA;
+        color: #FFFFFF;
+        cursor: pointer;
+      }
+
+      #product_mounting_options_add:hover { background: #0071A1; }
+    </style>
+    <script type="text/javascript">
+      jQuery(function() { jQuery("#product_mounting_options_rows").sortable(); });
+
+      function remove_option(value) { jQuery(value).parent().parent().remove(); }
+
+      var media_uploader = null;
+
+      function add_option(){
+        media_uploader = wp.media({ frame: "post", state: "insert", multiple: true });
+
+        media_uploader.on("insert", function() {
+          var length = media_uploader.state().get("selection").length;
+          var images = media_uploader.state().get("selection").models
+
+          for(var iii = 0; iii < length; iii++) {
+            var image_url = images[iii].changed.url;
+
+            var box = '<div class="product_mounting_options_box"><div class="product_mounting_options_image"><input type="hidden" name="pmo[image_url][]" value=""></div><div class="product_mounting_options_inputs"><input type="text" name="pmo[name][]" value="" placeholder="Name"><br><textarea name="pmo[excerpt][]" placeholder="Excerpt Text"></textarea><br><textarea name="pmo[popup][]" placeholder="Pop-Up Text"></textarea><br><button onclick="remove_option(this)">Remove Option</button></div></div>';
+            jQuery(box).appendTo('#product_mounting_options_rows');
+
+            var element = jQuery('#product_mounting_options_rows .product_mounting_options_box:last-child').find('.product_mounting_options_image');
+            element.css('background-image', 'url('+image_url+')');
+            element.find('INPUT[name^="pmo[image_url]"]').val(image_url);
+          }
+        });
+
+        media_uploader.open();
+      }
+    </script>
+    <?php
   }
 }
 

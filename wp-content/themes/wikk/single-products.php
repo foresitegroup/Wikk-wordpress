@@ -156,7 +156,38 @@ if(have_posts()) : while(have_posts()) : the_post();
 
 <div class="site-width">
   <?php
-  if ($post->products_mounting != "") echo $post->products_mounting;
+  if ($post->product_mounting_options != "") {
+    $spiffs = "";
+    $modals = "";
+
+    $pmo = get_post_meta($post->ID, 'product_mounting_options', true);
+
+    for($i = 0; $i < count($pmo['image_url']); $i++) {
+      $spiffs .= "<a href=\"#pmo".$i."\" class=\"tile\" rel=\"modal:open\">\n<div class=\"top\">\n";
+      $spiffs .= "<div class=\"image\" style=\"background-image: url(".$pmo['image_url'][$i].");\"></div>\n";
+      $spiffs .= "<h1>".$pmo['name'][$i]."</h1>\n</div>\n<div class=\"text\">\n";
+      $spiffs .= apply_filters('the_content', $pmo['excerpt'][$i]);
+      $spiffs .= "</div>\n</a>\n";
+
+      $modals .= "<div id=\"pmo".$i."\" class=\"modal\">\n<div class=\"modal-available\">\n";
+      $modals .= "<div class=\"image\" style=\"background-image: url(".$pmo['image_url'][$i].");\"></div>\n";
+      $modals .= "<div class=\"text\">\n<h1>".$pmo['name'][$i]."</h1>\n";
+      $modals .= ($pmo['popup'][$i] != "") ? apply_filters('the_content', $pmo['popup'][$i]) : apply_filters('the_content', $pmo['excerpt'][$i]);
+      $modals .= "</div>\n</div>\n</div>\n";
+    }
+    ?>
+    <div class="related available">
+      <h3>Available Mounting Options</h3>
+
+      <div class="scroller">
+        <?php echo $spiffs; ?>
+      </div> <!-- /.scroller -->
+
+      <div class="sideheader bottom"><h1></h1></div>
+    </div>
+    <?php
+    echo $modals;
+  }
 
   global $related;
   $rel = $related->show(get_the_ID(), true);
