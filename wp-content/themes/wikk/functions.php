@@ -215,28 +215,28 @@ function products_mb_content($post) {
   ?>
   <h3>Models</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_models, ENT_QUOTES), 'products_models', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_models, ENT_QUOTES), 'products_models', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => true));
   ?>
 
   <hr>
 
   <h3>Overview</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_overview, ENT_QUOTES), 'products_overview', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_overview, ENT_QUOTES), 'products_overview', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => true));
   ?>
 
   <hr>
 
   <h3>Custom Options</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_options, ENT_QUOTES), 'products_options', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_options, ENT_QUOTES), 'products_options', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => true));
   ?>
 
   <hr>
 
   <h3>Literature</h3>
   <?php
-  wp_editor(html_entity_decode($post->products_literature, ENT_QUOTES), 'products_literature', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_literature, ENT_QUOTES), 'products_literature', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => true));
   ?>
 
   <hr>
@@ -247,7 +247,7 @@ function products_mb_content($post) {
   if ($post->products_custom_tab_text != "") echo $post->products_custom_tab_text;
   echo '" id="products_custom_tab_text" maxlength="18">';
 
-  wp_editor(html_entity_decode($post->products_custom_tab, ENT_QUOTES), 'products_custom_tab', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_custom_tab, ENT_QUOTES), 'products_custom_tab', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => true));
   ?>
   <?php
 }
@@ -255,7 +255,7 @@ function products_mb_content($post) {
 function products_mb_mounting_content($post) {
   ?>
   <?php
-  wp_editor(html_entity_decode($post->products_mounting, ENT_QUOTES), 'products_mounting', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => false));
+  wp_editor(html_entity_decode($post->products_mounting, ENT_QUOTES), 'products_mounting', array('textarea_rows' => 20, 'wpautop' => false, 'tinymce' => true));
   ?>
   <?php
 }
@@ -457,7 +457,7 @@ function products_css() {
   if (get_post_type() == 'products') {
     echo '<style>
       #products_part_number { padding: 3px 8px; font-size: 1.7em; line-height: 100%; height: 1.7em; width: 100%; outline: 0; }
-      #products_spec_sheet { width: 87%; padding: 0.32em 8px; box-sizing: border-box; margin: 1.5em 0.75em 1.5em 0; }
+      #products_spec_sheet { width: 85%; padding: 0.32em 8px; box-sizing: border-box; margin: 1.5em 0.75em 1.5em 0; }
       #products_spec_sheet_button { margin: 1.5em 0; }
       #products_mb H3 { margin: 0 0 0.5em; }
       #products_mb .wp-editor-wrap { margin: 1em 0 2em; }
