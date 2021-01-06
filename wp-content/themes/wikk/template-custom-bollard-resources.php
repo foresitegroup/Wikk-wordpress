@@ -33,7 +33,7 @@ get_header();
 	$cleaning = array('name' => 'Cleaning Wikk Bollards', 'slug' => 'cleaning',
     'files' => array(
       'Cleaning Stainless Steel' =>
-      content_url().'/uploads/2019/08/Stainless-Steel-Cleaning.pdf',
+      content_url().'/uploads/2021/01/Stainless-Steel-Cleaning.pdf',
      )
   );
 	
