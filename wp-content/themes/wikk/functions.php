@@ -1433,4 +1433,218 @@ function custom_partners_sortable_columns($column) {
   unset($column['title']);
   return $column;
 }
+
+
+/*
+*  Custom Bollard Resources
+*/
+add_action('init', 'cbr');
+function cbr() {
+  register_post_type('cbr', array(
+    'labels' => array(
+      'name' => 'Custom Bollard Resources',
+      'singular_name' => 'Resource',
+      'add_new_item' => 'Add New Resource',
+      'edit_item' => 'Edit Resource',
+      'search_items' => 'Search Resources',
+      'not_found' => 'No Resources found'
+    ),
+    'show_ui' => true,
+    'menu_position' => 53,
+    'menu_icon' => 'dashicons-pdf',
+    'supports' => array('title')
+  ));
+}
+
+add_action('add_meta_boxes', 'cbr_mb');
+function cbr_mb() {
+  add_meta_box('cbr_mb', 'PDFs', 'cbr_mb_content', 'cbr', 'normal');
+}
+
+function cbr_mb_content($post) {
+  $cbr = get_post_meta($post->ID, 'cbr', true);
+  ?>
+  <div id="cbr_rows">
+    <?php
+    if (isset($cbr['pdf_title'])) {
+      for($i = 0; $i < count($cbr['pdf_title']); $i++) {
+        ?>
+        <div class="cbr_box">
+          <input type="text" name="cbr[pdf_title][]" value="<?php esc_html_e($cbr['pdf_title'][$i]); ?>" placeholder="PDF Title">
+          <input type="text" name="cbr[pdf_file][]" value="<?php esc_html_e($cbr['pdf_file'][$i]); ?>" placeholder="PDF File">
+
+          <button onclick="remove_pdf(this)">Remove PDF</button>
+        </div>
+        <?php
+      }
+    }
+    ?>
+  </div>
+
+  <div id="cbr_add" onclick="add_pdf()">Add PDF</div>
+  <?php
+}
+
+add_action('admin_head', 'cbr_css');
+function cbr_css() {
+  if (get_post_type() == 'cbr') {
+    wp_enqueue_media();
+    ?>
+    <style>
+      .cbr_box {
+        margin-bottom: 1em;
+        border-bottom: 1px solid #CCD0D4;
+        padding-bottom: 1em;
+        cursor: move;
+      }
+
+      .cbr_box INPUT { width: 100%; margin-bottom: 1em; }
+
+      .cbr_box BUTTON {
+        outline: 0;
+        border: 0;
+        border-radius: 3px;
+        padding: 0.7em 1em;
+        background: #DD2D2D;
+        color: #FFFFFF;
+        cursor: pointer;
+      }
+
+      .cbr_box BUTTON:hover { background: #BB2D2D; }
+
+      #cbr_add {
+        display: inline-block;
+        margin-top: 0.4em;
+        outline: 0;
+        border: 0;
+        border-radius: 3px;
+        padding: 0.7em 1em;
+        background: #007CBA;
+        color: #FFFFFF;
+        cursor: pointer;
+      }
+    </style>
+    <script type="text/javascript">
+      jQuery(function() { jQuery("#cbr_rows").sortable(); });
+
+      function remove_pdf(value) { jQuery(value).parent().parent().remove(); }
+
+      var media_uploader = null;
+
+      function add_pdf(){
+        media_uploader = wp.media({ frame: "post", state: "insert", multiple: true });
+
+        media_uploader.on("insert", function() {
+          var length = media_uploader.state().get("selection").length;
+          var images = media_uploader.state().get("selection").models
+
+          for(var iii = 0; iii < length; iii++) {
+            var pdf_title = images[iii].changed.title;
+            var image_url = images[iii].changed.url;
+
+            var box = '<div class="cbr_box"><input type="text" name="cbr[pdf_title][]" value="" placeholder="PDF Title"><input type="text" name="cbr[pdf_file][]" value="" placeholder="PDF File"><button onclick="remove_pdf(this)">Remove PDF</button></div>';
+            jQuery(box).appendTo('#cbr_rows');
+            
+            jQuery('#cbr_rows .cbr_box:last-child INPUT[name^="cbr[pdf_title]"]').val(pdf_title);
+            jQuery('#cbr_rows .cbr_box:last-child INPUT[name^="cbr[pdf_file]"]').val(image_url);
+          }
+        });
+
+        media_uploader.open();
+      }
+    </script>
+    <?php
+  }
+}
+
+add_action('save_post', 'cbr_save');
+function cbr_save($post_id) {
+  if (!empty($_POST['cbr'])) {
+    update_post_meta($post_id, 'cbr', $_POST['cbr']);
+  } else {
+    delete_post_meta($post_id, 'cbr');
+  }
+}
+
+add_action('admin_head', 'cbr_remove_date_filter');
+function cbr_remove_date_filter() {
+  if (get_post_type() == 'cbr') add_filter('months_dropdown_results', '__return_empty_array');
+}
+
+add_filter('manage_cbr_posts_columns', 'set_custom_edit_cbr_columns');
+function set_custom_edit_cbr_columns($columns) {
+  unset($columns['date']); return $columns;
+}
+
+
+/*
+*  Make any Custom Post Type drag-to-sort in admin
+*  (Remember to unset column sorting for that CPT)
+*/
+$sortable_cpt = array('cbr');
+
+add_filter('admin_body_class', 'cptsort_admin_class');
+function cptsort_admin_class($classes) {
+  global $typenow, $sortable_cpt;
+
+  if (in_array($typenow, $sortable_cpt)) {
+    $classes .= ' sortable';
+    return $classes;
+  }
+}
+
+add_action('admin_head', 'cptsort_admin_scripts');
+function cptsort_admin_scripts() {
+  global $typenow, $sortable_cpt;
+
+  if (in_array($typenow, $sortable_cpt)) {
+    wp_enqueue_script('jquery-ui-sortable');
+    ?>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $('.sortable #the-list').sortable({
+          update: function(event, ui) {
+            $.post(ajaxurl, {action: 'cptsort_save', order: $('#the-list').sortable('serialize')});
+          }
+        });
+        
+        // Maintain proper row width when moving
+        var td_array = new Array();
+        $('#the-list tr:first-child').find('td').each(function(i) { td_array[i] = $(this).outerWidth(); });
+        $('#the-list').find('tr').each(function() {
+          $(this).find('td').each(function(j) { $(this).width(td_array[j]); });
+        });
+      });
+    </script>
+    <style>
+      .sortable #the-list TR:hover { cursor: move; }
+      .sortable #the-list TR:active { background: #FFEECC; }
+    </style>
+    <?php
+  }
+}
+
+add_action('wp_ajax_cptsort_save', 'cptsort_save');
+function cptsort_save() {
+  global $wpdb;
+  
+  parse_str($_POST['order'], $data);
+
+  $counter = 1;
+
+  foreach ($data['post'] as $item_id) {
+    $wpdb->update($wpdb->posts, array('menu_order' => $counter), array('ID' => $item_id));
+    $counter++;
+  }
+}
+
+add_action('pre_get_posts','cptsort_default_order', 9);
+function cptsort_default_order($query) {
+  global $sortable_cpt;
+
+  if (in_array($query->get('post_type'), $sortable_cpt)) {
+    if ($query->get('orderby') == '') $query->set('orderby','menu_order');
+    if ($query->get('order') == '') $query->set('order','ASC');
+  }
+}
 ?>
