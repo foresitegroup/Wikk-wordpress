@@ -70,9 +70,8 @@ get_header();
           <input type="checkbox" name="sendupdates" value="Send updates" id="send-updates" checked>
           <label for="send-updates">Send me periodic updates and innovations from Wikk&reg;</label>
           
-          <input type="text" name="fintoozler" autocomplete="off" style="position: absolute; width: 0; height: 0; padding: 0; opacity: 0;">
-          
-          <br>
+          <div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY2; ?>"></div><br>
+
           <input type="submit" name="submit" value="Submit">
         </div>
       </form>
@@ -95,13 +94,7 @@ get_header();
         <h5>Brian Hawthorne</h5>
         President
         <h5>877-421-9490</h5>
-        <h6><a href="mailto:brian@wikk.com">brian@wikk.com</a></h6><br>
-
-        <h4>INTERNATIONAL - United Kingdom</h4>
-        <h5>Controls for Doors, LLC.</h5>
-        Surrey, United Kingdom<br>
-        <h6><a href="mailto:sales@cfdltd.com">sales@cfdltd.com</a></h6>
-        <a href="http://www.cfdltd.com" class="link">www.cfdltd.com</a>
+        <h6><a href="mailto:brian@wikk.com">brian@wikk.com</a></h6>
       </div>
     </div>
   </div> <!-- #content -->
@@ -109,14 +102,7 @@ get_header();
 
 <div id="alert-modal" class="modal"><div></div></div>
 
-<script src="https://www.google.com/recaptcha/api.js?render=<?php echo RECAPTCHA_SITE_KEY; ?>"></script>
-<script>
-  grecaptcha.ready(function() {
-    grecaptcha.execute('<?php echo RECAPTCHA_SITE_KEY; ?>', {action: 'contact_form'}).then(function(token) {
-      document.getElementById('g-recaptcha-response-c').value=token;
-    });
-  });
-</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/jquery.modal.css">
 <script src="<?php echo get_template_directory_uri(); ?>/inc/jquery.modal.min.js"></script>

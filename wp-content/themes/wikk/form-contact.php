@@ -1,5 +1,10 @@
 <?php
-if ($_POST['fintoozler'] == "") {
+include_once "inc/fintoozler.php";
+
+$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".RECAPTCHA_SECRET_KEY2."&response=".$_POST['g-recaptcha-response']);
+$responsekeys = json_decode($response);
+
+if ($responsekeys->success) {
   if (
       $_POST['firstname'] != "" && $_POST['lastname'] != "" &&
       $_POST['email'] != "" && $_POST['subject'] != "" && $_POST['message'] != ""
@@ -7,7 +12,6 @@ if ($_POST['fintoozler'] == "") {
   {
     $Subject = $_POST['subject'];
     $SendTo = "sales@wikk.com";
-    // $SendTo = "marklippert@protonmail.com";
     $Headers = "From: Contact Form <donotreply@wikk.com>\r\n";
     $Headers .= "Reply-To: " . $_POST['email'] . "\r\n";
     $Headers .= "Bcc: foresitegroupllc@gmail.com\r\n";
