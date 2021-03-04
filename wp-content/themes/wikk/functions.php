@@ -818,7 +818,7 @@ add_action('wp_ajax_nopriv_get_products_by_ajax', 'get_products_by_ajax_callback
 function get_products_by_ajax_callback() {
   echo '<option value="">Select...</option>';
 
-  $prodcats = new WP_Query(array('post_type' => 'products', 'posts_per_page' => -1, 'tax_query' => array(array('taxonomy' => 'product-category', 'field' => 'slug', 'terms' => $_POST['prodcat']))));
+  $prodcats = new WP_Query(array('post_type' => 'products', 'posts_per_page' => -1, 'post_status' => 'publish', 'tax_query' => array(array('taxonomy' => 'product-category', 'field' => 'slug', 'terms' => $_POST['prodcat']))));
 
   if ($prodcats->have_posts()) {
     while ($prodcats->have_posts()) {
