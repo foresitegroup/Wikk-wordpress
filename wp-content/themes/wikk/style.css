@@ -2546,9 +2546,13 @@ INPUT[type="submit"]:hover { border-color: #8F7BB5; color: #8F7BB5; }
 
 #about .site-width { position: relative; z-index: 5; }
 
+#about .flex { display: flex; justify-content: space-between; align-items: flex-start; }
+
+#about .image { width: 40%; height: auto; }
+
 #about .text {
   width: 50%;
-  margin-left: 50%;
+  /*margin-left: 50%;*/
   text-align: right;
   color: #6D6D6D;
   line-height: 1.8em;
@@ -3363,6 +3367,10 @@ H2.cbr-h2 {
 
   .gallery-single #mainimage .sideheader { position: static; height: 0 !important; margin-bottom: 2em; }
   .gallery-single #mainimage .sideheader H1 { transform: rotate(0deg) translate(-3px,-90%); }
+
+  #about .flex { flex-direction: column-reverse; }
+
+  #about .image { width: 100%; margin-bottom: 5em; }
 
   #about .text { width: 100%; margin-left: 0; text-align: left; }
 

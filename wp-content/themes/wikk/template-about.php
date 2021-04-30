@@ -11,20 +11,24 @@ get_header();
     	while ( have_posts() ) : the_post();
         the_title('<h1 class="news-title">', '</h1>');
         
-        echo '<div class="text">';
-          the_content();
+        echo '<div class="flex">';
+          if (has_post_thumbnail()) echo '<img src="'.get_the_post_thumbnail_url().'" alt="" class="image">';
+          
+          echo '<div class="text">';
+            the_content();
+          echo "</div>\n";
         echo "</div>\n";
     	endwhile;
     endif;
     ?>
   </div>
 
-  <div id="image"<?php if (has_post_thumbnail()) echo ' style="background-image: url('.get_the_post_thumbnail_url().');"' ?>>
-    <?php if ($post->featured_image_caption != "") echo '<div>'.$post->featured_image_caption.'</div>' ?>
-  </div>
+  <!-- <div id="image"<?php //if (has_post_thumbnail()) echo ' style="background-image: url('.get_the_post_thumbnail_url().');"' ?>>
+    <?php //if ($post->featured_image_caption != "") echo '<div>'.$post->featured_image_caption.'</div>' ?>
+  </div> -->
 </div>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function() {
     function CaptionPosition() {
       if (window.innerWidth > 1739) {
@@ -38,7 +42,7 @@ get_header();
 
     $(window).resize(function(){ setTimeout(function() { CaptionPosition(); },100); });
   });
-</script>
+</script> -->
 
 <?php
 echo do_shortcode('[testimonials]');
