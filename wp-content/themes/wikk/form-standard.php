@@ -1,5 +1,10 @@
 <?php
-if ($_POST['fintoozler'] == "") {
+include_once "inc/fintoozler.php";
+
+$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".RECAPTCHA_SECRET_KEY2."&response=".$_POST['g-recaptcha-response']);
+$responsekeys = json_decode($response);
+
+if ($responsekeys->success) {
   if (
       $_POST['firstname'] != "" && $_POST['lastname'] != "" &&
       $_POST['company'] != "" && $_POST['email'] != "" &&

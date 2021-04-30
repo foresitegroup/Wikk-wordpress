@@ -193,7 +193,7 @@ EOD;
               }
               ?>
 
-              <input type="text" name="fintoozler" autocomplete="off" style="position: absolute; width: 0; height: 0; padding: 0; opacity: 0;">
+              <div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY2; ?>"></div>
 
               <br>
               <input type="submit" name="submit" value="Submit">
@@ -318,7 +318,7 @@ EOD;
               <input type="hidden" name="upload_dir" value="<?php echo $upload_dir['basedir']; ?>/rfp/">
               <input type="hidden" name="upload_url" value="<?php echo $upload_dir['baseurl']; ?>/rfp/">
 
-              <input type="text" name="fintoozler" autocomplete="off" style="position: absolute; width: 0; height: 0; padding: 0; opacity: 0;">
+              <div class="g-recaptcha" data-sitekey="<?php echo RECAPTCHA_SITE_KEY2; ?>"></div>
 
               <br>
               <input type="submit" name="submit" value="Submit">
@@ -353,6 +353,8 @@ EOD;
 </div> <!-- #rfp-tabs -->
 
 <div id="alert-modal" class="modal"><div></div></div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/jquery-ui.min.css">
 <script src="<?php echo get_template_directory_uri(); ?>/inc/jquery-ui.min.js"></script>
