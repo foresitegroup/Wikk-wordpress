@@ -33,6 +33,7 @@ if ($responsekeys->success) {
     if ($_POST['projectname'] != "") $Message .= "\nName of Project: " . $_POST['projectname'];
     $Message .= "\nWikk to Respond Via: " . $_POST['respond'];
     $Message .= "\nCustomer Type: " . $_POST['custtype'];
+    $Message .= "\nQuote Request Type: " . $_POST['requesttype'];
     $Message .= "\n";
     
     // Add info to local database

@@ -141,6 +141,14 @@ EOD;
                 <label for="custtype-oem">OEM</label>
               </label>
 
+              <label class="radio">
+                Quote Request Type:<br>
+                <input type="radio" name="requesttype" value="Supply Only" id="requesttype-so" checked>
+                <label for="requesttype-so">Supply Only</label>
+                <input type="radio" name="requesttype" value="Supply and Install" id="requesttype-sai">
+                <label for="requesttype-sai">Supply and Install</label>
+              </label>
+
               <input type="checkbox" name="sendupdates" value="Send updates" id="send-updates" checked>
               <label for="send-updates">Send me periodic updates and innovations from Wikk</label>
 
@@ -266,6 +274,14 @@ EOD;
                 <label for="bollard-custtype-installer">Installer</label>
                 <input type="radio" name="bollard-custtype" value="OEM" id="bollard-custtype-oem">
                 <label for="bollard-custtype-oem">OEM</label>
+              </label>
+
+              <label class="radio">
+                Quote Request Type:<br>
+                <input type="radio" name="requesttype" value="Supply Only" id="requesttype-so" checked>
+                <label for="requesttype-so">Supply Only</label>
+                <input type="radio" name="requesttype" value="Supply and Install" id="requesttype-sai">
+                <label for="requesttype-sai">Supply and Install</label>
               </label>
 
               <input type="checkbox" name="sendupdates" value="Send updates" id="bollard-send-updates" checked>
