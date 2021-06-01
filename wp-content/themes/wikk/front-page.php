@@ -71,7 +71,7 @@
 
       Wikk Industries stands as an industry pioneer in providing custom bollard solutions to our clients. With almost every aspect of our bollards being customizable, we aim to provide the most personal and effective solution to each of our clients.<br>
 
-      <a href="<?php home_url(); ?>/custom-bollard-resources/" class="button">View Resources</a>
+      <a href="<?php home_url(); ?>/resources/" class="button">View Resources</a>
     </div>
   </div>
 </div>
